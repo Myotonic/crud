@@ -17,8 +17,8 @@
 </head>
 <body>
 	<div class="container panel panel-success">
-		<h3 class="panel-heading">FORM BASIC-PLUS</h3>
-		<p>qwejkasd</p>
+		<h3 class="panel-heading">MY NAME IS</h3>
+		<p>LEE JE WOO</p>
 	</div>
 </body>
 </html>
