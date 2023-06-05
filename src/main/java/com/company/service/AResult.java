@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.crud.dao.AdminDao;
 import com.company.dto.AdminDto;
-import com.mysql.cj.Session;
 
 public class AResult implements AAction {
 

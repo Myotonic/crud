@@ -14,7 +14,6 @@ import com.company.dto.CityDto;
 import com.company.dto.ExpertDto;
 import com.company.dto.UserDto;
 import com.company.dto.UserExpertCategoryCityDto;
-import com.company.dto.UserExpertDto;
 
 public class AUserEdit implements AAction {
 

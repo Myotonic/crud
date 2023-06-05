@@ -5,6 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>CRUD</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="shortcuticon" href="${pageContext.request.contextPath }/inc/favicon.ico" type="image/x-icon">
+  <link rel="icon" 		   href="${pageContext.request.contextPath }/inc/favicon.ico" type="image/x-icon">
+
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <!-- jQuery library -->
