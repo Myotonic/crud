@@ -10,7 +10,7 @@
 	int value2 = 0;
 		if(session.getAttribute("member")!=null){value2=(int)session.getAttribute("member");}
 	int value3 = 0;
-		if(session.getAttribute("expert")!=null){value3=(int)session.getAttribute("expert");}
+		if(session.getAttribute("expert_id")!=null){value3=(int)session.getAttribute("expert_id");}
 	%>
 	<p><%=value1 %> : memberValue</p>
 	<p><%=value2 %> : member</p>
