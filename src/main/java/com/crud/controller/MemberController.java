@@ -220,25 +220,25 @@ public class MemberController extends HttpServlet {
 		}
 		
 		if(path.equals("/main.crud")) {
-			request.getRequestDispatcher("/temp002/main.jsp").forward(request, response);
+			request.getRequestDispatcher("/member/main.jsp").forward(request, response);
 		}else if(path.equals("/user_joinV.crud")) {
-			request.getRequestDispatcher("/temp002/user_join.jsp").forward(request, response);
+			request.getRequestDispatcher("/member/user_join.jsp").forward(request, response);
 		}else if(path.equals("/user_join.crud")) {
 			service = new MUserJoin();
 			service.exec(request, response);
-			out.println("<script>location.href='"+request.getContextPath()+"/temp002/main.jsp';</script>");
+			out.println("<script>location.href='"+request.getContextPath()+"/member/main.jsp';</script>");
 		}else if(path.equals("/expert_joinC1.crud")) {
 			service = new MCategory1();
 			service.exec(request, response);
-			request.getRequestDispatcher("/temp002/expert_join001.jsp").forward(request, response);
+			request.getRequestDispatcher("/member/expert_join001.jsp").forward(request, response);
 		}else if(path.equals("/expert_joinC2.crud")) {
 			service = new MCategory2();
 			service.exec(request, response);
-			request.getRequestDispatcher("/temp002/expert_join002.jsp").forward(request, response);
+			request.getRequestDispatcher("/member/expert_join002.jsp").forward(request, response);
 		}else if(path.equals("/expert_joinC.crud")) {
 			service = new MCategory();
 			service.exec(request, response);
-			request.getRequestDispatcher("/temp002/expert_join003.jsp").forward(request, response);
+			request.getRequestDispatcher("/member/expert_join003.jsp").forward(request, response);
 		}else if(path.equals("/expert_joinArea.crud")) {
 			service = new MArea();
 			service.exec(request, response);
@@ -247,37 +247,37 @@ public class MemberController extends HttpServlet {
 		}else if(path.equals("/expert_joinCity.crud")) {
 			service = new MCity();
 			service.exec(request, response);
-			request.getRequestDispatcher("/temp002/expert_join004.jsp").forward(request, response);
+			request.getRequestDispatcher("/member/expert_join004.jsp").forward(request, response);
 		}else if(path.equals("/expert_joinRange.crud")) {
 			service = new MRange();
 			service.exec(request, response);
 			
 			HttpSession session = request.getSession(false); // 세션이 존재하는 경우에만 세션을 반환
 			if (session != null && session.getAttribute("member") != null) {	//member 세션 값이 있다면
-				request.getRequestDispatcher("/temp002/expert_upgrade.jsp").forward(request, response);
+				request.getRequestDispatcher("/member/expert_upgrade.jsp").forward(request, response);
 			}else{	//member 세션 값이 없다면
-				request.getRequestDispatcher("/temp002/expert_join005.jsp").forward(request, response);
+				request.getRequestDispatcher("/member/expert_join005.jsp").forward(request, response);
 			}
 		}else if(path.equals("/expert_join.crud")) {
 			service = new MExpertJoin();
 			service.exec(request, response);
-			out.println("<script>location.href='"+request.getContextPath()+"/temp002/main.jsp';</script>");
+			out.println("<script>location.href='"+request.getContextPath()+"/member/main.jsp';</script>");
 		}else if(path.equals("/login.crud")) {
 			service = new MLogin();
 			service.exec(request, response);
-			out.println("<script>location.href='"+request.getContextPath()+"/temp002/main.jsp';</script>");
-			/* request.getRequestDispatcher("/temp002/main.jsp").forward(request, response); */
+			out.println("<script>location.href='"+request.getContextPath()+"/member/main.jsp';</script>");
+			/* request.getRequestDispatcher("/member/main.jsp").forward(request, response); */
 		}else if(path.equals("/MemberValue.crud")) {
 			service = new MemberValue();
 			service.exec(request, response);
-			request.getRequestDispatcher("/temp002/main.jsp").forward(request, response);
+			request.getRequestDispatcher("/member/main.jsp").forward(request, response);
 		}else if(path.equals("/MyPage.crud")) {
 			String memberValue = (String) request.getSession().getAttribute("memberValue");
 			if (memberValue != null) {
 			    if (memberValue.equals("expert")) {
-			        request.getRequestDispatcher("/temp002/expert_mypage.jsp").forward(request, response);
+			        request.getRequestDispatcher("/member/expert_mypage.jsp").forward(request, response);
 			    } else if (memberValue.equals("user")) {
-			        request.getRequestDispatcher("/temp002/user_mypage.jsp").forward(request, response);
+			        request.getRequestDispatcher("/member/user_mypage.jsp").forward(request, response);
 			    } else {
 			        request.getSession().invalidate();
 			        out.println("<script>alert('잘못된 회원 유형입니다'); "
@@ -289,31 +289,31 @@ public class MemberController extends HttpServlet {
 			            + "location.href='" + request.getContextPath() + "/loginV'; </script>");
 			}
 		}else if(path.equals("/loginV.crud")) {
-			request.getRequestDispatcher("/temp002/login.jsp").forward(request, response);
+			request.getRequestDispatcher("/member/login.jsp").forward(request, response);
 		}else if(path.equals("/logout.crud")) {
 			service = new MLogout();
 			service.exec(request, response);
-			out.println("<script>location.href='"+request.getContextPath()+"/temp002/main.jsp';</script>");
+			out.println("<script>location.href='"+request.getContextPath()+"/member/main.jsp';</script>");
 		}else if(path.equals("/AccountSetting.crud")) {
-			request.getRequestDispatcher("/temp002/account.jsp").forward(request, response);
+			request.getRequestDispatcher("/member/account.jsp").forward(request, response);
 		}else if(path.equals("/editNameV.crud")) {
-			request.getRequestDispatcher("/temp002/account_editName.jsp").forward(request, response);
+			request.getRequestDispatcher("/member/account_editName.jsp").forward(request, response);
 		}else if(path.equals("/editName.crud")) {
 			service = new MEditName();
 			service.exec(request, response);
-			out.println("<script>location.href='"+request.getContextPath()+"/temp002/account.jsp';</script>");
+			out.println("<script>location.href='"+request.getContextPath()+"/member/account.jsp';</script>");
 		}else if(path.equals("/editPassV.crud")) {
-			request.getRequestDispatcher("/temp002/account_editPass.jsp").forward(request, response);
+			request.getRequestDispatcher("/member/account_editPass.jsp").forward(request, response);
 		}else if(path.equals("/editPasss.crud")) {
 			service = new MEditPass();
 			service.exec(request, response);
-			out.println("<script>location.href='"+request.getContextPath()+"/temp002/account.jsp';</script>");
+			out.println("<script>location.href='"+request.getContextPath()+"/member/account.jsp';</script>");
 		}else if(path.equals("/AccountDropV.crud")) {
-			request.getRequestDispatcher("/temp002/account_drop.jsp").forward(request, response);
+			request.getRequestDispatcher("/member/account_drop.jsp").forward(request, response);
 		}else if(path.equals("/AccountDrop.crud")) {
 			service = new MemberDrop();
 			service.exec(request, response);
-			out.println("<script>location.href='"+request.getContextPath()+"/temp002/main.jsp';</script>");
+			out.println("<script>location.href='"+request.getContextPath()+"/member/main.jsp';</script>");
 		}
 	}
 
