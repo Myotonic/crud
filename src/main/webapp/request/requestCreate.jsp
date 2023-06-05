@@ -4,6 +4,9 @@
 	<% request.setCharacterEncoding("UTF-8"); %>
 <%@ include file='../inc/header.jsp' %>
 	<div class="container panel panel-success">
+	<%
+	out.print(session.getAttribute("member"));
+	%>
 		<h3 class="panel-heading text-center">${dto.category1_name} - ${dto.category2_name}</h3>
 		<div class="form-group ajaxx">
 			<div class="form-group ajax1">
