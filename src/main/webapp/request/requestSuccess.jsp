@@ -8,7 +8,6 @@
 		<div class="form-group text-center">
 			<span><p>당장보러가야대</p></span>
 			<a href="${pageContext.request.contextPath}/list.request"><button id="btnbtnbtn" title="btn" class="btn btn-info text-center">OK</button></a>
-			<%session.setAttribute("member", 1); %>
 		</div>
 	</div>
 <%@ include file='../inc/footer.jsp' %>
