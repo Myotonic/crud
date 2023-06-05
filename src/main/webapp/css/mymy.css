@@ -1,0 +1,41 @@
+@charset "UTF-8";
+.myhidden{ 
+	width:1px; height:1px; position:absolute; left:-99999%; font-size:0; line-height:0;
+}
+.mybg_h{
+	background-color : rgb(26,188,156);
+}
+#header a{
+	color : white; 
+}
+nav.navbar.mybg_h {
+    border-radius: 0px;
+}
+#header .navbar_r .glyphicon {
+    border: 2px solid white;
+    padding: 6px;
+    border-radius: 50%;
+}
+#header .mynav_r a{
+	padding:0;
+	padding-top:10px;
+	padding-right:10px;
+}
+.nav>li>a:focus, .nav>li>a:hover {
+    background-color: transparent;
+    text-decoration: underline;
+    border-bottom: 3px solid white;
+}
+#footer {
+   color:white;
+    padding-top: 20px;
+   background-color : #282A35;
+}
+#footer .mynav_f a{ margin-right: 5px; }
+#footer .myclarboth{ padding : 5%; }
+
+.panel {
+    border: 1px solid #f4511e; 
+    border-radius:0 !important;
+    transition: box-shadow 0.5s;
+  }

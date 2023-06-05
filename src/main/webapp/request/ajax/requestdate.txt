@@ -1,0 +1,5 @@
+<div class="form-group">
+	<input type="date" id="work_date" name="work_date" class="form-control text-center">
+	<br/>
+	<input type="text" id="work_datetxt" name="work_datetxt" class="form-control text-center" readonly>
+</div>

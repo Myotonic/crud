@@ -1,0 +1,84 @@
+@charset "UTF-8";
+.myhidden{
+	width:1px; 
+	height: 1px; 
+	position: absolute;
+	left:-99999%;
+	font-size : 0;
+	line-height: 0;
+	overflow: hidden;
+	/* visibility: hidden; */
+}
+
+.myheader{
+	background-color: maroon;
+}
+
+#header .dropdown-toggle{
+	background-color: maroon;
+}
+#header .mymenu{
+	background-color: maroon;
+}
+
+#header .dropdown-menu{
+	background-color: maroon;
+	
+}
+
+/* #header a{
+	color : white;
+} */
+
+#header .mynav_r a{
+	
+	padding: 0 10px 10px 0;
+}
+
+#header .mynav_r .glyphicon{
+	
+	border: 2px solid white;
+	
+	padding: 6px;
+	border-radius: 50%; 
+	
+}
+
+#header .mynav_r>a{
+	border-bottom: none;
+}
+
+
+
+#header .nav>li>a:hover{
+	background-color: transparent;
+	border-bottom: 3px solid white;
+}
+
+
+
+
+
+
+#footer{
+	color: white;
+	background-color: #282a35;
+	padding-top: 20px;
+	height: 200px;
+	
+}
+
+#footer div{
+	height: 100px;
+}
+
+#footer .mynav_f{
+	
+	text-align: center;
+}
+
+
+#footer .mynav_f li{
+	margin-right:5px;
+}
+

@@ -1,0 +1,10 @@
+<p><a href='request.jsp?category2_id=1'>댄스</a></p>
+<p><a href='request.jsp?category2_id=2'>피아노</a></p>
+<p><a href='request.jsp?category2_id=3'>기타</a></p>
+<p><a href='request.jsp?category2_id=4'>드림</a></p>
+<p><a href='request.jsp?category2_id=5'>요리</a></p>
+<p><a href='request.jsp?category2_id=6'>그림</a></p>
+<p><a href='request.jsp?category2_id=7'>국어</a></p>
+<p><a href='request.jsp?category2_id=8'>영어</a></p>
+<p><a href='request.jsp?category2_id=9'>수학</a></p>
+<p><a href='request.jsp?category2_id=10'>PT</a></p>

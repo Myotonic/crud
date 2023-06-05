@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	<% request.setCharacterEncoding("UTF-8"); %>
+    pageEncoding="UTF-8"%>
+<%@ page isErrorPage="true" %>
+<% response.setStatus(200); %>
 <!DOCTYPE html>
-<html lang="ko">
+<html lang = "ko">
 <head>
 <meta charset="UTF-8">
-<title>BASIC</title>
+<title>Basic</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
@@ -16,9 +17,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="container panel panel-success">
-		<h3 class="panel-heading">FORM BASIC-PLUS</h3>
-		<p>hihhihihihihihihihip</p>
+	<div class = "container panel panel-danger">
+		<h3 class="panel-heading">ERROR 404</h3>
+		<p>요청하신 페이지가 없습니다.</p>
 	</div>
 </body>
 </html>
+<!-- 
+	
+ -->

@@ -63,3 +63,33 @@
     display: flex;
     align-items: center;
 }
+
+.btn{
+	 color: rgb(26, 188, 156);
+}
+div .glyphicon {
+    font-size: 30px;
+}
+span .glyphicon {
+    font-size: 30px;
+}
+.account a.btn.form-control {
+    text-align: left;
+}
+.account {
+    padding-left: 3%;
+    padding-right: 3%;
+}
+input {
+    margin-bottom: 1%;
+}
+.drop_check {
+    display: inline-block;
+    padding: 2%;
+    background-color: gainsboro;
+    border-radius: 8px;
+}
+
+.check-btn {
+    font-size: 50px;
+}

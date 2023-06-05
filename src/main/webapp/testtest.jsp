@@ -14,10 +14,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container panel panel-info">
-   <h3 class="panel-heading">jesung</h3>
- 
- 
+<div class="container">
+	<h3></h3>
+	<%
+		session.setAttribute("memberValue", "expert");
+	%>
+	<p><a href="MyPage.crud">clickc</a></p>
 </div>
 </body>
 </html>

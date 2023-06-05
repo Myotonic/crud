@@ -1,0 +1,2 @@
+<h4>견적 설명 입력</h4>
+			<textarea id="content" name="content" style="resize:none;" class="form-control"></textarea>

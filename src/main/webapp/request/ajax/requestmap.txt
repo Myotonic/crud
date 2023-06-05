@@ -1,0 +1,7 @@
+<form action="expert_joinArea.crud" method="post" class="form">
+				<div class="form-group text-center"><label for="postcode">우편번호</label></div>
+				<div class="form-group text-center"><input type="button" id="post" value="주소검색" class="btn btn-danger"></div>
+				<div class="form-group"><input type="text" id="sido" name="sido" class="form-control" readonly></div>
+				<div class="form-group"><input type="text" id="sigungu" name="sigungu" class="form-control" readonly></div>
+				<div class="form-group"><input type="text" id="roadAddress" name="roadAddress" class="form-control" readonly></div>
+			</form>

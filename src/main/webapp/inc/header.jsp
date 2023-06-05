@@ -22,12 +22,11 @@
 			<h2 class="myhidden">주메뉴</h2>
 		  <div class="container-fluid">
 		    <div class="navbar-header">
-		      <a class="navbar-brand" href="main.crud">CRUD</a>
+		      <a class="navbar-brand" href="${pageContext.request.contextPath}/main.crud">CRUD</a>
 		    </div>
 		    <ul class="nav navbar-nav">
-		      <li><a href="#">서비스요청</a></li>
-		      <li><a href="#">고수찾기</a></li>
-		      <li><a href="#">클래스 마켓</a></li>
+		      <li><a href="${pageContext.request.contextPath}/request/home.jsp">서비스요청</a></li>
+		      <li><a href="${pageContext.request.contextPath}/marketView.crud">클래스 마켓</a></li>
 		      <li><a href="#">커뮤니티</a></li>
 		    </ul>
 		    <ul class="nav navbar-nav navbar-right mynav_r">
@@ -36,15 +35,17 @@
 						  <li><a href=""><span>받은 요청</span></a></li>
 					      <li><a href=""><span>채팅</span></a></li>
 					      <li><a href=""><span>프로필</span></a></li>
+					      <li><a href="${pageContext.request.contextPath}/MyPage.crud"><span class="glyphicon glyphicon-user"></span></a></li>
 					</c:when>
 					<c:when test="${memberValue eq 'user'}">
 						  <li><a href=""><span>받은 견적</span></a></li>
 					      <li><a href=""><span>채팅</span></a></li>
+					      <li><a href="${pageContext.request.contextPath}/MyPage.crud"><span class="glyphicon glyphicon-user"></span></a></li>
 					</c:when>
 					<c:otherwise>
-					      <li><a href="login.crud"><span>로그인</span></a></li>
-					      <li><a href="user_joinV.crud"><span>회원가입</span></a></li>
-					      <li><a href="expert_joinC1.crud"><span>고수가입</span></a></li>
+					      <li><a href="${pageContext.request.contextPath}/loginV.crud"><span>로그인</span></a></li>
+					      <li><a href="${pageContext.request.contextPath}/user_joinV.crud"><span>회원가입</span></a></li>
+					      <li><a href="${pageContext.request.contextPath}/expert_joinC1.crud"><span>고수가입</span></a></li>
 					</c:otherwise>
 			</c:choose>
 		    </ul>
