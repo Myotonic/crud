@@ -1,4 +1,10 @@
-<p><a href='request.jsp?category2_id=11'>이사</a></p>
-<p><a href='request.jsp?category2_id=12'>청소</a></p>
-<p><a href='request.jsp?category2_id=13'>반려동물 홈시터</a></p>
-<p><a href='request.jsp?category2_id=14'>펫 미용</a></p>
+<p><a href='request.jsp?category2_id=2'>댄스</a></p>
+<p><a href='request.jsp?category2_id=3'>피아노</a></p>
+<p><a href='request.jsp?category2_id=4'>기타</a></p>
+<p><a href='request.jsp?category2_id=5'>드림</a></p>
+<p><a href='request.jsp?category2_id=6'>요리</a></p>
+<p><a href='request.jsp?category2_id=7'>그림</a></p>
+<p><a href='request.jsp?category2_id=8'>국어</a></p>
+<p><a href='request.jsp?category2_id=9'>영어</a></p>
+<p><a href='request.jsp?category2_id=10'>수학</a></p>
+<p><a href='request.jsp?category2_id=11'>PT</a></p>
