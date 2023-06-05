@@ -16,7 +16,7 @@ Latest compiled JavaScript
 <body> -->
 
 
-<%@include file="../inc/header.jsp" %>
+<%@include file="inc/header.jsp" %>
 <div class="container">
    <h3 class="panel-heading">JOIN</h3>
    <form action="${pageContext.request.contextPath}/join.admin" method="post" id="form_login" class="form-horizontal" >
@@ -229,4 +229,4 @@ Latest compiled JavaScript
 <!-- </body>
 </html> -->
 
-<%@include file="../inc/footer.jsp" %>
+<%@include file="inc/footer.jsp" %>

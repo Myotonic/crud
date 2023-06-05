@@ -16,7 +16,7 @@ Latest compiled JavaScript
 <body> -->
 
 
-<%@include file="../inc/header.jsp" %>
+<%@include file="inc/header.jsp" %>
 <div class="container panel panel-info">
    <h3 class="panel-heading">아이디 찾기</h3>
    <form action="${pageContext.request.contextPath}/login_id.admin" method="post" id="form_login" class="form-horizontal" >
@@ -110,4 +110,4 @@ Latest compiled JavaScript
 </html> -->
 
 
-<%@include file="../inc/footer.jsp" %>
+<%@include file="inc/footer.jsp" %>

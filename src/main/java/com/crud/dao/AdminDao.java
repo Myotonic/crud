@@ -1,5 +1,6 @@
 package com.crud.dao;
 
+import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,20 +9,20 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.company.dto.AdminDto;
-import com.company.dto.AreaCityDto;
-import com.company.dto.AreaDto;
-import com.company.dto.Category1Dto;
-import com.company.dto.Category2Dto;
-import com.company.dto.CategoryDto;
-import com.company.dto.CityDto;
-import com.company.dto.ExpertDto;
-import com.company.dto.MarketDto;
-import com.company.dto.UserDto;
-import com.company.dto.UserExpertCategoryCityDto;
-import com.company.dto.UserExpertDto;
-import com.company.dto.UserMarketCategoryDto;
 import com.crud.dbmanager.DBManager;
+import com.crud.dto.AdminDto;
+import com.crud.dto.AreaCityDto;
+import com.crud.dto.AreaDto;
+import com.crud.dto.Category1Dto;
+import com.crud.dto.Category2Dto;
+import com.crud.dto.CategoryDto;
+import com.crud.dto.CityDto;
+import com.crud.dto.ExpertDto;
+import com.crud.dto.MarketDto;
+import com.crud.dto.UserDto;
+import com.crud.dto.UserExpertCategoryCityDto;
+import com.crud.dto.UserExpertDto;
+import com.crud.dto.UserMarketCategoryDto;
 
 public class AdminDao {
 
@@ -1397,6 +1398,72 @@ try {
 		return result;
 	}
 	
+	
+	public int Mail(AdminDto dto) {
+		
+		int result = -1;
+		
+String sql = "update admin set admin_pass=? where admin_email=?";
+		
+		
+		DBManager db = new DBManager();
+		Connection conn= null;
+		PreparedStatement pstmt = null;
+		
+		
+		
+		
+		try {
+			
+			conn = db.getConnection();
+			
+			pstmt =conn.prepareStatement(sql);
+			
+			
+			pstmt.setString(1, dto.getAdmin_pass());
+			
+			pstmt.setString(2, dto.getAdmin_email());
+			
+			
+	
+			result = pstmt.executeUpdate();
+			
+			
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			
+		}finally {
+			
+		
+			
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			
+		}
+		
+		
+		
+		
+		return result;
+	}
 	
 	
 	

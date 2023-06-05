@@ -15,7 +15,7 @@ Latest compiled JavaScript
 </head>
 <body> -->
 
-<%@include file="../inc/header.jsp" %>
+<%@include file="inc/header.jsp" %>
 <c:if test="${sessionScope.email != null }"><script>location.href='result.admin';</script></c:if>
 
 
@@ -61,7 +61,7 @@ Latest compiled JavaScript
    <div class="row form-group">
    <div class="col-sm-4"></div> 
    <div class="col-sm-4">
-   <p><a href="login_pass.jsp" class="btn btn-block">비밀번호 찾기</a>
+   <p><a href="${pageContext.request.contextPath}/mail_form.admin" class="btn btn-block">비밀번호 찾기</a>
    <a href="${pageContext.request.contextPath}/login_id_form.admin" class="btn btn-block">아이디 찾기</a></p>
    </div>
    <div class="col-sm-4"></div> 
@@ -107,4 +107,4 @@ Latest compiled JavaScript
 <!-- </body>
 </html> -->
 
-<%@include file="../inc/footer.jsp" %>
+<%@include file="inc/footer.jsp" %>
