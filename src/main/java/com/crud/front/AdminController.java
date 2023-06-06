@@ -381,7 +381,7 @@ public class AdminController extends HttpServlet {
 			
 			
 			
-			out.println("<script>location.href='home.admin';</script>");
+//			out.println("<script>location.href='home.admin';</script>");
 			
 			
 			
