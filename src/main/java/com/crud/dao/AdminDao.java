@@ -1399,7 +1399,7 @@ try {
 	}
 	
 	
-	public int Mail(AdminDto dto) {
+	public int newPass(AdminDto dto) {
 		
 		int result = -1;
 		

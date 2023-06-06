@@ -23,9 +23,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
 
 
-<link rel="shortcuticon" type="image/x-icon" href="${pageContext.request.contextPath}admin/imgs/myicon.ico"/>
-<link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}admin/imgs/myicon.ico"/>
-<link rel="stylesheet" href="${pageContext.request.contextPath}admin/css/header.css"/>
+<link rel="shortcuticon" type="image/x-icon" href="${pageContext.request.contextPath}/admin/imgs/myicon.ico"/>
+<link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/admin/imgs/myicon.ico"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/admin/css/header.css"/>
 
 
 

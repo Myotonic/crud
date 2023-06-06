@@ -21,18 +21,21 @@ public class AMail implements AAction {
 		PrintWriter out = response.getWriter();
 		
 		
-		dto.setAdmin_email(request.getParameter("email"));
-		dto.setAdmin_pass(request.getParameter("pass"));
-		
-		int result =-1;
-		
-		result = dao.Mail(dto);
+		dto.setAdmin_email(request.getParameter("admin_email"));
+		dto.setAdmin_pass(request.getParameter("admin_pass"));
 		
 		
-		if(result > 0) {
+		
+		if(dao.newPass(dto) > 0) {
 			
-			out.println("alert('암호가 변경되었습니다.');");
+			out.println("<script>alert('암호가 변경되었습니다.');</script>");
 			
+			out.println("<script>location.href='home.admin';</script>");
+			
+			
+		}else {
+			
+			System.out.println("암호변경 안됨.");
 			
 		}
 		

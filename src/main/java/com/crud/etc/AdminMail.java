@@ -71,17 +71,18 @@ public class AdminMail extends HttpServlet {
 		
 		String title = "암호 변경 메일입니다.";
 		
-		String email = request.getParameter("email");
+		String email = request.getParameter("admin_email");
 		String contextPath = "pageContext.request.contextPath";
 		
 		
-		String content ="<a href='http://localhost:8080/project_test_port001/pass_form.admin?email=" + email + "' class='btn btn-info'>새 암호 만들기 링크</a>";
+		String content ="<a href='http://localhost:8080"+request.getContextPath()+"/pass_form.admin?admin_email=" + email + "' class='btn btn-info'>새 암호 만들기 링크</a>";
 		
 		
 		System.out.println(title+"/"+content);
 		
 		//String to ="ideposor@gmail.com";
-		String to = request.getParameter("email");
+		String to = request.getParameter("admin_email");
+		
 		
 		
 		Properties props = new Properties();
@@ -124,8 +125,10 @@ public class AdminMail extends HttpServlet {
 			
 			out.println("<script>alert('성공');</script>");
 			
-			request.getRequestDispatcher("/home.admin").forward(request, response);
+//			request.getRequestDispatcher("/home.admin").include(request, response);
+//			
 			
+			out.println("<script>location.href='home.admin';</script>");
 			
 			
 		} catch (AddressException e) {

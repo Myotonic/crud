@@ -10,8 +10,10 @@
  <legend>NEW_PASS</legend>
  <div class="form-group">
  <label for="email">email</label>
- <input type="text" name="email" id="email" class="form-control" />
+ <input type="text" name="admin_email" id="email" class="form-control" />
  </div>
+ 
+ 
  
  
  
