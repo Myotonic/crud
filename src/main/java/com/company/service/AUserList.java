@@ -6,8 +6,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.company.dao.AdminDao;
-import com.company.dto.ExpertDto;
+import com.crud.dao.AdminDao;
+import com.crud.dto.ExpertDto;
 import com.company.dto.UserExpertDto;
 
 
