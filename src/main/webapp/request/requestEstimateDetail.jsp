@@ -5,7 +5,7 @@
 
 	<div class="container panel panel-success">
 		<h3 class="panel-heading">견적서 상세</h3>
-		<div class="form-group">
+		<div class="form-group jumbotron"  >
 		<h4>${estimateDetailDto.user_name}</h4>
 		<div class="col">
 		<p class="col-sm-4">${estimateDetailDto.review}</p>

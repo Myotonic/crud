@@ -3,19 +3,23 @@
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<% request.setCharacterEncoding("UTF-8"); %>
 <%@ include file='../inc/header.jsp' %>
-	<div class="container panel panel-success">
+	<div class="container text-center">
 	<%
-	out.print(session.getAttribute("member"));
+	if(session.getAttribute("member") == null) {
+		out.println("<script>alert('로그인이 필요한 서비스입니다'); location.href='"+request.getContextPath()+"/loginV.crud';</script>");
+	}
 	%>
-		<h3 class="panel-heading text-center">${dto.category1_name} - ${dto.category2_name}</h3>
-		<div class="form-group ajaxx">
-			<div class="form-group ajax1">
+		<h3 class="text-center">${dto.category1_name} - ${dto.category2_name}</h3>
+		<div class="text-center">
+		<div class="form-group ajaxx row" style="float:none; margin:100 auto;">
+			<div class="form-group ajax1 col-md-3" style="float:none; margin:0 auto;">
 			</div>
 			<div class="text-right">
 			<c:set var="cnt" value="1" />
 			<input type="button" value="취소" id="prebtn" class="btn btn-default">
 			<input type="button" value="다음" id="nextbtn" class="btn btn-info">
 			</div>
+		</div>
 		</div>
 		
 		<form action="${pageContext.request.contextPath}/create.request" method="get" id="formrequest" >
