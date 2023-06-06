@@ -13,8 +13,8 @@
 		<div class="my_account row">
 			<div class="user_icon glyphicon glyphicon-user col-sm-2"></div>
 			<div class="user_info col-sm-4">
-					<div class="user_name row"><%=dto.getUser_name() %></div>
-					<div class="user_email row"><%=dto.getUser_email() %></div>
+				<div class="user_name row"><%=dto.getUser_name() %></div>
+				<div class="user_email row"><%=dto.getUser_email() %></div>
 			</div>
 			<div class="col-sm-3">
 				<a href="logout.crud" title="로그아웃" class="btn">로그아웃</a>

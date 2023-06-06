@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/*       body        */
 .myhidden{	
 	width:1px;
 	height:1px; 
@@ -36,24 +37,33 @@
 #footer .mynav_f a{ margin-right: 5px; }
 #footer .myclarboth{ padding : 5%; }
 
+/*               */
+/*               */
+/*               */
+/*               */
+/*               */
+.member-page{
+	padding:1%;
+	max-width: 25cm;
+	text-align: center;
+}
 .member_form{
 	display: inline-block;
 	padding:1%;
 }
-.member_form .member_extra{
-	float:left;
-	text-align: center;
-}
-.member_form .member_extra a {
+
+.member_form .member_extra a{
     padding: 30px;
 }
+.member_extra{
+	padding-top:30px;
+}
+
 .member_submit{
 	background-color: rgb(26, 188, 156);
 	color:white;
 }
-.member-page{
-	padding:1%;
-}
+
 #select li.category {
     list-style: none;
     float: left;
@@ -64,14 +74,17 @@
     align-items: center;
 }
 
-.btn{
+a, .btn{
 	 color: rgb(26, 188, 156);
 }
-div .glyphicon {
+div .glyphicon  {
     font-size: 30px;
 }
-span .glyphicon {
-    font-size: 30px;
+.result {
+    color: red;
+}
+.post_none{
+	display:none;
 }
 .account a.btn.form-control {
     text-align: left;
@@ -93,3 +106,9 @@ input {
 .check-btn {
     font-size: 50px;
 }
+
+/*               */
+/*               */
+/*               */
+/*               */
+/*               */

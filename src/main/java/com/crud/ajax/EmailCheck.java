@@ -53,7 +53,7 @@ public class EmailCheck extends HttpServlet {
 			if (rset.next()) {  cnt = rset.getInt(1);}
 			if(cnt > 0) { result = "이미 존재하는 이메일입니다."; check="false"; }
 			
-			out.println("<span class=\"label label-danger\" data-check="+check+">"+result+"</span>");
+			out.println("<span data-check="+check+">"+result+"</span>");
 			
 		} catch (SQLException e) { e.printStackTrace();
 		}finally {

@@ -1,38 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../inc/header.jsp" %>
-<div class="container panel panel-info">
-	<h3 class="text-center">주소 설정</h3>
-	<form action="expert_joinArea.crud" method="post" class="form">
-		<div class="row">
-			<div class="col-sm-2"><label for="postcode">우편번호</label></div>
-			<div class="col-sm-2"><input type="text" id="sido" name="sido" class="form-control"></div>
-			<div class="col-sm-2"><input type="text" id="sigungu" name="sigungu" class="form-control"></div>
-			<div class="col-sm-2"><input type="text" id="roadAddress" name="roadAddress" class="form-control"></div>
-			<div class="col-sm-4"><input type="button" id="post" value="우편번호" class="btn btn-danger"></div>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<div class="container member-page">
+	<h3>활동지역 설정</h3>
+	<hr />
+	<form action="expert_joinArea.crud" method="post" class="member_form">
+		
+		<div class="post_none">
+			<input type="text" id="sido" name="sido">
+			<input type="text" id="sigungu" name="sigungu">
 		</div>
-		<input type="submit" value="범위 설정" />
+		
+		<div id="wrap" style="border:1px solid;width:500px;height:300px;margin:5px 0;position:relative"> </div>
+		
+		<div class="form-group member_extra">
+			<input type="text" id="roadAddress" name="roadAddress" class="form-control" readonly>
+		</div>
+		<div class="form-group member_extra">
+			<input type="submit" value="다음" class="member_submit form-control" />
+		</div>
 	</form>
 </div>
-<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
-	$(function(){
-		$("#post").on("click", function(){
-			new daum.Postcode({
-		        oncomplete: function(data) {
-		        	$("#sido").val(data.sido);
-		        	$("#sigungu").val(data.sigungu);
-		        	$("#roadAddress").val(data.roadAddress);
-		        }
-		    }).open();
-		});
-		$("form").on("submit", function(){
-			//빈칸검사
-			if($("#roadAddress").val() == ""){ 
-				alert("주소입력해주세요");
-				$("#roadAddress").focus();
-				return false;
-			}
-		});
+$(function(){
+	// 우편번호 찾기 찾기 화면을 넣을 element
+	var element_wrap = document.getElementById('wrap');
+	var currentScroll = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+	 
+	new daum.Postcode({
+        oncomplete: function(data) {
+        	$("#sido").val(data.sido);
+        	$("#sigungu").val(data.sigungu);
+        	$("#roadAddress").val(data.roadAddress);
+        	 element_wrap.style.display = 'none';
+        },
+        onresize : function(size) {
+            element_wrap.style.height = size.height+'px';
+        },
+        width : '100%',
+        height : '100%'
+    }).embed(element_wrap);
+	
+	$("form").on("submit", function(){
+		//빈칸검사
+		if($("#roadAddress").val() == ""){ 
+			alert("주소입력해주세요");
+			$("#roadAddress").focus();
+			return false;
+		}
 	});
+});
 </script>
 <%@ include file="../inc/footer.jsp" %>
