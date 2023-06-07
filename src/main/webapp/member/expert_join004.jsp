@@ -1,39 +1,49 @@
 <%@page import="com.crud.dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../inc/header.jsp" %>
+<%
+   int cityId = (int) session.getAttribute("city_id");
+	MemberDao dao = new MemberDao();
+   String cityName = dao.getCityName(cityId);
+%>
 <style>
 	.info {position:relative;top:5px;left:5px;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;font-size:12px;padding:5px;background:#fff;list-style:none;margin:0;} 
 	.info:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}    
 	.info .label {display:inline-block;width:50px;}
 	.number {font-weight:bold;color:#00a0e9;} 
 </style>
-<div class="container panel panel-info">
-	<h3 class="text-center">범위 설정</h3>
+<div class="container member-page">
+	<h3>범위 설정</h3>
+	<hr />
 	<form action="expert_joinRange.crud" method="post" class="form">
-			<input type="text" id="range" name="range" class="form-control">
+			<input type="hidden" id="range" name="range" class="form-control">
+			<input type="text" id="city" name="city" class="form-control" value="<%= cityName %>" readonly>
 			<div id="map" style="width:100%;height:350px;"></div>  
-			<p>
-			    <button onclick="removeCircles()">모두 지우기</button> <br>  
-			</p>  
-			<em>
-	    지도를 마우스로 클릭하면 원 그리기가 시작되고 <br>
-	    오른쪽 마우스를 클릭하면 원 그리기가 종료됩니다    
-	</em>
-			<input type="submit" value="범위 설정" />
+			
+			<p class="member_form"> 지도를 마우스로 클릭하면 원 그리기가 시작되고 > 오른쪽 마우스를 클릭하면 원 그리기가 종료됩니다 </p>
+			<div class="form-group member_extra">
+				<input type="submit" value="다음" class="member_submit form-control" />
+			</div>
 	</form>
 </div>
-<%
-   int cityId = (int) session.getAttribute("city_id");
-	MemberDao dao = new MemberDao();
-   String cityName = dao.getCityName(cityId);
-%>
+
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7a27c65a0a0aa227f901a16e2cefc922&libraries=services"></script>
 <script>
+$(function(){
+	$("form").on("submit", function(){
+		//빈칸검사
+		if($("#range").val() == ""){ 
+			alert("범위를 설정해주세요");
+			$("#range").focus();
+			return false;
+		}
+	});
+
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 	    mapOption = { 
 	        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-	        level: 2 // 지도의 확대 레벨  
+	        level: 5 // 지도의 확대 레벨  
 	    };
 	
 	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
@@ -56,7 +66,7 @@
 
 	        // 인포윈도우로 장소에 대한 설명을 표시합니다
 	        var infowindow = new kakao.maps.InfoWindow({
-	            content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
+	            content: '<div style="width:150px;text-align:center;padding:6px 0;">설정한 위치</div>'
 	        });
 	        infowindow.open(map, marker);
 
@@ -210,7 +220,7 @@ kakao.maps.event.addListener(map, 'rightclick', function (mouseEvent) {
         
         var radius = Math.round(circle.getRadius()), // 원의 반경 정보를 얻어옵니다
             content = getTimeHTML(radius); // 커스텀 오버레이에 표시할 반경 정보입니다
-            $("#range").val(radius);
+            $("#range").val(radius+" m");
 
         
         // 반경정보를 표시할 커스텀 오버레이를 생성합니다
@@ -304,7 +314,8 @@ function getTimeHTML(distance) {
     content += '</ul>'
 
     return content;
-}
+} 
+});
 </script>
 
 <%@ include file="../inc/footer.jsp" %>

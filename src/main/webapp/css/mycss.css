@@ -50,13 +50,11 @@
 .member_form{
 	display: inline-block;
 	padding:1%;
+	text-align: center;
 }
 
 .member_form .member_extra a{
-    padding: 30px;
-}
-.member_extra{
-	padding-top:30px;
+    padding: 20px;
 }
 
 .member_submit{
@@ -64,35 +62,51 @@
 	color:white;
 }
 
-#select li.category {
-    list-style: none;
-    float: left;
-    margin-left: 30px;
-}
-.profile-container {
-    display: flex;
-    align-items: center;
-}
-
 a, .btn{
 	 color: rgb(26, 188, 156);
 }
-div .glyphicon  {
-    font-size: 30px;
+.double{
+	 padding: 6px 12px;
 }
+/* account */
+.myemail span.col-sm-2 {
+    padding-left: 25px;
+     color: rgb(26, 188, 156);
+}
+.account span.col-sm-2 {
+    text-align:left;
+}
+.myemail span.col-sm-10 {
+    padding-left: 23px;
+}
+.row.myemail {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+a .col-sm-10 {
+    width: 0;
+}
+.last {
+    padding-bottom: 20px;
+}
+/*  */
+a.btn.form-control {
+    padding-top: 20px;
+}
+.user_icon {
+    font-size: 60px;
+} 
 .result {
     color: red;
 }
-.post_none{
-	display:none;
-}
-.account a.btn.form-control {
+.account, .select_category  {
     text-align: left;
 }
-.account {
+ .account {
     padding-left: 3%;
     padding-right: 3%;
-}
+} 
+
 input {
     margin-bottom: 1%;
 }
