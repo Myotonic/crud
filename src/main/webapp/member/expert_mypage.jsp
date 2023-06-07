@@ -1,13 +1,20 @@
+<%@page import="com.crud.dto.UserDto"%>
+<%@page import="com.crud.dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../inc/header.jsp" %>
+<%
+   int user_id = (int) session.getAttribute("member");
+   MemberDao dao = new MemberDao();
+   UserDto dto = dao.getUser(user_id);
+%>
 <div class="member-page text-center">
 	<h2>마이페이지</h2>
 	<div class="mypage">
 		<div class="my_account row underline">
 			<div class="user_icon glyphicon glyphicon-user col-sm-2"></div>
 			<div class="user_info col-sm-4">
-					<div class="user_name row">NAME<%-- ${param.user_name } --%></div>
-					<div class="user_email row">EMAIL<%-- ${param.user_email } --%></div>
+				<div class="user_name row"><%=dto.getUser_name() %></div>
+				<div class="user_email row"><%=dto.getUser_email() %></div>
 			</div>
 			<div class="col-sm-3">
 				<a href="${pageContext.request.contextPath}/logout.crud" title="로그아웃" class="btn">로그아웃</a>
