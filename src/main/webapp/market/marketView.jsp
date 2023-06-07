@@ -11,7 +11,7 @@
 	    <input type="button" class="btn btn-info division" value="상품"/>
 	    <input type="button" class="btn btn-info division" value="수업"/>
 	  </div>
-<%-- 	  <c:if test="${sessionScope.memberValue == 'expert'}"> --%>
+	  <c:if test="${sessionScope.memberValue == 'expert'}">
 	<div class="text-right">
 	  <div class="dropdown dropright">
 	    <button class="btn btn-info dropdown-toggle" type="button" id="categoryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -23,7 +23,7 @@
 		</div>
 	  </div>
 	</div>
-<%-- 	  </c:if> --%>
+	  </c:if>
 	  </div>
 
 
@@ -32,18 +32,19 @@
 	  	<div class="row">
 	    	<div class="col-sm-2">
 				<div class="btn-group-vertical">
-	    			<input type="button" class="btn btn-default" value="전체"/>	
+	    			<input type="button" class="btn btn-default categorybtn" value="전체"/>	
 					<c:forEach var="category1" items="${mCategory}" varStatus="status">
 						<input type="button" class="btn btn-default categorybtn" value="${category1.category1_name}" data-category-id="${category1.category1_id}"/>
 					</c:forEach>
 				</div>
 	      	</div>
 	      	<div class="col-sm-10">
-			<div class="container well">
+			<div class="well">
 				<div class="row ajaxMarket text-center">
 					<c:forEach var="dto" items="${mDtoList}" varStatus="status">
 						<div class="col-sm-4">
-							<a href="${pageContext.request.contextPath}/marketDetail.crud?market_id=${dto.market_id}"><img src="/images/${dto.images[0]}" alt="대표이미지" class="img-responsive" /></a>
+							<a href="${pageContext.request.contextPath}/marketDetail.crud?market_id=${dto.market_id}"><img src="/images/${dto.images[0]}" alt="대표이미지" 
+							class="img-thumbnail" style="width: 300px; height: 200px;"/></a>
 							<p>${dto.category2_name}</p>
 							<p><a href="${pageContext.request.contextPath}/marketDetail.crud?market_id=${dto.market_id}">${dto.title}</a></p>
 							<p>${dto.price}</p>
@@ -51,7 +52,7 @@
 					</c:forEach>
 				</div>
 			</div>
-	      	</div>  
+	      	</div> 
 	    </div>
 	  </div>
 	  <div class="text-right">
@@ -78,7 +79,8 @@
             var title = item.title;
             var price = item.price;
             var market_id = item.market_id;
-            var mimage = $("<a>").attr("href", "${pageContext.request.contextPath}/marketDetail.crud?market_id=" + market_id).html($("<img>").attr("src", "/images/" + image).attr("class","img-responsive").attr("alt","대표이미지"));
+            var mimage = $("<a>").attr("href", "${pageContext.request.contextPath}/marketDetail.crud?market_id=" + market_id).html($("<img>").attr("src", "/images/" + image).attr("class","img-thumbnail").attr("alt","대표이미지")
+            		.attr("style","width: 300px; height: 200px;"));
             var mtitle = $("<a>").attr("href", "${pageContext.request.contextPath}/marketDetail.crud?market_id=" + market_id).attr("title", title).html(title);
 
             mimage = $("<p>").append(mimage);
@@ -117,7 +119,8 @@
 	                    var title = item.title;
 	                    var price = item.price;
 	                    var market_id = item.market_id;
-	                    var mimage = $("<a>").attr("href", "${pageContext.request.contextPath}/marketDetail.crud?market_id=" + market_id).html($("<img>").attr("src", "/images/" + image).attr("class","img-responsive").attr("alt","대표이미지"));
+	                    var mimage = $("<a>").attr("href", "${pageContext.request.contextPath}/marketDetail.crud?market_id=" + market_id).html($("<img>").attr("src", "/images/" + image).attr("class","img-thumbnail").attr("alt","대표이미지")
+	                    		.attr("style","width: 300px; height: 200px;"));
 	                    var mtitle = $("<a>").attr("href", "${pageContext.request.contextPath}/marketDetail.crud?market_id=" + market_id).attr("title", title).html(title);
 
 	                    mimage = $("<p>").append(mimage);
@@ -155,7 +158,8 @@
 	                    var title = item.title;
 	                    var price = item.price;
 	                    var market_id = item.market_id;
-	                    var mimage = $("<a>").attr("href", "${pageContext.request.contextPath}/marketDetail.crud?market_id=" + market_id).html($("<img>").attr("src", "/images/" + image).attr("class","img-responsive").attr("alt","대표이미지"));
+	                    var mimage = $("<a>").attr("href", "${pageContext.request.contextPath}/marketDetail.crud?market_id=" + market_id).html($("<img>").attr("src", "/images/" + image).attr("class","img-thumbnail").attr("alt","대표이미지")
+	                    		.attr("style","width: 300px; height: 200px;"));
 	                    var mtitle = $("<a>").attr("href", "${pageContext.request.contextPath}/marketDetail.crud?market_id=" + market_id).attr("title", title).html(title);
 
 	                    mimage = $("<p>").append(mimage);

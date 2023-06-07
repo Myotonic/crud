@@ -1,0 +1,138 @@
+.category_group {
+	display: flex;
+	flex-direction: column;
+	margin-left: 50px;
+}
+
+.submit-group {
+	float: right;
+	
+}
+
+.content-group{
+	margin-top:30px;
+}
+
+.bContent{
+	margin-left:150px;
+	margin-top:30px;
+	display:none;
+}
+
+.bBoardHitList {
+  display: flex;
+  flex-direction: column;
+  position: static; /* 또는 원하는 위치로 조정 */
+  margin-top:10px;
+}
+
+.bBoardBody{
+	display:inline;
+}
+
+.bBoardlife{
+	font-size:16px;
+	
+}
+
+.bBoardStory{
+	font-size:16px;
+	margin-left:5px;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    float: right;
+}
+
+.bTextCon{
+	display:none;
+}
+
+.select-group{
+	margin-left:600px;
+	
+}
+
+#eProfile{
+	float:right;
+}
+
+#eName{
+	float:right;
+	background-color:white;
+	color:#00CED1;
+	border:none;
+}
+
+#eIntro{
+	float:right;
+	background-color:white;
+	color:#00CED1;
+	border:none;
+}
+
+#eCity{
+	float:right;
+	background-color:white;
+	color:#00CED1;
+	border:none;
+}
+
+#eArea{
+	float:right;
+	background-color:white;
+	color:#00CED1;
+	border:none;
+}
+
+
+#bBoardHit{
+	margin-top:10px;
+}
+
+#bBoardTitle{
+	display:flex;
+	margin-top:10px;
+}
+
+#boardNotice{
+	width:80px;
+	height:50px;
+	margin-top:10px;
+}
+
+#bArea{
+margin-left:20px;
+}
+
+#board_category1 {
+	width: 100px;
+}
+
+#board_category2 {
+	margin-top: 10px;
+	width: 100px;
+}
+
+#board_category3 {
+	margin-top: 10px;
+	width: 100px;
+}
+
+#board_category4 {
+	margin-top: 10px;
+	width: 100px;
+}
+
+#board_category5 {
+	margin-top: 10px;
+	width: 100px;
+}
+
+textarea{
+	resize: none;
+	margin-top:30px;
+}

@@ -19,7 +19,8 @@ public class InquiryDetail implements MarketService{
 		MDao dao = new MDao();
 		int inquiry_id = Integer.parseInt(request.getParameter("inquiry_id"));
 		inquiry= dao.detailInquiry(inquiry_id);
-		request.setAttribute("minquiry", inquiry);
+		System.out.println(inquiry);
+		request.setAttribute("mInquiry", inquiry);
 	}
 
 }

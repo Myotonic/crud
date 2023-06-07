@@ -117,17 +117,25 @@ public class MemberDao {
 
 	public int insertCity(CityDto dto) {
 		int result = -1;
-		String sql = "insert into City(city_name, area_id) values(?, ?)";
+		String sql = "insert into City(city_name, area_id, mapx, mapy) values(?, ?, ?, ?)";
 		DBManager db = new DBManager();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
 		try {
+			
 			conn = db.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getCity_name());
 			pstmt.setInt(2, dto.getArea_id());
+			
+		//  이한동 06-07 수정분 //
+			pstmt.setFloat(3, dto.getMapx());
+			pstmt.setFloat(4, dto.getMapy());
+		//  이한동 06-07 수정분 //
+			
 			result = pstmt.executeUpdate();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

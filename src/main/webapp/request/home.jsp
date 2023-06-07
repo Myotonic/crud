@@ -4,23 +4,27 @@
 <%@ include file='../inc/header.jsp' %>
 
 	<div class="container">
-		<h3>CRUD</h3>
+		<h3>서비스 요청하기</h3>
 		
-		<a href="${pageContext.request.contextPath}/list.estimate">가즈아</a>
+		<div class="container well">
 		
 		<div class="col">
-			<div class="col-sm-3"><img alt="ddd" src="${pageContext.request.contextPath}/icon.png" class="ca1"></div>
-			<div class="col-sm-3"><img alt="ddd" src="${pageContext.request.contextPath}/icon.png" class="ca2"></div>
-			<div class="col-sm-3"><img alt="ddd" src="${pageContext.request.contextPath}/icon.png" class="ca3"></div>
-			<div class="col-sm-3"><img alt="ddd" src="${pageContext.request.contextPath}/icon.png" class="ca4"></div>
+			<div class="col-sm-3 ca1 text-center"><img alt="ddd" src="img/lesson.png"><strong>레슨</strong></div>
+			<div class="col-sm-3 ca2 text-center"><img alt="ddd" src="img/living.png"><strong>홈/리빙</strong></div>
+			<div class="col-sm-3 ca3 text-center"><img alt="ddd" src="img/design.png"><strong>디자인/개발</strong></div>
+			<div class="col-sm-3 ca4 text-center"><img alt="ddd" src="img/guitar.png"><strong>기타</strong></div>
+		</div>
+		
 		</div>
 		
 		<div class="col">
-		<div class="col-sm-3 r1"></div>
-		<div class="col-sm-3 r2"></div>
-		<div class="col-sm-3 r3"></div>
-		<div class="col-sm-3 r4"></div>
+		<div class="col-sm-3 r1 text-center"></div>
+		<div class="col-sm-3 r2 text-center"></div>
+		<div class="col-sm-3 r3 text-center"></div>
+		<div class="col-sm-3 r4 text-center"></div>
 		</div>
+		
+		
 	</div>
 	
 	<script>
@@ -31,8 +35,10 @@
 					type : "get" ,
 					dataType : "text" ,
 					success : function(text) {
-						console.log(text);
-						$(".r1").append(text);
+						$(".r1").html(text);
+						$(".r2").html("");
+						$(".r3").html("");
+						$(".r4").html("");
 					} ,
 					error : function(xhr, textStatus, errorThrown) {
 						$(".r1").html(textStatus + "(http-" + xhr.status + "/" + errorThrown);
@@ -45,8 +51,10 @@
 					type : "get" ,
 					dataType : "text" ,
 					success : function(text) {
-						console.log(text);
-						$(".r2").append(text);
+						$(".r2").html(text);
+						$(".r1").html("");
+						$(".r3").html("");
+						$(".r4").html("");
 					} ,
 					error : function(xhr, textStatus, errorThrown) {
 						$(".r2").html(textStatus + "(http-" + xhr.status + "/" + errorThrown);
@@ -59,8 +67,10 @@
 					type : "get" ,
 					dataType : "text" ,
 					success : function(text) {
-						console.log(text);
 						$(".r3").html(text);
+						$(".r2").html("");
+						$(".r1").html("");
+						$(".r4").html("");
 					} ,
 					error : function(xhr, textStatus, errorThrown) {
 						$(".r3").html(textStatus + "(http-" + xhr.status + "/" + errorThrown);
@@ -73,8 +83,10 @@
 					type : "get" ,
 					dataType : "text" ,
 					success : function(text) {
-						console.log(text);
 						$(".r4").html(text);
+						$(".r2").html("");
+						$(".r3").html("");
+						$(".r1").html("");
 					} ,
 					error : function(xhr, textStatus, errorThrown) {
 						$(".r4").html(textStatus + "(http-" + xhr.status + "/" + errorThrown);

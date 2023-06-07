@@ -301,7 +301,7 @@ public class MDao {
 		
 		return list;
 	}
-	public List<MDto> userMarket(String division, int user_id){
+	public List<MDto> userMarket(String division, int user_id, int market_id){
 		List<MDto> list = new ArrayList<>();
 		String sql = "SELECT m.market_id, m.title, m.price, c2.category2_name, i.img1, m.hit\r\n"
 				+ "FROM market m\r\n"
@@ -310,7 +310,8 @@ public class MDao {
 				+ "LEFT JOIN user_market um ON m.market_id = um.market_id\r\n"
 				+ "LEFT JOIN user u ON um.user_id = u.user_id\r\n"
 				+ "WHERE m.division = ? AND u.user_id = ?\r\n"
-				+ "ORDER BY m.date DESC";
+				+ "ORDER BY m.date DESC "
+				+ "limit ?,5";
 		DBManager db = new DBManager();
 		Connection conn=null; PreparedStatement pstmt=null; ResultSet rset=null;
 		try {
@@ -318,6 +319,7 @@ public class MDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, division);
 			pstmt.setInt(2, user_id);
+			pstmt.setInt(3, market_id);			
 			rset=pstmt.executeQuery();
 			while(rset.next()) {
 				list.add(new MDto(rset.getInt("m.market_id"),rset.getString("m.title"),
@@ -333,13 +335,14 @@ public class MDao {
 		}
 		return list;
 	}
-	public List<MDto> expertMarket(String division, int expert_id){
+	public List<MDto> expertMarket(String division, int expert_id, int market_id){
 		List<MDto> list = new ArrayList<>();
 		String sql = "select m.market_id, m.title, m.price, c2.category2_name, i.img1, m.hit from "
-				+ "market m left join images i using(market_id) "
-				+ "left join category2 c2 using(category2_id) "
-				+ "where division = ? expert_id = ?"
-				+ "order by date desc";
+			    + "market m left join images i using(market_id) "
+			    + "left join category2 c2 using(category2_id) "
+			    + "where division = ? AND expert_id = ? "
+			    + "order by date desc "
+			    + "limit ?, 5";
 		DBManager db = new DBManager();
 		Connection conn=null; PreparedStatement pstmt=null; ResultSet rset=null;
 		try {
@@ -347,6 +350,7 @@ public class MDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, division);
 			pstmt.setInt(2, expert_id);
+			pstmt.setInt(3, market_id);
 			rset = pstmt.executeQuery();
 			while(rset.next()) {
 				list.add(new MDto(rset.getInt("m.market_id"),rset.getString("m.title"),
@@ -454,33 +458,33 @@ public class MDao {
 		
 		return dto;
 	}
-	public MDto readInquiry(int id,String where){
-		MDto dto = new MDto();
+	public List<Inquiry> readInquiry(int id,String where,int count){
 		List<Inquiry> list = new ArrayList<>();
 		String sql = "select i.inquiry_id, i.category, i.title, i.market_id, m.title, a.answer "
 				+ "from inquiry i "
 				+ "left join market m using(market_id) "
 				+ "left join answer a using(inquiry_id) "
 				+ "where "+where+" = ? "
-				+ "order by i.date desc";
+				+ "order by i.date desc "
+				+ "limit ?, 5";
 		DBManager db = new DBManager();
 		Connection conn = null; PreparedStatement pstmt = null; ResultSet rset=null;
 		try {
 			conn = db.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, id);
+			pstmt.setInt(2, count);
 			rset = pstmt.executeQuery();
 			while(rset.next()) {
 				Inquiry inquiry = new Inquiry();
 				inquiry.setInquiry_id(rset.getInt("i.inquiry_id"));
-				inquiry.setCategory("i.category");
+				inquiry.setCategory(rset.getString("i.category"));
 				inquiry.setTitle(rset.getString("i.title"));
 				inquiry.setMarket_id(rset.getInt("i.market_id"));
 				inquiry.setCheckAnswer(rset.getString("a.answer")!=null? true:false);
-				dto.setTitle(rset.getString("m.title"));
-				list.add(new Inquiry());
+				inquiry.setmTitle(rset.getString("m.title"));
+				list.add(inquiry);
 			}
-			dto.setInquiry(list);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -488,8 +492,8 @@ public class MDao {
 			if(pstmt!=null) {try { pstmt.close(); } catch (SQLException e) { e.printStackTrace(); }}
 			if(conn!=null) {try { conn.close(); } catch (SQLException e) { e.printStackTrace(); }}
 		}
-		System.out.println(dto);
-		return dto;
+		System.out.println(list);
+		return list;
 	}
 
 	public Inquiry detailInquiry(int inquiry_id) {
@@ -509,8 +513,8 @@ public class MDao {
 			while(rset.next()) {
 				inquiry.setInquiry_id(rset.getInt("inquiry.inquiry_id"));
 				inquiry.setCategory(rset.getString("inquiry.category"));
-				inquiry.setTitle("inquiry.title");
-				inquiry.setContent("inquiry.content");
+				inquiry.setTitle(rset.getString("inquiry.title"));
+				inquiry.setContent(rset.getString("inquiry.content"));
 				inquiry.setDate(rset.getString("inquiry.date"));
 				inquiry.setMarket_id(rset.getInt("inquiry.market_id"));
 				inquiry.setUser_id(rset.getInt("inquiry.user_id"));
@@ -584,8 +588,10 @@ public class MDao {
 				+ "WHERE market_id = ?";
 		DBManager db = new DBManager();
 		Connection conn = null; PreparedStatement pstmt = null;
+		
 		try {
 			conn=db.getConnection();
+			if(conn!=null) {System.out.println(1);}
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getTitle());
 			pstmt.setString(2, dto.getContent());
@@ -595,7 +601,19 @@ public class MDao {
 			pstmt.setInt(6, dto.getMarket_id());
 			result=pstmt.executeUpdate();
 			pstmt.close();
+			System.out.println("상품 : " + result);
 			result=updateMarketDate(dto.getMarket_id(),conn);
+			System.out.println("date업데이트 : " + result);			
+			result = updateImg(dto.getImages(),dto.getMarket_id(),conn);
+			System.out.println("이미지 : " + result);
+			for(Faq f : dto.getFaq()) {
+				result = updateFaq(f,conn);
+				System.out.println("faq들 : " + result);
+			}
+			if(dto.getDivision().equals("수업")) {
+				result = updateClass(dto,conn);
+				System.out.println("수업 : " + result);
+			}
 		} catch (SQLException | UnknownHostException e) {
 			e.printStackTrace();
 		}finally {
@@ -604,7 +622,7 @@ public class MDao {
 		}
 		return result;
 	}
-	public int updateClass(MDto dto) {
+	public int updateClass(MDto dto, Connection conn) {
 		int result =-1;
 		String sql="update class set "
 				+ "appointment = ?, "
@@ -613,10 +631,8 @@ public class MDao {
 				+ "startSchedule= ?, "
 				+ "endSchedule = ? "
 				+ "where market_id = ?";
-		DBManager db = new DBManager();
-		Connection conn = null; PreparedStatement pstmt=null;
+		PreparedStatement pstmt=null;
 		try {
-			conn=db.getConnection();
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getAppointment());
 			pstmt.setString(2, dto.getProceed());
@@ -625,40 +641,32 @@ public class MDao {
 			pstmt.setString(5, dto.getEndSchedule());
 			pstmt.setInt(6, dto.getMarket_id());
 			result=pstmt.executeUpdate();
-			pstmt.close();
-			result=updateMarketDate(dto.getMarket_id(),conn);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			if(pstmt!=null) {try { pstmt.close(); } catch (SQLException e) { e.printStackTrace(); }}
-			if(conn!=null) {try { conn.close(); } catch (SQLException e) { e.printStackTrace(); }}
 		}
 		return result;
 		
 	}
-	public int updateFaq(Faq faq) {
+	public int updateFaq(Faq faq, Connection conn) {
 		int result =-1;
 		String sql = "UPDATE faq SET title = ?, content = ? WHERE market_id = ?";
-		DBManager db = new DBManager();
-		Connection conn = null; PreparedStatement pstmt= null;
+		PreparedStatement pstmt= null;
 		try {
-			conn = db.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, faq.getTitle());
 			pstmt.setString(2, faq.getContent());
 			pstmt.setInt(3, faq.getMarket_id());
 			result = pstmt.executeUpdate();
-			pstmt.close();
-			result=updateMarketDate(faq.getMarket_id(),conn);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			if(pstmt!=null) {try { pstmt.close(); } catch (SQLException e) { e.printStackTrace(); }}
-			if(conn!=null) {try { conn.close(); } catch (SQLException e) { e.printStackTrace(); }}
 		}
 		return result;
 	}
-	public int updateImg(List<String> images, int market_id) {
+	public int updateImg(List<String> images, int market_id, Connection conn) {
 		int result = -1;
 		String sql = "UPDATE images SET "
 				+ "img1 =?, "
@@ -672,50 +680,45 @@ public class MDao {
 				+ "img9 =?, "
 				+ "img10 =? "
 				+ "where market_id =?";
-		DBManager db = new DBManager();
-		Connection conn = null; PreparedStatement pstmt =null;
+		PreparedStatement pstmt =null;
 		try {
-			conn = db.getConnection();
+			int cnt = 1;
 			pstmt = conn.prepareStatement(sql);
-			for(int i = 0 ; i < 10; i++) {
-				pstmt.setString(i+1, images.get(i));				
+			for(String s:images) {
+				pstmt.setString(cnt, s);
+				cnt++;
+			}
+			for(int i=cnt; i <11; i++) {
+				pstmt.setString(i, "no.img");
 			}
 			pstmt.setInt(11, market_id);
 			result=pstmt.executeUpdate();
-			pstmt.close();
-			result=updateMarketDate(market_id,conn);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			if(pstmt!=null) {try { pstmt.close(); } catch (SQLException e) { e.printStackTrace(); }}
-			if(conn!=null) {try { conn.close(); } catch (SQLException e) { e.printStackTrace(); }}
 		}
 		return result;
 	}
-	public int updateTime(Time time) {
+	public int updateTime(Time time, Connection conn) {
 		int result = -1;
 		String sql = "UPDATE time SET "
 				+ "day = ?, "
 				+ "starttime = ?, "
 				+ "endtime= ? "
 				+ "where time_id=?";
-		DBManager db = new DBManager();
-		Connection conn = null; PreparedStatement pstmt=null;
+		PreparedStatement pstmt=null;
 		try {
-			conn = db.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, time.getDay());
 			pstmt.setString(2, time.getStarttime());
 			pstmt.setString(3,time.getEndtime());
 			pstmt.setInt(4, time.getMarket_id());
 			result = pstmt.executeUpdate();
-			pstmt.close();
-			result=updateMarketDate(time.getMarket_id(),conn);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			if(pstmt!=null) {try { pstmt.close(); } catch (SQLException e) { e.printStackTrace(); }}
-			if(conn!=null) {try { conn.close(); } catch (SQLException e) { e.printStackTrace(); }}
 		}
 		return result;
 	}
@@ -779,10 +782,6 @@ public class MDao {
 		Connection conn = null; PreparedStatement pstmt=null;
 		try {
 			conn = db.getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, dto.getMarket_id());
-			result=pstmt.executeUpdate();
-			pstmt.close();
 			result = deleteAllFaq(dto.getMarket_id(),conn);
 			result = deleteAllImages(dto.getMarket_id(),conn);
 			result = deleteAllInquiry(dto.getMarket_id(),conn);
@@ -790,6 +789,10 @@ public class MDao {
 				result = deleteClass(dto.getMarket_id(),conn);
 				result = deleteAllTime(dto.getMarket_id(),conn);
 			}
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, dto.getMarket_id());
+			result=pstmt.executeUpdate();
+			pstmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -830,44 +833,6 @@ public class MDao {
 		}
 		return result;
 	}
-	public int deleteFaq(int faq_id) {
-		int result = -1;
-		String sql = "DELETE FROM faq\r\n"
-				+ "where market_id = ?";
-		DBManager db = new DBManager();
-		Connection conn = null; PreparedStatement pstmt = null; 
-		try {
-			conn = db.getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, faq_id);
-			result = pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			if(pstmt!=null) {try { pstmt.close(); } catch (SQLException e) { e.printStackTrace(); }}
-		}
-		return result;
-	}
-	public int deleteImages(int market_id,String imgnum) {
-		int result = -1;
-		String sql = "UPDATE 테이블명\r\n"
-				+ "SET ? = NULL\r\n"
-				+ "WHERE market_id = ?";
-		DBManager db = new DBManager();
-		Connection conn = null; PreparedStatement pstmt = null; 
-		try {
-			conn = db.getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, imgnum);
-			pstmt.setInt(1, market_id);
-			result = pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			if(pstmt!=null) {try { pstmt.close(); } catch (SQLException e) { e.printStackTrace(); }}
-		}
-		return result;
-	}
 	public int deleteClass(int market_id, Connection conn) {
 		int result = -1;
 		String sql = "DELETE FROM class\r\n"
@@ -892,24 +857,6 @@ public class MDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, market_id);
-			result = pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			if(pstmt!=null) {try { pstmt.close(); } catch (SQLException e) { e.printStackTrace(); }}
-		}
-		return result;
-	}
-	public int deleteTime(int time_id) {
-		int result = -1;
-		String sql = "DELETE FROM time\r\n"
-				+ "where time_id = ?";
-		DBManager db = new DBManager();
-		Connection conn = null; PreparedStatement pstmt = null; 
-		try {
-			conn = db.getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, time_id);
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

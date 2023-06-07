@@ -19,8 +19,8 @@
 		<hr/>
 		<div class="my_class underline">
 			<div class="my_title"><strong>클래스</strong></div>
-			<div class="my_content"><a href="">나의 상품 내역</a></div>
-			<div class="my_content"><a href="">문의 내역 관리</a></div>
+			<div class="my_content"><a href="${pageContext.request.contextPath}/myPageMarket.crud">나의 상품 내역</a></div>
+			<div class="my_content"><a href="${pageContext.request.contextPath}/inquiryView.crud">문의 내역 관리</a></div>
 		</div>
 		<hr/>
 		<div class="my_comm underline">

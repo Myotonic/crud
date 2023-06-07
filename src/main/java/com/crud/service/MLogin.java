@@ -28,7 +28,7 @@ public class MLogin implements MemberService {
 			request.getSession().setAttribute("memberValue", result);
 			int user_id = dao.getUserId(email);
 			if(result.equals("expert")) {
-				request.getSession().setAttribute("expert", dao.getExpertId(user_id) );
+				request.getSession().setAttribute("expert_id", dao.getExpertId(user_id) );
 			}
 			request.getSession().setAttribute("member", user_id);
 		}else {

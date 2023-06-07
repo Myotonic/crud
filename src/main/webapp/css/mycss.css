@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/*       body        */
 .myhidden{	
 	width:1px;
 	height:1px; 
@@ -36,50 +37,76 @@
 #footer .mynav_f a{ margin-right: 5px; }
 #footer .myclarboth{ padding : 5%; }
 
+/*               */
+/*               */
+/*               */
+/*               */
+/*               */
+.member-page{
+	padding:1%;
+	max-width: 25cm;
+	text-align: center;
+}
 .member_form{
 	display: inline-block;
 	padding:1%;
-}
-.member_form .member_extra{
-	float:left;
 	text-align: center;
 }
-.member_form .member_extra a {
-    padding: 30px;
+
+.member_form .member_extra a{
+    padding: 20px;
 }
+
 .member_submit{
 	background-color: rgb(26, 188, 156);
 	color:white;
 }
-.member-page{
-	padding:1%;
-}
-#select li.category {
-    list-style: none;
-    float: left;
-    margin-left: 30px;
-}
-.profile-container {
-    display: flex;
-    align-items: center;
-}
 
-.btn{
+a, .btn{
 	 color: rgb(26, 188, 156);
 }
-div .glyphicon {
-    font-size: 30px;
+.double{
+	 padding: 6px 12px;
 }
-span .glyphicon {
-    font-size: 30px;
+/* account */
+.myemail span.col-sm-2 {
+    padding-left: 25px;
+     color: rgb(26, 188, 156);
 }
-.account a.btn.form-control {
+.account span.col-sm-2 {
+    text-align:left;
+}
+.myemail span.col-sm-10 {
+    padding-left: 23px;
+}
+.row.myemail {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+a .col-sm-10 {
+    width: 0;
+}
+.last {
+    padding-bottom: 20px;
+}
+/*  */
+a.btn.form-control {
+    padding-top: 20px;
+}
+.user_icon {
+    font-size: 60px;
+} 
+.result {
+    color: red;
+}
+.account, .select_category  {
     text-align: left;
 }
-.account {
+ .account {
     padding-left: 3%;
     padding-right: 3%;
-}
+} 
+
 input {
     margin-bottom: 1%;
 }
@@ -90,6 +117,14 @@ input {
     border-radius: 8px;
 }
 
+
+
 .check-btn {
     font-size: 50px;
 }
+
+/*               */
+/*               */
+/*               */
+/*               */
+/*               */

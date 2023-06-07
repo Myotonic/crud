@@ -8,8 +8,6 @@ public class RequestedListDto {
 	int request_id;
 	int mystatus;
 	
-	
-	
 	public int getMystatus() {
 		return mystatus;
 	}

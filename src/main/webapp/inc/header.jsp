@@ -5,6 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>CRUD</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="shortcuticon" href="${pageContext.request.contextPath }/inc/favicon.ico" type="image/x-icon">
+  <link rel="icon" 		   href="${pageContext.request.contextPath }/inc/favicon.ico" type="image/x-icon">
+
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <!-- jQuery library -->
@@ -32,13 +37,13 @@
 		    <ul class="nav navbar-nav navbar-right mynav_r">
 		      <c:choose >
 					<c:when test="${memberValue eq 'expert'}">
-						  <li><a href=""><span>받은 요청</span></a></li>
+						  <li><a href="${pageContext.request.contextPath}/list.estimate"><span>받은 요청</span></a></li>
 					      <li><a href=""><span>채팅</span></a></li>
 					      <li><a href=""><span>프로필</span></a></li>
 					      <li><a href="${pageContext.request.contextPath}/MyPage.crud"><span class="glyphicon glyphicon-user"></span></a></li>
 					</c:when>
 					<c:when test="${memberValue eq 'user'}">
-						  <li><a href=""><span>받은 견적</span></a></li>
+						  <li><a href="${pageContext.request.contextPath}/list.request"><span>보낸 요청</span></a></li>
 					      <li><a href=""><span>채팅</span></a></li>
 					      <li><a href="${pageContext.request.contextPath}/MyPage.crud"><span class="glyphicon glyphicon-user"></span></a></li>
 					</c:when>

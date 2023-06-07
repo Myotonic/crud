@@ -11,7 +11,6 @@
         <%
           request.setCharacterEncoding("UTF-8");
           response.setContentType("text/html; charset=UTF-8");
-          request.getSession().setAttribute("expert_id", 1);
         %>
         <label for="mDivision">구분</label>
         <input type="text" id="mDivision" name="mDivision" class="form-control" value="${division}" readonly />
