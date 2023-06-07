@@ -8,6 +8,7 @@ public class Inquiry {
 	private String date;
 	private String ip;
 	private int market_id;
+	private String mTitle;
 	private int user_id;
 	private String user;
 	private Answer answer;
@@ -16,7 +17,7 @@ public class Inquiry {
 		super();
 	}
 	public Inquiry(int inquiry_id, String category, String title, String content, String date, String ip, int market_id,
-			int user_id, String user, Answer answer, boolean checkAnswer) {
+			String mTitle, int user_id, String user, Answer answer, boolean checkAnswer) {
 		super();
 		this.inquiry_id = inquiry_id;
 		this.category = category;
@@ -25,6 +26,7 @@ public class Inquiry {
 		this.date = date;
 		this.ip = ip;
 		this.market_id = market_id;
+		this.mTitle = mTitle;
 		this.user_id = user_id;
 		this.user = user;
 		this.answer = answer;
@@ -33,14 +35,9 @@ public class Inquiry {
 	@Override
 	public String toString() {
 		return "Inquiry [inquiry_id=" + inquiry_id + ", category=" + category + ", title=" + title + ", content="
-				+ content + ", date=" + date + ", ip=" + ip + ", market_id=" + market_id + ", user_id=" + user_id
-				+ ", user=" + user + ", answer=" + answer + ", checkAnswer=" + checkAnswer + "]";
-	}
-	public String getUser() {
-		return user;
-	}
-	public void setUser(String user) {
-		this.user = user;
+				+ content + ", date=" + date + ", ip=" + ip + ", market_id=" + market_id + ", mTitle=" + mTitle
+				+ ", user_id=" + user_id + ", user=" + user + ", answer=" + answer + ", checkAnswer=" + checkAnswer
+				+ "]";
 	}
 	public int getInquiry_id() {
 		return inquiry_id;
@@ -84,11 +81,23 @@ public class Inquiry {
 	public void setMarket_id(int market_id) {
 		this.market_id = market_id;
 	}
+	public String getmTitle() {
+		return mTitle;
+	}
+	public void setmTitle(String mTitle) {
+		this.mTitle = mTitle;
+	}
 	public int getUser_id() {
 		return user_id;
 	}
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
+	}
+	public String getUser() {
+		return user;
+	}
+	public void setUser(String user) {
+		this.user = user;
 	}
 	public Answer getAnswer() {
 		return answer;
@@ -102,5 +111,6 @@ public class Inquiry {
 	public void setCheckAnswer(boolean checkAnswer) {
 		this.checkAnswer = checkAnswer;
 	}
+	
 	
 }

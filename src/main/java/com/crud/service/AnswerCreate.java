@@ -21,7 +21,7 @@ public class AnswerCreate implements MarketService{
 		PrintWriter out = response.getWriter();
 		Answer answer = new Answer();
 		answer.setAnswer(request.getParameter("answer"));
-		answer.setExpert_id(Integer.parseInt(request.getParameter("expert_id")));
+		answer.setExpert_id((int)request.getSession().getAttribute("expert_id"));
 		int inquiry_id = Integer.parseInt(request.getParameter("inquiry_id"));
 		if(dao.createAnswer(inquiry_id, answer)>0) {
 			result = "답변에 성공했습니다.";

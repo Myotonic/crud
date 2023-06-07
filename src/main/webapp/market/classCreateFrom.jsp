@@ -11,7 +11,6 @@
         <%
           request.setCharacterEncoding("UTF-8");
           response.setContentType("text/html; charset=UTF-8");
-          request.getSession().setAttribute("expert_id", 1);
         %>
         <label for="mDivision">구분</label>
         <input type="text" id="mDivision" name="mDivision" class="form-control" value="${division}" readonly />
@@ -81,7 +80,23 @@
 		<div class="form-group" id="weekdaySchedule" style="display: none;">
 		  <label for="scheduleContainer">요일별 시간표</label>
 		  <div id="scheduleContainer">
-		    <!-- 동적으로 생성되는 요일별 시간표가 추가될 컨테이너 -->
+			   <div class="schedule">
+	        <label for="mDay">요일</label>
+	        <select class="form-control" name="mDay[]" id = "mDay">
+	          <option value="월요일">월요일</option>
+	          <option value="화요일">화요일</option>
+	          <option value="수요일">수요일</option>
+	          <option value="목요일">목요일</option>
+	          <option value="금요일">금요일</option>
+	          <option value="토요일">토요일</option>
+	          <option value="일요일">일요일</option>
+	        </select>
+	        <label for="mStartTime">시작 시간</label>
+	        <input type="text" name="mStartTime[]" id="mStartTime" class="form-control" placeholder="시작 시간을 입력하세요.">
+	        <label for="mEndTime">끝나는 시간</label>
+	        <input type="text" name="mEndTime[]" id="mEndTime" class="form-control" placeholder="끝나는 시간을 입력하세요.">
+	        <button type="button" class="btn btn-danger remove-schedule">시간 제거</button>
+	      </div>
 		  </div>
 		  <button type="button" id="addScheduleButton" class="btn btn-primary">시간 추가</button>
 		</div>
