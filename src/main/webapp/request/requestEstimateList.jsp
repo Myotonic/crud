@@ -10,14 +10,17 @@
 		</div>
 		<hr/>
 		<div class="col">
-		
+		<%
+		out.print(request.getAttribute("estimatedsList"));
+		%>
 		<c:forEach var="i" items="${estimatedList}" varStatus="status">
 			<div class="col-sm-4 panel-body form-group" style="padding:10px 10px; margin: 10px; color: inherit; background-color:#eee;">
-			<h4>${i.user_name}</h4>
-				<p>${i.review}</p>
-				<p>${i.price}</p>
+			<h4>이름 : ${i.user_name}</h4>
+				<p>리뷰수 : ${i.review}</p>
+				<p>예상금액 : ${i.price}</p>
 				<div class="col">
 				<a href='${pageContext.request.contextPath}/esdetail.request?estimate_id=${i.estimate_id}'><button id="detailbtn" class="btn btn-info form-control col-sm-6" >상세보기</button></a>
+				<br/>
 				<a href='${pageContext.request.contextPath}/esdetail.request?estimate_id=${i.estimate_id}'><button id="detailbtn" class="btn btn-info form-control col-sm-6" >채팅하기</button></a>
 				</div>
 				</div>

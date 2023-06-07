@@ -1,11 +1,11 @@
-package com.crud.viewDto;
+package com.crud.requestdto;
 
-public class ViewCategoryDto {
+public class RequestCategoryDto {
 	int category2_id;
 	String category2_name;
 	int category1_id;
 	String category1_name;
-	public ViewCategoryDto() {
+	public RequestCategoryDto() {
 		super();
 	}
 	@Override
@@ -13,7 +13,7 @@ public class ViewCategoryDto {
 		return "ViewCategoryDto [category2_id=" + category2_id + ", category2_name=" + category2_name
 				+ ", category1_id=" + category1_id + ", category1_name=" + category1_name + "]";
 	}
-	public ViewCategoryDto(int category2_id, String category2_name, int category1_id, String category1_name) {
+	public RequestCategoryDto(int category2_id, String category2_name, int category1_id, String category1_name) {
 		super();
 		this.category2_id = category2_id;
 		this.category2_name = category2_name;

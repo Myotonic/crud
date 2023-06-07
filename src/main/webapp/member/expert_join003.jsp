@@ -5,6 +5,9 @@
 	<h3>활동지역 설정</h3>
 	<hr />
 	<form action="expert_joinArea.crud" method="post" class="member_form">
+	
+		<input type="hidden" id="mapx" name="mapx" />
+		<input type="hidden" id="mapy" name="mapy" />
 		
 		<div class="post_none">
 			<input type="text" id="sido" name="sido">
@@ -21,6 +24,13 @@
 		</div>
 	</form>
 </div>
+
+<!--   이한동 06-07 수정분   -->
+<script type="text/javascript"
+			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=206619e722961e9bb72b6eab05eaaa4d&libraries=services">
+	</script>
+<!--   이한동 06-07 수정분   -->
+
 <script>
 $(function(){
 	// 우편번호 찾기 찾기 화면을 넣을 element
@@ -33,6 +43,21 @@ $(function(){
         	$("#sigungu").val(data.sigungu);
         	$("#roadAddress").val(data.roadAddress);
         	 element_wrap.style.display = 'none';
+        	 
+        	 ///// 이한동 06-07 수정분 /////
+        	 var geocoder = new kakao.maps.services.Geocoder();
+
+        	 geocoder.addressSearch(data.roadAddress, function(result, status) {
+
+        	      if (status === kakao.maps.services.Status.OK) {
+
+        	         var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+        	         
+        	         $("#mapx").val(result[0].x);
+        	         $("#mapy").val(result[0].y);
+        	     } 
+        	 });	
+        	 ///// 이한동 06-07 수정분 /////
         },
         onresize : function(size) {
             element_wrap.style.height = size.height+'px';
@@ -50,5 +75,7 @@ $(function(){
 		}
 	});
 });
+
 </script>
+
 <%@ include file="../inc/footer.jsp" %>

@@ -32,8 +32,13 @@
 			<input type="hidden" id="hidden" name="category1_name" value="${dto.category1_name}" />
 			<input type="hidden" id="hidden" name="category2_id" value="${dto.category2_id}" />
 			<input type="hidden" id="hidden" name="category2_name" value="${dto.category2_name}" />
+			<input type="hidden" id="mapx" name="mapx" />
+			<input type="hidden" id="mapy" name="mapy" />
 		</form>
 		
+		<script type="text/javascript"
+			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=206619e722961e9bb72b6eab05eaaa4d&libraries=services">
+		</script>
 		<script>
 			$(function() {
 				
@@ -87,6 +92,20 @@
 								        	sido = data.sido;
 								        	sigungu = data.sigungu;
 								        	roadAddress = data.roadAddress;
+								        	
+								        	var geocoder = new kakao.maps.services.Geocoder();
+
+								        	 geocoder.addressSearch(data.roadAddress, function(result, status) {
+
+								        	      if (status === kakao.maps.services.Status.OK) {
+
+								        	         var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+								        	         
+								        	         $("#mapx").val(result[0].x);
+								        	         $("#mapy").val(result[0].y);
+								        	     } 	
+								        	 });	
+								        	
 								        }
 								    }).open();
 								});
