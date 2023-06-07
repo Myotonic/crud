@@ -28,17 +28,20 @@ public class EstimateDao {
 		
 		RequestedListDto dto = null;
 		
-//		요오오기서. 요청수락? 내가 가지고 있는거 - expert_id 세션과 request_id
-//		request_id에 속한 estimate_id중에 세션에 저장된 expert_id와 같은 expert_id가 이씅면
-//		요청 수락상태
-		
 		String sql = "select re.request_id, ca.category2_name , u.user_name , re.create_date , re.content "
 				+ "from request re "
-				+ "join category2 ca on ca.category2_id = re.category2_id  "
+				+ "join category2 ca on ca.category2_id = re.category2_id "
 				+ "join user u on u.user_id = re.user_id "
-				+ "where re.category2_id = (select category2_id from expert ex where ex.expert_id=?) "
-				+ "and re.city_id = (select city_id from expert ex where ex.expert_id=?)"
-				+ "and re.status=1";
+				+ "join city ci on ci.city_id = re.city_id "
+				+ "join expert ex on ex.category2_id = ca.category2_id "
+				+ "join city ciex on ciex.city_id = ex.city_id "
+				+ "where "
+				+ "    (6371000 * ACOS(  "
+				+ "        COS(RADIANS(ci.mapy)) * COS(RADIANS(ciex.mapy)) * COS(RADIANS(ci.mapx) - RADIANS(ciex.mapx)) +  "
+				+ "        SIN(RADIANS(ci.mapy)) * SIN(RADIANS(ciex.mapy)) "
+				+ "    )) <= ex.expert_range  "
+				+ "and re.status = 1  "
+				+ "and ex.expert_id = ?  ";
 		
 		String sql2 = "select estimate_id "
 				+ "from estimate es "
@@ -51,7 +54,6 @@ public class EstimateDao {
 		try {
 			pstm = conn.prepareStatement(sql);
 			pstm.setInt(1, expert_id);
-			pstm.setInt(2, expert_id);
 			
 			rset = pstm.executeQuery();
 			
@@ -73,12 +75,11 @@ public class EstimateDao {
 				} else {
 					dto.setMystatus(-1);//없으면 -1
 				}
-				
 				list.add(dto);
 			}
 			
 		} catch(Exception e) {
-			
+			e.printStackTrace();
 		} finally {
 			if(rset2 != null) { try {rset2.close();}catch(Exception e) {} }
 			if(pstm2 != null) { try {pstm2.close();}catch(Exception e) {} }
@@ -86,7 +87,6 @@ public class EstimateDao {
 			if(pstm != null) { try {pstm.close();}catch(Exception e) {} }
 			if(conn != null) { try {conn.close();}catch(Exception e) {} }
 		}
-		
 		return list;
 	}
 	

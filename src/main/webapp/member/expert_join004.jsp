@@ -49,7 +49,7 @@ $(function(){
 	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 	
 	var geocoder = new kakao.maps.services.Geocoder();
-
+	
 	// 주소로 좌표를 검색합니다
 	geocoder.addressSearch('<%= cityName %>', function(result, status) {
 
@@ -57,7 +57,7 @@ $(function(){
 	     if (status === kakao.maps.services.Status.OK) {
 
 	        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
+	        
 	        // 결과값으로 받은 위치를 마커로 표시합니다
 	        var marker = new kakao.maps.Marker({
 	            map: map,

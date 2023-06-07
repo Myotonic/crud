@@ -18,17 +18,9 @@ public class RequestCreate implements RequestService{
 		PrintWriter out = response.getWriter();
 		RequestDto dto = new RequestDto();
 		
-//		System.out.println(request.getParameter("sido"));
-//		System.out.println(request.getParameter("sigungu"));
-//		System.out.println(request.getParameter("roadAddress"));
-		
 		new MArea().exec(request, response);
 		new MCity().exec(request, response);
 		
-//		System.out.println(request.getAttribute("area_id"));
-//		System.out.println(request.getAttribute("city_id"));
-//		System.out.println(request.getParameter("category2_id"));
-//		System.out.println(request.getParameter("work_date"));
 		
 		
 		dto.setUser_id((int)request.getSession().getAttribute("member")); //user_id
