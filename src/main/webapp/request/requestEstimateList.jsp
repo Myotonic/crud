@@ -10,9 +10,7 @@
 		</div>
 		<hr/>
 		<div class="col">
-		<%
-		out.print(request.getAttribute("estimatedsList"));
-		%>
+		
 		<c:forEach var="i" items="${estimatedList}" varStatus="status">
 			<div class="col-sm-4 panel-body form-group" style="padding:10px 10px; margin: 10px; color: inherit; background-color:#eee;">
 			<h4>이름 : ${i.user_name}</h4>
