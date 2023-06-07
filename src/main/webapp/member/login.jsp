@@ -23,9 +23,24 @@
 			</div>
 		</fieldset>
 		<div class="member_extra">
-			<a href="password_find.jsp">비밀번호 찾기</a>
-			<a href="user_join.jsp">회원가입</a>
+			<a href="user_joinV.crud">회원가입</a>
 		</div>
 	</form>
 </div>
+<script>
+$(function(){
+	$("form").on("submit", function(){
+		//빈칸검사
+		if($("#email").val() == ""){ 
+			alert("이메일을 입력해주세요");
+			$("#email").focus();
+			return false;
+		}else if($("#pass").val() == ""){ 
+			alert("비밀번호를 입력해주세요");
+			$("#pass").focus();
+			return false;
+		}
+	});
+}); 
+</script>
 <%@ include file="../inc/footer.jsp" %>

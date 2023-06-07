@@ -4,15 +4,13 @@
 <div class="container member-page">
 	<h3>활동지역 설정</h3>
 	<hr />
-	<form action="expert_joinArea.crud" method="post" class="member_form">
-		
-		<div class="post_none">
-			<input type="text" id="sido" name="sido">
-			<input type="text" id="sigungu" name="sigungu">
+	<form action="expert_joinArea.crud" method="post" class="form">
+		<div class="member_form">
+			<input type="hidden" id="sido" name="sido">
+			<input type="hidden" id="sigungu" name="sigungu">
+			
+			<div id="wrap" style="border:1px solid;width:500px;height:300px;margin:5px 0;position:relative"> </div>
 		</div>
-		
-		<div id="wrap" style="border:1px solid;width:500px;height:300px;margin:5px 0;position:relative"> </div>
-		
 		<div class="form-group member_extra">
 			<input type="text" id="roadAddress" name="roadAddress" class="form-control" readonly>
 		</div>

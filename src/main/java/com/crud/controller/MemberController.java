@@ -219,14 +219,15 @@ public class MemberController extends HttpServlet {
 			out.print("<script>location.href='"+request.getContextPath()+"/';</script>");
 		}
 		
-		if(path.equals("/main.crud")) {
+		else if(path.equals("/main.crud")) {
 			request.getRequestDispatcher("/member/main.jsp").forward(request, response);
 		}else if(path.equals("/user_joinV.crud")) {
 			request.getRequestDispatcher("/member/user_join.jsp").forward(request, response);
 		}else if(path.equals("/user_join.crud")) {
 			service = new MUserJoin();
 			service.exec(request, response);
-			out.println("<script>location.href='"+request.getContextPath()+"/member/main.jsp';</script>");
+//			out.println("<script>location.href='"+request.getContextPath()+"/member/main.jsp';</script>");
+			out.println("<script>location.href='/main.crud';</script>");
 		}else if(path.equals("/expert_joinC1.crud")) {
 			service = new MCategory1();
 			service.exec(request, response);
