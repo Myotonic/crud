@@ -7,24 +7,24 @@
    MemberDao dao = new MemberDao();
    UserDto dto = dao.getUser(user_id);
 %>
-<div class="container panel panel-info">
-	<h3 class="text-center">계정 설정</h3>
+<div class="container member-page">
+	<h3>계정 설정</h3>
 	<div class="account">
 		<div class="row">
-			<span class="">이름</span>
-			<a href="editNameV.crud" class="btn form-control" title="수정하기"><%=dto.getUser_name() %></a>
+			<a href="editNameV.crud" class="btn form-control" title="수정하기"> 
+			<span class="col-sm-2 ">이름</span><span class="col-sm-10"><%=dto.getUser_name() %></span></a>
 		</div>
-		<div class="row">
-			<span class="">이메일</span>
-			<p><%=dto.getUser_email() %></p>
+		<hr>
+		<div class="row myemail">
+				<span class="col-sm-2">이메일</span><span class="col-sm-10 "><%=dto.getUser_email() %></span>
 		</div>
-		<div class="row">
-			<span class="">비밀번호</span>
-			<a href="editPassV.crud" class="btn form-control" title="수정하기">•••••••</a>
+		<div class="row last">
+			<a href="editPassV.crud" class="btn form-control" title="수정하기"> <span
+				class="col-sm-2">비밀번호</span><span class="col-sm-10">•••••••</span></a>
 		</div>
-	</div>
-	<div> 
-		<p> <a href="AccountDropV.crud" title="계정탈퇴" class="btn form-control">계정 탈퇴</a> </p> 
+		<div> 
+			<a href="AccountDropV.crud" title="계정탈퇴" class="btn form-control">계정 탈퇴</a>
+		</div>
 	</div>
 </div>
 

@@ -16,7 +16,7 @@
 			<c:forEach var="dto" items="${dto }" varStatus="status">
 				<div class="col-sm-3">
 					<input type="radio" name="category1" id=${dto.category1_id } value="${dto.category1_id }" >
-					<label for="category1">${dto.category1_name }</label>
+					<label for="${dto.category1_id }">${dto.category1_name }</label>
 				</div>
 			</c:forEach>
 		</div>
