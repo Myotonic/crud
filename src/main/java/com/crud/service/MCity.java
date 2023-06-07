@@ -18,9 +18,19 @@ public class MCity implements MemberService {
 		
 		String name = request.getParameter("roadAddress");
 		
+		//  이한동 06-07 수정분 //
+		float mapx = Float.parseFloat(request.getParameter("mapx"));
+		float mapy = Float.parseFloat(request.getParameter("mapy"));
+		//  이한동 06-07 수정분 //
+		
 		CityDto dto = new CityDto();
 		dto.setCity_name(name);
 		dto.setArea_id((int)request.getSession().getAttribute("area_id")); 
+		
+		//  이한동 06-07 수정분 //
+		dto.setMapx(mapx);
+		dto.setMapy(mapy);
+		//  이한동 06-07 수정분 //
 
 		MemberDao dao = new MemberDao();
 		/*

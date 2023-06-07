@@ -3,15 +3,12 @@
 	<% request.setCharacterEncoding("UTF-8"); %>
 <%@ include file='../inc/header.jsp' %>
 
-	<div class="container panel panel-success">
-		<h3 class="panel-heading">견적서 상세</h3>
-		<div class="form-group">
+	<div class="container">
+		<h3 class="">견적서 상세</h3>
+		<div class="form-group jumbotron"  >
 		<h4>${estimateDetailDto.user_name}</h4>
-		<div class="col">
-		<p class="col-sm-4">${estimateDetailDto.review}</p>
-		<p class="col-sm-4">${estimateDetailDto.city_name}</p>
-		<p class="col-sm-4">${estimateDetailDto.career_entry}</p>
-		</div>
+		<p>${estimateDetailDto.review}	${estimateDetailDto.city_name}	${estimateDetailDto.career_entry}</p>
+		<br>
 		<h4>견적 내용</h4>
 		<p>${estimateDetailDto.content}</p>
 		<h4>예상금액</h4>

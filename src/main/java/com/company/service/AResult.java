@@ -7,8 +7,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.company.dto.AdminDto;
+<<<<<<< HEAD
+=======
 import com.crud.dao.AdminDao;
+>>>>>>> branch 'master' of https://github.com/Myotonic/crud.git
+import com.company.dto.AdminDto;
+<<<<<<< HEAD
+import com.crud.dao.AdminDao;
+=======
+>>>>>>> branch 'master' of https://github.com/Myotonic/crud.git
 
 public class AResult implements AAction {
 

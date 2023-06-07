@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.crud.requestService.EstimateDetail;
 import com.crud.requestService.EstimatedList;
 import com.crud.requestService.RequestCancle;
+import com.crud.requestService.RequestCategory;
 import com.crud.requestService.RequestCreate;
 import com.crud.requestService.RequestList;
-import com.crud.service.MArea;
 
 /**
  * Servlet implementation class RequestFrontController
@@ -66,6 +66,10 @@ public class RequestFrontController extends HttpServlet {
 			
 		} else if(path.equals("/cancle.request")) {
 			new RequestCancle().exec(request, response);
+			
+		} else if(path.equals("/category.request")) {
+			new RequestCategory().exec(request, response);
+			
 		} 
 		
 	}

@@ -3,16 +3,23 @@
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<% request.setCharacterEncoding("UTF-8"); %>
 <%@ include file='../inc/header.jsp' %>
-	<div class="container panel panel-success">
-		<h3 class="panel-heading text-center">${dto.category1_name} - ${dto.category2_name}</h3>
-		<div class="form-group ajaxx">
-			<div class="form-group ajax1">
+	<div class="container text-center">
+	<%
+	if(session.getAttribute("member") == null) {
+		out.println("<script>alert('로그인이 필요한 서비스입니다'); location.href='"+request.getContextPath()+"/loginV.crud';</script>");
+	}
+	%>
+		<h3 class="text-center">${dto.category1_name} - ${dto.category2_name}</h3>
+		<div class="text-center">
+		<div class="form-group ajaxx row" style="float:none; margin:100 auto;">
+			<div class="form-group ajax1 col-md-3" style="float:none; margin:0 auto;">
 			</div>
 			<div class="text-right">
 			<c:set var="cnt" value="1" />
 			<input type="button" value="취소" id="prebtn" class="btn btn-default">
 			<input type="button" value="다음" id="nextbtn" class="btn btn-info">
 			</div>
+		</div>
 		</div>
 		
 		<form action="${pageContext.request.contextPath}/create.request" method="get" id="formrequest" >
@@ -25,8 +32,13 @@
 			<input type="hidden" id="hidden" name="category1_name" value="${dto.category1_name}" />
 			<input type="hidden" id="hidden" name="category2_id" value="${dto.category2_id}" />
 			<input type="hidden" id="hidden" name="category2_name" value="${dto.category2_name}" />
+			<input type="hidden" id="mapx" name="mapx" />
+			<input type="hidden" id="mapy" name="mapy" />
 		</form>
 		
+		<script type="text/javascript"
+			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=206619e722961e9bb72b6eab05eaaa4d&libraries=services">
+		</script>
 		<script>
 			$(function() {
 				
@@ -80,6 +92,20 @@
 								        	sido = data.sido;
 								        	sigungu = data.sigungu;
 								        	roadAddress = data.roadAddress;
+								        	
+								        	var geocoder = new kakao.maps.services.Geocoder();
+
+								        	 geocoder.addressSearch(data.roadAddress, function(result, status) {
+
+								        	      if (status === kakao.maps.services.Status.OK) {
+
+								        	         var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+								        	         
+								        	         $("#mapx").val(result[0].x);
+								        	         $("#mapy").val(result[0].y);
+								        	     } 	
+								        	 });	
+								        	
 								        }
 								    }).open();
 								});
