@@ -21,7 +21,7 @@
 	</em>
 			<input type="submit" value="범위 설정" />
 	</form>
-	
+	<p>fakjhsdfljhsfjlsh</p>
 </div>
 <%
    int cityId = (int) session.getAttribute("city_id");
