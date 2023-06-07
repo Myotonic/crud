@@ -20,9 +20,11 @@ public class MyPageMarket implements MarketService{
 		List<MDto> list = new ArrayList<>();
 		MDao dao = new MDao();
 		if(request.getSession().getAttribute("memberValue").equals("user")) {
-			list = dao.userMarket(request.getParameter("mDivision")==null? "상품" : request.getParameter("mDivision") , (int)(request.getSession().getAttribute("user_id")));
+			list = dao.userMarket(request.getParameter("mDivision")==null? "상품" : request.getParameter("mDivision") , (int)(request.getSession().getAttribute("member"))
+					,request.getParameter("market_count") ==null? 0:Integer.parseInt(request.getParameter("market_count")));
 		}else {
-			list = dao.expertMarket(request.getParameter("mDivision")==null? "상품" : request.getParameter("mDivision") , (int)(request.getSession().getAttribute("expert_id")));
+			list = dao.expertMarket(request.getParameter("mDivision")==null? "상품" : request.getParameter("mDivision") , (int)(request.getSession().getAttribute("expert_id"))
+					,request.getParameter("market_count") ==null? 0:Integer.parseInt(request.getParameter("market_count")));
 		}
 		request.setAttribute("myPageMarket", list);
 	}

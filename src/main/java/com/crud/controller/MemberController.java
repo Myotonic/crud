@@ -10,13 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.crud.service.AjaxInquiryRead;
 import com.crud.service.AjaxMarketRead;
+import com.crud.service.AjaxMyPageMarket;
 import com.crud.service.AnswerCreate;
-import com.crud.service.ClassUpdate;
-import com.crud.service.FaqDelete;
-import com.crud.service.FaqUpdate;
-import com.crud.service.ImgDelete;
-import com.crud.service.ImgUpdate;
+import com.crud.service.AnswerDelete;
+import com.crud.service.AnswerUpdate;
 import com.crud.service.InquiryDelete;
 import com.crud.service.InquiryDetail;
 import com.crud.service.InquiryRead;
@@ -45,8 +44,6 @@ import com.crud.service.MemberDrop;
 import com.crud.service.MemberService;
 import com.crud.service.MemberValue;
 import com.crud.service.MyPageMarket;
-import com.crud.service.TimeDelete;
-import com.crud.service.TimeUpdate;
 
 /**
  * Servlet implementation class MemberController
@@ -101,17 +98,18 @@ public class MemberController extends HttpServlet {
 		}
 		//구입버튼 누르면 구입폼으로
 		else if(path.equals("/marketBuyForm.crud")) {
-			request.getRequestDispatcher("marketBuyFrom.jsp").forward(request, response);
+			marketService = new MarketDetail(); marketService.exec(request, response);
+			request.getRequestDispatcher("/market/marketBuyFrom.jsp").forward(request, response);
 		}
 		//구입상세페이지에서 구입하면 db에 등록
 		else if(path.equals("/marketBuy.crud")) {
 			marketService = new MarketBuy(); marketService.exec(request, response);
-			out.print("<script>location.href='"+request.getContextPath()+"/';</script>");
+			out.print("<script>location.href='"+request.getContextPath()+"/marketView.crud';</script>");
 		}
 		//마켓 디테일 페이지에서 문의버튼(문의폼 모달) 누르고 문의 작성후 등록
 		else if(path.equals("/marketInquiry.crud")) {
 			marketService = new MarketInquiry(); marketService.exec(request, response);
-			out.print("<script>location.href='"+request.getContextPath()+"/';</script>");
+			out.print("<script>location.href='"+request.getContextPath()+"/marketDetail.crud?market_id="+request.getParameter("market_id")+"';</script>");
 		}
 		//마켓 생성 폼
 		else if (path.equals("/marketCreateForm.crud")) {
@@ -132,92 +130,81 @@ public class MemberController extends HttpServlet {
 		//나의 마켓 확인
 		else if(path.equals("/myPageMarket.crud")) {
 			marketService = new MyPageMarket(); marketService.exec(request, response);
-			request.getRequestDispatcher("myPageMarket.jsp").forward(request, response);
+			request.getRequestDispatcher("/market/myPageMarket.jsp").forward(request, response);
+		}
+		//나의 마켓 Ajax
+		else if(path.equals("/ajaxmyPageMarket.crud")) {
+			marketService = new AjaxMyPageMarket(); marketService.exec(request, response);
 		}
 		//마켓 수정 폼
 		else if(path.equals("/marketUpdateForm.crud")) {
-			request.getRequestDispatcher("marketUpdateForm.jsp").forward(request, response);
+			marketService = new MarketDetail(); marketService.exec(request, response);
+			request.getRequestDispatcher("/market/marketUpdateForm.jsp").forward(request, response);
 		}
 		//마켓 수정
 		else if(path.equals("/marketUpdate.crud")) {
 			marketService = new MarketUpdate(); marketService.exec(request, response);
-			out.print("<script>location.href='"+request.getContextPath()+"/';</script>");
+			out.print("<script>location.href='"+request.getContextPath()+"/marketDetail.crud?market_id="+request.getParameter("market_id")+"';</script>");
 		}
-		//상세 수정 faq
-		else if(path.equals("/faqUpdate.crud")) {
-			marketService = new FaqUpdate(); marketService.exec(request, response);
-			out.print("<script>location.href='"+request.getContextPath()+"/';</script>");
-		}
-		//상세 수정 img
-		else if(path.equals("/imgUpdate.crud")) {
-			marketService = new ImgUpdate(); marketService.exec(request, response);
-			out.print("<script>location.href='"+request.getContextPath()+"/';</script>");
-		}
-		//상세 수정 class
-		else if(path.equals("/classUpdate.crud")) {
-			marketService = new ClassUpdate(); marketService.exec(request, response);
-			out.print("<script>location.href='"+request.getContextPath()+"/';</script>");
-		}
-		//상세 수정 time
-		else if(path.equals("/timeUpdate.crud")) {
-			marketService = new TimeUpdate(); marketService.exec(request, response);
-			out.print("<script>location.href='"+request.getContextPath()+"/';</script>");
-		}
-		
 		//마켓 삭제
 		else if(path.equals("/marketDelete.crud")) {
 			marketService = new MarketDelete(); marketService.exec(request, response);
 			out.print("<script>location.href='"+request.getContextPath()+"/';</script>");
 		}
-		//상세 삭제 faq
-		else if(path.equals("/faqDelete.crud")) {
-			marketService = new FaqDelete(); marketService.exec(request, response);
-			out.print("<script>location.href='"+request.getContextPath()+"/';</script>");
-		}
-		//상세 삭제 img
-		else if(path.equals("/imgDelete.crud")) {
-			marketService = new ImgDelete(); marketService.exec(request, response);
-			out.print("<script>location.href='"+request.getContextPath()+"/';</script>");
-		}
-		//상세 삭제 time
-		else if(path.equals("/timeDelete.crud")) {
-			marketService = new TimeDelete(); marketService.exec(request, response);
-			out.print("<script>location.href='"+request.getContextPath()+"/';</script>");
-		}
 		//나의 문의 확인
 		else if(path.equals("/inquiryView.crud")) {
 			marketService = new InquiryRead(); marketService.exec(request, response);
-			request.getRequestDispatcher("/inquiryView.jsp").forward(request, response);
+			request.getRequestDispatcher("/market/myPageInquiry.jsp").forward(request, response);
+		}
+		//문의 아작스
+		else if(path.equals("/ajaxInquiryView.crud")) {
+			marketService = new AjaxInquiryRead(); marketService.exec(request, response);
 		}
 		//문의 디테일
 		else if(path.equals("/inquiryDetail.crud")) {
 			marketService = new InquiryDetail(); marketService.exec(request, response);
-			request.getRequestDispatcher("/inquiryDetail.jsp").forward(request, response);
+			if(request.getSession().getAttribute("memberValue").equals("user")) {
+				request.getRequestDispatcher("/market/inquiryUserDetail.jsp").forward(request, response);				
+			}else {
+				request.getRequestDispatcher("/market/inquiryExpertDetail.jsp").forward(request, response);								
+			}
 		}
 		//문의 수정 폼
 		else if(path.equals("/inquiryUpdateForm.crud")) {
-			request.getRequestDispatcher("inquiryUpdateForm.jsp").forward(request, response);
+			marketService = new InquiryDetail(); marketService.exec(request, response);
+			request.getRequestDispatcher("/market/inquiryUpdateForm.jsp").forward(request, response);
 		}
 		//문의 수정
 		else if(path.equals("/inquiryUpdate.crud")) {
 			marketService = new InquiryUpdate(); marketService.exec(request, response);
-			out.print("<script>location.href='"+request.getContextPath()+"/';</script>");
+			out.print("<script>location.href='"+request.getContextPath()+"/main.crud';</script>");
 		}
 		//문의 삭제
 		else if(path.equals("/inquiryDelete.crud")) {
 			marketService = new InquiryDelete(); marketService.exec(request, response);
-			out.print("<script>location.href='"+request.getContextPath()+"/';</script>");
-		}
-		//전문가 문의확인, 답변달수있는 폼같이
-		else if(path.equals("/inquiryView.crud")) {
-			marketService = new InquiryRead(); marketService.exec(request, response);
-			request.getRequestDispatcher("/inquiryExpertAnswer.jsp").forward(request, response);
+			out.print("<script>location.href='"+request.getContextPath()+"/main.crud';</script>");
 		}
 		//전문가 답변 엑션
 		else if(path.equals("/answerCreate.crud")) {
 			marketService = new AnswerCreate(); marketService.exec(request, response);
-			out.print("<script>location.href='"+request.getContextPath()+"/';</script>");
+			out.print("<script>location.href='"+request.getContextPath()+"/inquiryView.crud';</script>");
 		}
+		//전문가 답변 수정폼
+		else if(path.equals("/answerUpdateForm.crud")) {
+			marketService = new InquiryDetail(); marketService.exec(request, response);
+			request.getRequestDispatcher("/market/answerUpdateForm.jsp").forward(request, response);
+		}
+		//전문가 답변 수정
+		else if(path.equals("/answerUpdate.crud")) {
+			marketService = new AnswerUpdate(); marketService.exec(request, response);
+			out.print("<script>location.href='"+request.getContextPath()+"/inquiryDetail.crud?inquiry_id="+request.getParameter("inquiry_id")+"';</script>");
+		}
+		//전문가 답변 삭제
+		else if(path.equals("/answerDelete.crud")) {
+			marketService = new AnswerDelete(); marketService.exec(request, response);
+			out.print("<script>location.href='"+request.getContextPath()+"/inquiryView.crud';</script>");
+		}
+		
 		
 		if(path.equals("/main.crud")) {
 			request.getRequestDispatcher("/temp002/main.jsp").forward(request, response);

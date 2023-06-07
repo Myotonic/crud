@@ -25,6 +25,7 @@ public class InquiryDelete implements MarketService{
 			result = "삭제에 성공했습니다.";
 		}
 		out.println("<script>alert('"+result+"');</script>");	
+	
 	}
 	
 }

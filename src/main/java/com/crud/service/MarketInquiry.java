@@ -20,11 +20,11 @@ public class MarketInquiry implements MarketService{
 		Inquiry inquiry = new Inquiry();
 		PrintWriter out = response.getWriter();
 		String result = "관리자에게 문의하세요";
-		inquiry.setCategory(request.getParameter("Icategory"));
-		inquiry.setTitle(request.getParameter("Ititle"));
-		inquiry.setContent(request.getParameter("Icontent"));
+		inquiry.setCategory(request.getParameter("iCategory"));
+		inquiry.setTitle(request.getParameter("iTitle"));
+		inquiry.setContent(request.getParameter("iContent"));
 		inquiry.setMarket_id(Integer.parseInt(request.getParameter("market_id")));
-		inquiry.setUser_id((int) request.getSession().getAttribute("user_id"));
+		inquiry.setUser_id((int) request.getSession().getAttribute("member"));
 		if(dao.createInquiry(inquiry)>0) {
 			result = "문의작성을 완료했습니다.";
 		}
