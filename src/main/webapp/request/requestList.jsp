@@ -9,7 +9,7 @@
 		<div class="col">
 		
 		<c:forEach var="i" items="${requestList}" varStatus="status">
-			<div class="col-sm-4 panel-body form-group" style="padding:10px 10px; margin: 10px; color: inherit; background-color:#eee;">
+			<div class="col-sm-4 panel-body form-group" style="width:31%; padding:10px 10px; margin: 10px; color: inherit; background-color:#eee;">
 			<h4>${i.category2_name}</h4>
 				<p>${i.create_date}</p>
 				<p class="text-center"><c:if test="${i.status == 1}">견적요청 중</c:if></p>

@@ -8,6 +8,7 @@
 		<h3 class="col-sm-9">견적서 목록보기</h3>
 		<a href="${pageContext.request.contextPath}/cancle.request?request_id=${request_id}" class="text-right"><button class="btn text-right col-sm-3" style="width:70px; heigh:15px; font-size:8px;">요청 취소</button></a>
 		</div>
+		<hr/>
 		<div class="col">
 		
 		<c:forEach var="i" items="${estimatedList}" varStatus="status">
