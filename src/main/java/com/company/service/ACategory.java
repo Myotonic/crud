@@ -8,13 +8,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.crud.dao.AdminDao;
 import com.company.dto.Category1Dto;
 import com.company.dto.Category2Dto;
 import com.company.dto.CategoryDto;
-import com.company.dto.ExpertDto;
 import com.company.dto.UserExpertCategoryCityDto;
-import com.company.dto.UserExpertDto;
+import com.crud.dao.AdminDao;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
@@ -31,7 +29,7 @@ public class ACategory implements AAction {
 		 Category1Dto category1 = new Category1Dto();
 		 
 		 //category1.setCategory1_name("레슨");
-		 category1.setCategory1_name(request.getParameter("category1_name"));
+		 category1.setCategory1_id(Integer.parseInt(request.getParameter("category1_name")));
 		 category.setCategory1(category1);
 		 dto.setCategory(category);
 		 

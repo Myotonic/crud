@@ -12,8 +12,11 @@ public class EstimateDetail implements RequestService{
 	@Override
 	public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int estimate_id = Integer.parseInt(request.getParameter("estimate_id"));
+		int request_id = Integer.parseInt(request.getParameter("request_id"));
 		
 		request.setAttribute("estimateDetailDto", new RequestDao().estimateDetail(estimate_id));
+		request.setAttribute("estimate_id", estimate_id);
+		request.setAttribute("request_id", request_id);
 		request.getRequestDispatcher("/request/requestEstimateDetail.jsp").forward(request, response);
 	}
 }

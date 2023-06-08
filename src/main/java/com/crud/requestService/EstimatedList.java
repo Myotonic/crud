@@ -14,9 +14,7 @@ public class EstimatedList implements RequestService{
 		int request_id = Integer.parseInt(request.getParameter("request_id"));
 		
 		request.setAttribute("estimatedList", new RequestDao().estimatedList(request_id));
-		System.out.println(request.getAttribute("estimatedList"));
 		request.setAttribute("request_id", request_id);
-		System.out.println(request.getAttribute("request_id"));
 		request.getRequestDispatcher("/request/requestEstimateList.jsp").forward(request, response);
 	}
 }
