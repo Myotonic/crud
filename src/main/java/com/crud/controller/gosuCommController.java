@@ -1,4 +1,4 @@
-package com.company.controller;
+package com.crud.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,15 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.company.service.bBUpdate;
-import com.company.service.bBoardCreate;
-import com.company.service.bBoardList;
+import com.crud.service.bBUpdate;
+import com.crud.service.bBoardCreate;
+import com.crud.service.bBoardList;
 
 /**
  * Servlet implementation class gosuCommController
  */
 
-@WebServlet("*.crud")
+@WebServlet("*.crud22")
 public class gosuCommController extends HttpServlet {
     private static final long serialVersionUID = 1L;
        
