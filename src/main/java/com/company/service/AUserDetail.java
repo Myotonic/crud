@@ -6,15 +6,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-<<<<<<< HEAD
-=======
-import com.crud.dao.AdminDao;
->>>>>>> branch 'master' of https://github.com/Myotonic/crud.git
 import com.company.dto.UserDto;
-<<<<<<< HEAD
 import com.crud.dao.AdminDao;
-=======
->>>>>>> branch 'master' of https://github.com/Myotonic/crud.git
+
 
 public class AUserDetail implements AAction {
 

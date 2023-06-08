@@ -1,4 +1,4 @@
-package com.company.service;
+package com.crud.service;
 
 import java.io.IOException;
 
@@ -6,8 +6,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.company.dao.CommDao;
-import com.company.dto.BoardResult;
+import com.crud.dao.CommDao;
+import com.crud.dto.BoardResult;
 
 public class bBoardList implements GosuService{
 

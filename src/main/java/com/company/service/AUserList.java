@@ -7,11 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.crud.dao.AdminDao;
-<<<<<<< HEAD
-=======
-import com.crud.dto.ExpertDto;
-import com.company.dto.UserExpertDto;
->>>>>>> branch 'master' of https://github.com/Myotonic/crud.git
+
+
 
 
 public class AUserList implements AAction {

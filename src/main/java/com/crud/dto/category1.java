@@ -1,4 +1,4 @@
-package com.company.dto;
+package com.crud.dto;
 
 public class category1 {
 	private int category1_id;

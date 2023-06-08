@@ -1,4 +1,4 @@
-package com.company.dao;
+package com.crud.dao;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -9,16 +9,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.company.dbmanager.DBManager;
-import com.company.dto.Area;
-import com.company.dto.BoardResult;
-import com.company.dto.City;
-import com.company.dto.Comment;
-import com.company.dto.Expert;
-import com.company.dto.User;
-import com.company.dto.bWriterDto;
-import com.company.dto.category1;
-import com.company.dto.category2;
+import com.crud.dbmanager.DBManager;
+import com.crud.dto.Area;
+import com.crud.dto.BoardResult;
+import com.crud.dto.City;
+import com.crud.dto.Comment;
+import com.crud.dto.Expert;
+import com.crud.dto.User;
+import com.crud.dto.bWriterDto;
+import com.crud.dto.category1;
+import com.crud.dto.category2;
 
 public class CommDao {
     public int write(bWriterDto br) throws UnknownHostException {

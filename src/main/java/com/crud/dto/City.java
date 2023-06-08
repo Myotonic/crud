@@ -1,4 +1,4 @@
-package com.company.dto;
+package com.crud.dto;
 
 public class City {
 	private int area_id;

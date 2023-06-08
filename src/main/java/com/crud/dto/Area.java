@@ -1,4 +1,4 @@
-package com.company.dto;
+package com.crud.dto;
 
 import java.util.List;
 
