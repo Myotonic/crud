@@ -13,6 +13,7 @@ import com.crud.requestService.EstimatedList;
 import com.crud.requestService.RequestCancle;
 import com.crud.requestService.RequestCategory;
 import com.crud.requestService.RequestCreate;
+import com.crud.requestService.RequestDelete;
 import com.crud.requestService.RequestList;
 
 /**
@@ -50,8 +51,6 @@ public class RequestFrontController extends HttpServlet {
 		
 		String path = request.getServletPath();
 		
-		System.out.println(path);
-		
 		if(path.equals("/create.request")) {
 			new RequestCreate().exec(request, response);
 			
@@ -70,7 +69,9 @@ public class RequestFrontController extends HttpServlet {
 		} else if(path.equals("/category.request")) {
 			new RequestCategory().exec(request, response);
 			
-		} 
+		} else if(path.equals("/delete.request")) {
+			new RequestDelete().exec(request, response);
+		}
 		
 	}
 	

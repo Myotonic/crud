@@ -23,7 +23,7 @@
 	</c:if>
 	
 	<div class="form-group text-right">
-		<a href="javascript:history.go(-1)" title="뒤로가기" class="btn btn-default" style="color:white;">뒤로가기</a>
+		<a href="javascript:history.go(-1)" title="뒤로가기" class="btn btn-default" >뒤로가기</a>
 		<c:if test="${!mInquiry.checkAnswer}">
 		<a href="${pageContext.request.contextPath}/inquiryDelete.crud?inquiry_id=${mInquiry.inquiry_id}" title="삭제" class="btn btn-danger" style="color:white;">삭제</a>
 		<a href="${pageContext.request.contextPath}/inquiryUpdateForm.crud?inquiry_id=${mInquiry.inquiry_id}" title="수정" class="btn btn-info" style="color:white;">수정</a>

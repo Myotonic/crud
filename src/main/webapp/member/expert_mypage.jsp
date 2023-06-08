@@ -25,8 +25,8 @@
 		<hr/>
 		<div class="">
 			<div class=""><strong>클래스</strong></div>
-			<div class=""><a href="">나의 상품 내역</a></div>
-			<div class=""><a href="">문의 내역 관리</a></div>
+			<div class=""><a href="${pageContext.request.contextPath}/myPageMarket.crud">나의 상품 내역</a></div>
+			<div class=""><a href="${pageContext.request.contextPath}/inquiryView.crud">문의 내역 관리</a></div>
 		</div>
 		<hr/>
 		<div class="last">

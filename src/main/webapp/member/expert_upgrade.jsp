@@ -3,12 +3,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../inc/header.jsp" %>
-	<div class="member-page text-center">
-	<h2>고수 가입</h2>
-	<div class="member_form text-left">
+<div class="container member-page">
+	<h3>고수 가입</h3>
+	<hr />
+	<div class="member_form">
 		<form action="expert_join.crud" method="post" class="form">
-			
-			<hr />
 			<%
 			   int user_id = (int) session.getAttribute("member");
 			   MemberDao dao = new MemberDao();
@@ -46,7 +45,7 @@
 					<input type="email" name="emailV" id="emailV"  class="form-control"/>
 				</div>
 				<div class="col-sm-2">
-					<input type="button" value="전송" class="btn btn-info emailSend2" />
+					<input type="button" value="전송" class="btn emailSend2" />
 				</div>
 				<p class="r1 label label-danger"></p>
 			</div>
@@ -61,7 +60,7 @@
 					<input type="text" id="emailCheck2" name="emailCheck2" class="form-control" />
 				</div>
 				<div class="col-sm-2">
-					<input type="button" value="인증하기" class="btn btn-info emailCheck3" />
+					<input type="button" value="인증" class="btn  emailCheck3" />
 				</div>
 			</div>
 			<p class="r2 label label-danger"></p>

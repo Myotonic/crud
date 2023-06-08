@@ -9,10 +9,10 @@
 		<div class="container well">
 		
 		<div class="col">
-			<div class="col-sm-3 ca1 text-center"><img alt="ddd" src="img/lesson.png"><strong>레슨</strong></div>
-			<div class="col-sm-3 ca2 text-center"><img alt="ddd" src="img/living.png"><strong>홈/리빙</strong></div>
-			<div class="col-sm-3 ca3 text-center"><img alt="ddd" src="img/design.png"><strong>디자인/개발</strong></div>
-			<div class="col-sm-3 ca4 text-center"><img alt="ddd" src="img/guitar.png"><strong>기타</strong></div>
+			<div class="col-sm-3 ca1 text-center"><img alt="레슨" src="img/lesson.png"><strong>레슨</strong></div>
+			<div class="col-sm-3 ca2 text-center"><img alt="홈/리빙" src="img/living.png"><strong>홈/리빙</strong></div>
+			<div class="col-sm-3 ca3 text-center"><img alt="디자인/개발" src="img/design.png"><strong>디자인/개발</strong></div>
+			<div class="col-sm-3 ca4 text-center"><img alt="기타" src="img/guitar.png"><strong>기타</strong></div>
 		</div>
 		
 		</div>

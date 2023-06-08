@@ -17,6 +17,7 @@ import com.crud.service.AjaxRefund;
 import com.crud.service.AnswerCreate;
 import com.crud.service.AnswerDelete;
 import com.crud.service.AnswerUpdate;
+import com.crud.service.GosuService;
 import com.crud.service.InquiryDelete;
 import com.crud.service.InquiryDetail;
 import com.crud.service.InquiryRead;
@@ -45,6 +46,7 @@ import com.crud.service.MemberDrop;
 import com.crud.service.MemberService;
 import com.crud.service.MemberValue;
 import com.crud.service.MyPageMarket;
+import com.crud.service.bBoardMainView;
 
 /**
  * Servlet implementation class MemberController
@@ -83,6 +85,7 @@ public class MemberController extends HttpServlet {
 		String path = request.getServletPath();
 		MemberService service = null;
 		MarketService marketService =null;
+		GosuService gosuService = null;
 		//마켓뷰
 		if(path.equals("/marketView.crud")) {
 			marketService = new MarketRead(); marketService.exec(request, response);
@@ -150,7 +153,7 @@ public class MemberController extends HttpServlet {
 		//마켓 삭제
 		else if(path.equals("/marketDelete.crud")) {
 			marketService = new MarketDelete(); marketService.exec(request, response);
-			out.print("<script>location.href='"+request.getContextPath()+"/';</script>");
+			out.print("<script>location.href='"+request.getContextPath()+"/main.crud';</script>");
 		}
 		//나의 문의 확인
 		else if(path.equals("/inquiryView.crud")) {
@@ -204,12 +207,16 @@ public class MemberController extends HttpServlet {
 		else if(path.equals("/answerDelete.crud")) {
 			marketService = new AnswerDelete(); marketService.exec(request, response);
 			out.print("<script>location.href='"+request.getContextPath()+"/inquiryView.crud';</script>");
-		}else if(path.equals("/ajaxRefund.crud")) {
+		}
+		//환불 요청
+		else if(path.equals("/ajaxRefund.crud")) {
 			marketService = new AjaxRefund(); marketService.exec(request, response);
 		}
 		
 		
 		else if(path.equals("/main.crud")) {
+	         marketService = new MarketRead(); marketService.exec(request, response);
+	         gosuService = new bBoardMainView(); gosuService.exec(request, response);
 			request.getRequestDispatcher("/member/main.jsp").forward(request, response);
 		}else if(path.equals("/user_joinV.crud")) {
 			request.getRequestDispatcher("/member/user_join.jsp").forward(request, response);
@@ -217,7 +224,7 @@ public class MemberController extends HttpServlet {
 			service = new MUserJoin();
 			service.exec(request, response);
 //			out.println("<script>location.href='"+request.getContextPath()+"/member/main.jsp';</script>");
-			out.println("<script>location.href='"+request.getContextPath()+"/member/main.jsp';</script>");
+			out.println("<script>location.href='"+request.getContextPath()+"/main.crud';</script>");
 		}else if(path.equals("/expert_joinC1.crud")) {
 			service = new MCategory1();
 			service.exec(request, response);
@@ -252,16 +259,16 @@ public class MemberController extends HttpServlet {
 		}else if(path.equals("/expert_join.crud")) {
 			service = new MExpertJoin();
 			service.exec(request, response);
-			out.println("<script>location.href='"+request.getContextPath()+"/member/main.jsp';</script>");
+			out.println("<script>location.href='"+request.getContextPath()+"/main.crud';</script>");
 		}else if(path.equals("/login.crud")) {
 			service = new MLogin();
 			service.exec(request, response);
-			out.println("<script>location.href='"+request.getContextPath()+"/member/main.jsp';</script>");
+			out.println("<script>location.href='"+request.getContextPath()+"/main.crud';</script>");
 			/* request.getRequestDispatcher("/member/main.jsp").forward(request, response); */
 		}else if(path.equals("/MemberValue.crud")) {
 			service = new MemberValue();
 			service.exec(request, response);
-			out.println("<script>location.href='"+request.getContextPath()+"/member/main.jsp';</script>");
+			out.println("<script>location.href='"+request.getContextPath()+"/main.crud';</script>");
 //			request.getRequestDispatcher("/member/main.jsp").forward(request, response);
 		}else if(path.equals("/MyPage.crud")) {
 			String memberValue = (String) request.getSession().getAttribute("memberValue");
@@ -285,7 +292,7 @@ public class MemberController extends HttpServlet {
 		}else if(path.equals("/logout.crud")) {
 			service = new MLogout();
 			service.exec(request, response);
-			out.println("<script>location.href='"+request.getContextPath()+"/member/main.jsp';</script>");
+			out.println("<script>location.href='"+request.getContextPath()+"/main.crud';</script>");
 		}else if(path.equals("/AccountSetting.crud")) {
 			request.getRequestDispatcher("/member/account.jsp").forward(request, response);
 		}else if(path.equals("/editNameV.crud")) {
@@ -305,7 +312,7 @@ public class MemberController extends HttpServlet {
 		}else if(path.equals("/AccountDrop.crud")) {
 			service = new MemberDrop();
 			service.exec(request, response);
-			out.println("<script>location.href='"+request.getContextPath()+"/member/main.jsp';</script>");
+			out.println("<script>location.href='"+request.getContextPath()+"/main.crud';</script>");
 		}
 	}
 

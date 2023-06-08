@@ -86,8 +86,9 @@
         <label for="fileContainer">파일</label>
         <div id="fileContainer">
           <input type="file" name="file1" class="form-control">
+          <input type="hidden" name="fileCheck">
         </div>
-        <button type="button" id="addFileButton" class="btn btn-primary" style="color:white;">파일 추가</button>
+        <button type="button" id="addFileButton" class="btn btn-primary" style="color:white;" >파일 추가</button>
       </div>
 
 
@@ -173,13 +174,14 @@
     	    // reset category2 selection
     	    category2Select.selectedIndex = -1;
     	  });
-
+	
+    	
       // 파일 추가 버튼 클릭 시 파일 필드를 동적으로 추가
       $("#addFileButton").click(function() {
         var fileField = '<input type="file" name="file[]" class="form-control">';
         $("#fileContainer").append(fileField);
       });
-
+	
       // 질문 추가 버튼 클릭 시 질문 필드를 동적으로 추가
       $("#addFaqButton").click(function() {
         var faqField = `
@@ -199,41 +201,51 @@
 
       // 글쓰기 버튼 클릭 이벤트 핸들러
       $("#formSubmitButton").click(function() {
+    	
         if ($("#mTitle").val() == "") {
           alert("제목을 입력해야합니다.");
           $("#mTitle").focus();
           return false;
-        }
-        if ($("#mContent").val() == "") {
+        }else if ($("#mContent").val() == "") {
           alert("내용를 입력해야합니다.");
           $("#mContent").focus();
           return false;
-        }
-        if ($("#mPrice").val() == "") {
+        }else if ($("#mPrice").val() == "") {
           alert("가격을 입력해야합니다.");
           $("#mPrice").focus();
           return false;
-        }
-        if ($("#category1_id").val() == "") {
+        }else if ($("#mRefund").val() == "") {
+            alert("환불규정을 입력해야합니다.");
+            $("#mRefund").focus();
+            return false;
+        }else  if ($("#category1_id").val() == "") {
           alert("카테고리아이디를 입력해야합니다.");
           $("#category1_id").focus();
           return false;
-        }
-        if ($("#category2_id").val() == "") {
+        }else if ($("#category2_id").val() == "") {
           alert("카테고리아이디를 입력해야합니다.");
           $("#category2_id").focus();
           return false;
-        }
-        if ($("#fTitle").val() == "") {
+        }else if($("#file1").files.length!=0){
+            alert("파일을 추가해야합니다.");
+            $("#file1").focus();
+            return false;
+        }else if ($("#locationInput").val() == "") {
+            alert("위치를 설정해야합니다.");
+            $("#locationInput").focus();
+            return false;
+         }
+        
+        /* else if ($("#fTitle").val() == "") {
           alert("제목을 입력해야합니다.");
-          $("#fTitle").focus();
+          $("#fTitle[]").focus();
           return false;
-        }
-        if ($("#fContent").val() == "") {
-          alert("제목을 입력해야합니다.");
-          $("#fContent").focus();
+        }else if ($("#fContent").val() == "") {
+          alert("내용을 입력해야합니다.");
+          $("#fContent[]").focus();
           return false;
-        }
+        } */
+        
       });
 
       // 시간 옵션 변경 이벤트 핸들러
