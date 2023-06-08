@@ -1,4 +1,4 @@
-package com.company.dto;
+package com.crud.dto;
 
 public class Certificate {
 	private int expert_id;

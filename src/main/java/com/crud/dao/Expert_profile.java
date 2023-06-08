@@ -1,4 +1,4 @@
-package com.company.dao;
+package com.crud.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,14 +7,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.company.dbmanager.DBManager;
-import com.company.dto.Career;
-import com.company.dto.Certificate;
-import com.company.dto.Education;
-import com.company.dto.Expert;
-import com.company.dto.Expert_profileDto;
-import com.company.dto.Portfolio;
-import com.company.dto.User;
+import com.crud.dbmanager.DBManager;
+import com.crud.dto.Career;
+import com.crud.dto.Certificate;
+import com.crud.dto.Education;
+import com.crud.dto.Expert;
+import com.crud.dto.Expert_profileDto;
+import com.crud.dto.Portfolio;
+import com.crud.dto.User;
 
 public class Expert_profile {
 

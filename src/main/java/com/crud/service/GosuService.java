@@ -1,4 +1,4 @@
-package com.company.service;
+package com.crud.service;
 
 import java.io.IOException;
 

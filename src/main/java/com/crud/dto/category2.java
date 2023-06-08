@@ -1,4 +1,4 @@
-package com.company.dto;
+package com.crud.dto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ public class category2 {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public category2(int category2_id, String category2_name, List<com.company.dto.category1> category1) {
+	public category2(int category2_id, String category2_name, List<category1> category1) {
 		super();
 		this.category2_id = category2_id;
 		this.category2_name = category2_name;

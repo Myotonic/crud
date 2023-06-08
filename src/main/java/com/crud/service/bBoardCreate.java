@@ -1,4 +1,4 @@
-package com.company.service;
+package com.crud.service;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,10 +9,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.company.dao.CommDao;
-import com.company.dto.Area;
-import com.company.dto.bWriterDto;
-import com.company.dto.category1;
+import com.crud.dao.CommDao;
+import com.crud.dto.Area;
+import com.crud.dto.bWriterDto;
+import com.crud.dto.category1;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
