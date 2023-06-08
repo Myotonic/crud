@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,6 +14,8 @@ import com.company.service.ADupl;
 import com.company.service.AFindId;
 import com.company.service.AJoin;
 import com.company.service.ALogin;
+import com.company.service.AMail;
+import com.company.service.AMailCheck;
 import com.company.service.AMarketDelete;
 import com.company.service.AMarketDetail;
 import com.company.service.AMarketEdit;
@@ -30,7 +31,7 @@ import com.company.service.AUserList;
 /**
  * Servlet implementation class AdminController
  */
-@WebServlet("*.admin")
+//@WebServlet("*.admin")
 public class AdminController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -333,7 +334,60 @@ public class AdminController extends HttpServlet {
 			request.getRequestDispatcher("/marketlist.admin").forward(request, response);
 		
 		
+		}	
+		
+		
+		else if(path.equals("/mailcheck.admin")) {
+			
+			service = new AMailCheck();
+			
+			
+			service.exec(request, response);
+			
+			
+			
+		
+		
 		}		
+		else if(path.equals("/mail_form.admin")) {
+			
+			
+			
+			
+			request.getRequestDispatcher("/admin/admin_mail.jsp").forward(request, response);
+			
+		
+		
+		}	
+		
+		else if(path.equals("/pass_form.admin")) {
+			
+			
+			
+			
+			request.getRequestDispatcher("/admin/admin_new_pass.jsp").forward(request, response);
+			
+		
+		
+		}	
+		
+		else if(path.equals("/pass.admin")) {
+			
+			
+			service = new AMail();
+			
+			service.exec(request, response);
+			
+			
+			
+			out.println("<script>location.href='home.admin';</script>");
+			
+			
+			
+			
+		
+		
+		}	
 		
 		
 		

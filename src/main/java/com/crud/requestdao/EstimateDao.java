@@ -94,10 +94,11 @@ public class EstimateDao {
 	public RequestDetailDto requestDetail(int request_id) {
 		RequestDetailDto dto = new RequestDetailDto();
 		
-		String sql = "select re.request_id, u.user_name , ci.city_name , re.work_date , re.content "
+		String sql = "select re.request_id, u.user_name , ci.city_name , re.work_date , re.content , ca.category2_name "
 				+ "from request re "
 				+ "join city ci on ci.city_id = re.city_id "
 				+ "join user u on u.user_id = re.user_id  "
+				+ "join category2 ca on ca.category2_id = re.category2_id "
 				+ "where re.request_id = ? ";
 		
 		try {
@@ -112,6 +113,7 @@ public class EstimateDao {
 				dto.setWork_date(rset.getString("work_date"));
 				dto.setContent(rset.getString("content"));
 				dto.setRequest_id(rset.getInt("request_id"));
+				dto.setCategory2_name(rset.getString("category2_name"));
 			}
 			
 		} catch (Exception e) {

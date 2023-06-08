@@ -15,7 +15,7 @@ Latest compiled JavaScript
 </head>
 <body> -->
 
-<%@include file="../inc/header.jsp" %>
+<%@include file="inc/header.jsp" %>
 <div class="container panel panel-info">
    <h3 class="panel-heading">비밀번호 찾기</h3>
    <form action="#" method="post" id="form_login" class="form-horizontal" >
@@ -85,6 +85,6 @@ Latest compiled JavaScript
  
  
 </div>
-<%@include file="../inc/footer.jsp" %>
+<%@include file="inc/footer.jsp" %>
 <!-- </body>
 </html> -->

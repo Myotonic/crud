@@ -16,10 +16,10 @@ Latest compiled JavaScript
 <body> -->
 
 
-<%@include file="../inc/header.jsp" %>
+<%@include file="inc/header.jsp" %>
 <div class="container panel panel-info">
    <h3 class="panel-heading">새 비밀번호 입력</h3>
-   <form action="#" method="post" id="form_login" class="form-horizontal" >
+   <form action="${pageContext.request.contextPath}/pass.admin?admin_email=${param.admin_email}" method="post" id="form_login" class="form-horizontal" >
    <fieldset>
    <legend>NEW - PASSWORD</legend>
    
@@ -28,7 +28,7 @@ Latest compiled JavaScript
    <div class="form-group">
    <div class="col-sm-6">
    <label for="name">새 비밀번호</label>
-   <input type="password" name="pass" id="pass" class="form-control" placeholder="새 비밀번호"/>
+   <input type="password" name="admin_pass" id="pass" class="form-control" placeholder="새 비밀번호"/>
    </div>
    </div>
    
@@ -101,4 +101,4 @@ Latest compiled JavaScript
 </html> -->
 
 
-<%@include file="../inc/footer.jsp" %>
+<%@include file="inc/footer.jsp" %>

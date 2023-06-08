@@ -81,7 +81,7 @@
 		$(window).ready( function(){
 			$(".ca1").on("click", function() {
 				$.ajax({
-					url : "${pageContext.request.contextPath}/ajax/e.txt" ,
+					url : "${pageContext.request.contextPath}/member/ajax/e.txt" ,
 					type : "get" ,
 					dataType : "text" ,
 					success : function(text) {
@@ -97,7 +97,7 @@
 			});
 			$(".ca2").on("click", function() {
 				$.ajax({
-					url : "${pageContext.request.contextPath}/ajax/ee.txt" ,
+					url : "${pageContext.request.contextPath}/member/ajax/ee.txt" ,
 					type : "get" ,
 					dataType : "text" ,
 					success : function(text) {
@@ -113,7 +113,7 @@
 			});
 			$(".ca3").on("click", function() {
 				$.ajax({
-					url : "${pageContext.request.contextPath}/ajax/eee.txt" ,
+					url : "${pageContext.request.contextPath}/member/ajax/eee.txt" ,
 					type : "get" ,
 					dataType : "text" ,
 					success : function(text) {
@@ -129,7 +129,7 @@
 			});
 			$(".ca4").on("click", function() {
 				$.ajax({
-					url : "${pageContext.request.contextPath}/ajax/eeee.txt" ,
+					url : "${pageContext.request.contextPath}/member/ajax/eeee.txt" ,
 					type : "get" ,
 					dataType : "text" ,
 					success : function(text) {
