@@ -1,5 +1,7 @@
 @charset "UTF-8";
 /*       body        */
+
+
 .myhidden{	
 	width:1px;
 	height:1px; 
@@ -8,6 +10,9 @@
 	left:-9999%;
 	font-size:0;
 	line-height:0;	
+}
+.body {
+	background-color:#f5f5f5;
 }
 .mybg_h{ background-color: rgb(26, 188, 156); }
 
@@ -33,10 +38,17 @@
     margin-right:0px;
 }
 #footer {
-    padding-top: 30px;
+/*   position: fixed; */
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:#f5f5f5;
 }
 #footer .mynav_f a{ margin-right: 5px; }
 #footer .myclarboth{ padding : 2%; }
+.list-group {
+	margin-top:5%;
+}
 
 /*               */
 /*               */
@@ -139,9 +151,7 @@ input {
 /*               */
 #footer .mylist{
 	
-	
- background-color: rgb(26, 188, 156); color: white;
-
+ background-color: rgba(26, 188, 156); color: white;
 }
 #footer .myList{
   list-style-type: none;

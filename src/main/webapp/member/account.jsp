@@ -11,7 +11,7 @@
 	<h3>계정 설정</h3>
 	<div class="account">
 		<div class="row">
-			<a href="editNameV.crud" class="btn form-control" title="수정하기"> 
+			<a href="${pageContext.request.contextPath}/editNameV.crud" class="btn form-control" title="수정하기"> 
 			<span class="col-sm-2 ">이름</span><span class="col-sm-10"><%=dto.getUser_name() %></span></a>
 		</div>
 		<hr>
@@ -19,7 +19,7 @@
 				<span class="col-sm-2">이메일</span><span class="col-sm-10 "><%=dto.getUser_email() %></span>
 		</div>
 		<div class="row last">
-			<a href="editPassV.crud" class="btn form-control" title="수정하기"> <span
+			<a href="${pageContext.request.contextPath}/editPassV.crud" class="btn form-control" title="수정하기"> <span
 				class="col-sm-2">비밀번호</span><span class="col-sm-10">•••••••</span></a>
 		</div>
 		<div> 
