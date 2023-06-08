@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.crud.dbmanager.DBManager;
+import com.crud.dto.UserDto;
 import com.crud.requestdto.EstimateDetailDto;
 import com.crud.requestdto.EstimatedListDto;
 import com.crud.requestdto.RequestCategoryDto;
@@ -115,12 +116,12 @@ public RequestDao() {
 //				+ "join user u on u.user_id = ex.user_id "
 //				+ "where es.request_id = ?";  // 요청서아이디의 견적서 전부
 		
-		String sql = "select es.request_id, es.estimate_id, u.user_name , exex.expert_review_no , es.price\r\n"
-				+ "from estimate es\r\n"
-				+ "join expert ex on es.expert_id = ex.expert_id\r\n"
-				+ "join expert_profile exex on exex.expert_id = ex.expert_id\r\n"
-				+ "join user u on u.user_id = ex.user_id\r\n"
-				+ "where es.request_id =?";
+		String sql = "select es.request_id, es.estimate_id, u.user_name , exex.expert_review_no , es.price "
+				+ "from estimate es "
+				+ "join expert ex on es.expert_id = ex.expert_id "
+				+ "join expert_profile exex on exex.expert_id = ex.expert_id "
+				+ "join user u on u.user_id = ex.user_id "
+				+ "where es.request_id =? ";
 		
 		try {
 			
@@ -156,23 +157,15 @@ public RequestDao() {
 		
 		EstimateDetailDto dto = new EstimateDetailDto();
 		
-//		String sql = "select u.user_name , expro.review , ex.city_id , ca.career_entry , es.content , es.price "
-//				+ "from estimate es "
-//				+ "join expert ex on es.expert_id = ex.expert_id "
-//				+ "join career ca on ex.expert_id = ca.expert_id "
-//				+ "join expert_profile expro on expro.expert_id = ca.expert_id "
-//				+ "join city ci on ex.city_id = ci.city_id "
-//				+ "join user u on u.user_id = ex.user_id "
-//				+ "where es.estimate_id = ?";
-		
-		String sql = "select u.user_name , expro.expert_review_no , ci.city_name , ca.career_entry , es.content , es.price\r\n"
-				+ "from estimate es\r\n"
-				+ "join expert ex on es.expert_id = ex.expert_id\r\n"
-				+ "join career ca on ex.expert_id = ca.expert_id\r\n"
-				+ "join expert_profile expro on expro.expert_id = ca.expert_id\r\n"
-				+ "join city ci on ex.city_id = ci.city_id\r\n"
-				+ "join user u on u.user_id = ex.user_id\r\n"
+		String sql = "select u.user_name , expro.expert_review_no , ci.city_name , ca.career_entry , es.content , es.price "
+				+ "from estimate es "
+				+ "join expert ex on es.expert_id = ex.expert_id "
+				+ "join career ca on ex.expert_id = ca.expert_id "
+				+ "join expert_profile expro on expro.expert_id = ca.expert_id "
+				+ "join city ci on ex.city_id = ci.city_id "
+				+ "join user u on u.user_id = ex.user_id "
 				+ "where es.estimate_id = ?";
+		
 		
 		try {
 			conn = db.getConnection();
@@ -205,8 +198,28 @@ public RequestDao() {
 	public int requestCancle(int request_id) {
 		int result = -1;
 		
-		String sql = "update request set status=0 where request_id=?";
+		String sql = "update request set status = 0 where request_id = ?";
 		
+		try {
+			pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, request_id);
+			
+			result = pstm.executeUpdate();
+			
+		} catch (Exception e) {
+			
+		} finally {
+			if(pstm != null) { try {pstm.close();}catch(Exception e) {} }
+			if(conn != null) { try {conn.close();}catch(Exception e) {} }
+		}
+		return result;
+	}
+	
+	public int requestDel(int request_id) {
+		int result = -1;
+		
+		String sql = "delete from request where request_id = ?";
+				
 		try {
 			pstm = conn.prepareStatement(sql);
 			pstm.setInt(1, request_id);
@@ -249,6 +262,37 @@ public RequestDao() {
 		
 		return dto;
 		
+	}
+	
+	public String requestMail(int estimate_id) {
+		
+		String email = "";
+		
+		String sql = "select u.user_email "
+				+ "from user u "
+				+ "join expert ex on ex.user_id = u.user_id "
+				+ "join estimate es on es.expert_id = ex.expert_id "
+				+ "where es.estimate_id = ? ";
+		
+		try {
+			conn = db.getConnection();
+			pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, estimate_id);
+			rset = pstm.executeQuery();
+			
+			if(rset.next()) {
+				email = rset.getString("user_email");
+			}
+			
+		} catch (Exception e) {
+			
+		} finally {
+			if(rset != null) { try {rset.close();}catch(Exception e) {} }
+			if(pstm != null) { try {pstm.close();}catch(Exception e) {} }
+			if(conn != null) { try {conn.close();}catch(Exception e) {} }
+		}
+		
+		return email;
 	}
 	
 }
