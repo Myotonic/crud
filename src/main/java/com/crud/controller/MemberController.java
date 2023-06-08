@@ -150,7 +150,7 @@ public class MemberController extends HttpServlet {
 		//마켓 삭제
 		else if(path.equals("/marketDelete.crud")) {
 			marketService = new MarketDelete(); marketService.exec(request, response);
-			out.print("<script>location.href='"+request.getContextPath()+"/';</script>");
+			out.print("<script>location.href='"+request.getContextPath()+"/main.crud';</script>");
 		}
 		//나의 문의 확인
 		else if(path.equals("/inquiryView.crud")) {
@@ -204,7 +204,9 @@ public class MemberController extends HttpServlet {
 		else if(path.equals("/answerDelete.crud")) {
 			marketService = new AnswerDelete(); marketService.exec(request, response);
 			out.print("<script>location.href='"+request.getContextPath()+"/inquiryView.crud';</script>");
-		}else if(path.equals("/ajaxRefund.crud")) {
+		}
+		//환불 요청
+		else if(path.equals("/ajaxRefund.crud")) {
 			marketService = new AjaxRefund(); marketService.exec(request, response);
 		}
 		
