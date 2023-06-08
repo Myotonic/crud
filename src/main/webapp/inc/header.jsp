@@ -18,6 +18,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/mycss.css" >
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/footer.css" >
 
 </head>
 <body>
