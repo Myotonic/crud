@@ -77,9 +77,9 @@
       <h3>${marketDetailDto.title}</h3>
       <c:if test="${memberValue ne null }">
         <!-- Trigger the modal with a button -->
-        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">문의</button>
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" >문의</button>
       
-        <a href="${pageContext.request.contextPath}/marketBuyForm.crud?market_id=${marketDetailDto.market_id}" title="구매페이지로" class="btn btn-info">구매</a>
+        <a href="${pageContext.request.contextPath}/marketBuyForm.crud?market_id=${marketDetailDto.market_id}" title="구매페이지로" class="btn btn-info" style="color:white;">구매</a>
       </c:if>
     </div>
     <!-- Modal -->
@@ -112,7 +112,7 @@
 		          </div>
 		        	<div class="form-group text-right">
 		        	<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-		        	<button type="submit" class="btn btn-primary">전송</button>
+		        	<button type="submit" class="btn btn-primary" style="color:white;">전송</button>
 		        	</div>
 		        </form>
 		      </div>
@@ -123,8 +123,8 @@
 		</div>
   </div>
   <c:if test="${sessionScope.expert_id == marketDetailDto.expert_id}">
-  <a href="${pageContext.request.contextPath}/marketUpdateForm.crud?market_id=${marketDetailDto.market_id}" title="수정" class="btn btn-info">수정</a>
-  <a href="${pageContext.request.contextPath}/marketDelete.crud?market_id=${marketDetailDto.market_id}&mDivision=${marketDetailDto.division}" title="삭제" class="btn btn-danger">삭제</a>
+  <a href="${pageContext.request.contextPath}/marketUpdateForm.crud?market_id=${marketDetailDto.market_id}" title="수정" class="btn btn-info" style="color:white;">수정</a>
+  <a href="${pageContext.request.contextPath}/marketDelete.crud?market_id=${marketDetailDto.market_id}&mDivision=${marketDetailDto.division}" title="삭제" class="btn btn-danger" style="color:white;">삭제</a>
   </c:if>
 </div>
 
