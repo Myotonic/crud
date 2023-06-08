@@ -13,8 +13,8 @@
 		<p>${estimateDetailDto.content}</p>
 		<h4>예상금액</h4>
 		<p>${estimateDetailDto.price}</p>
-		<a href=""><button class="btn btn-info">프로필보기</button></a>
-		<a href=""><button class="btn btn-info">채팅하기</button></a>
+		<a href=""><button class="btn btn-info" style="color:white;">프로필보기</button></a>
+		<a href=""><button class="btn btn-info" style="color:white;">채팅하기</button></a>
 		</div>
 		
 	</div>

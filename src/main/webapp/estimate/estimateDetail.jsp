@@ -10,7 +10,7 @@
 			<h4>${requestDetailDto.work_date}</h4>
 			<h4>요청서 상세사항</h4>
 			<p>${requestDetailDto.content}</p>
-			<p class="text-center"><a href="estimate/estimateCreate.jsp?request_id=${requestDetailDto.request_id}"><button class="btn btn-info text-center">요청승인</button></a>
+			<p class="text-center"><a href="estimate/estimateCreate.jsp?request_id=${requestDetailDto.request_id}"><button class="btn btn-info text-center" style="color:white;">요청승인</button></a>
 			</p>
 		</div>
 	</div>

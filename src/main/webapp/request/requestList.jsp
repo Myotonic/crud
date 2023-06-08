@@ -15,7 +15,7 @@
 				<p class="text-center"><c:if test="${i.status == 1}">견적요청 중</c:if></p>
 				<p class="text-center"><c:if test="${i.status != 1}">견적마감</c:if></p>
 				<p>${i.count}개의 견적을 받았습니다</p>
-				<a href='${pageContext.request.contextPath}/eslist.request?request_id=${i.request_id}'><button id="detailbtn" class="btn btn-info form-control" >상세보기</button></a>
+				<a href='${pageContext.request.contextPath}/eslist.request?request_id=${i.request_id}'><button id="detailbtn" class="btn btn-info form-control" style="color:white;" >상세보기</button></a>
 				</div>
 		</c:forEach>
 		

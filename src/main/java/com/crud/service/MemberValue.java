@@ -21,11 +21,14 @@ public class MemberValue implements MemberService {
 		
 		if(value.equals("user")) {	//유저라면
 			if( dao.getExpertId(user_id) != -1 ){	//전문가 아이디가 있다면
+				System.out.println("전문가 아이디 있음");
 				request.getSession().setAttribute("memberValue", "expert");
 			}else { 	//전문가 아이디가 없다면 
+				System.out.println("전문가 아이디 없음");
 				request.getRequestDispatcher("/expert_joinC1.crud").forward(request, response);
 			}
 		}else {	//전문가라면
+			System.out.println("전문가야");
 			request.getSession().setAttribute("memberValue", "user");
 		}
 		

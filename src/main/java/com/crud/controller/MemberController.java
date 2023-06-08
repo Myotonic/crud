@@ -258,7 +258,8 @@ public class MemberController extends HttpServlet {
 		}else if(path.equals("/MemberValue.crud")) {
 			service = new MemberValue();
 			service.exec(request, response);
-			request.getRequestDispatcher("/member/main.jsp").forward(request, response);
+			out.println("<script>location.href='"+request.getContextPath()+"/member/main.jsp';</script>");
+//			request.getRequestDispatcher("/member/main.jsp").forward(request, response);
 		}else if(path.equals("/MyPage.crud")) {
 			String memberValue = (String) request.getSession().getAttribute("memberValue");
 			if (memberValue != null) {
