@@ -53,10 +53,10 @@
       </div>
 
       <div class="well">
-        <p>${marketDetailDto.expert_name}</p>
+        <p><strong>${marketDetailDto.expert_name}</strong></p>
         <c:if test="${marketDetailDto.division == '수업'}">
-          <p>시간 : ${marketDetailDto.appointment}</p>
-          <p>방식 : ${marketDetailDto.proceed}</p>
+          <p><strong>시간 : ${marketDetailDto.appointment}</strong></p>
+          <p><strong>방식 : ${marketDetailDto.proceed}</strong></p>
         </c:if>
         <h3>내용</h3>
         <p>${marketDetailDto.content}</p>

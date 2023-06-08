@@ -606,6 +606,7 @@ public class MDao {
 			System.out.println("date업데이트 : " + result);			
 			result = updateImg(dto.getImages(),dto.getMarket_id(),conn);
 			System.out.println("이미지 : " + result);
+			System.out.println("faq갯수:" + dto.getFaq().size());
 			for(Faq f : dto.getFaq()) {
 				result = updateFaq(f,conn);
 				System.out.println("faq들 : " + result);
@@ -651,13 +652,14 @@ public class MDao {
 	}
 	public int updateFaq(Faq faq, Connection conn) {
 		int result =-1;
-		String sql = "UPDATE faq SET title = ?, content = ? WHERE market_id = ?";
+		String sql = "UPDATE faq SET title = ?, content = ? WHERE market_id = ? and faq_id = ?";
 		PreparedStatement pstmt= null;
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, faq.getTitle());
 			pstmt.setString(2, faq.getContent());
 			pstmt.setInt(3, faq.getMarket_id());
+			pstmt.setInt(4, faq.getFaq_id());
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

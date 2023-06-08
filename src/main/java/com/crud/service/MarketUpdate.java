@@ -74,6 +74,8 @@ public class MarketUpdate implements MarketService{
 		}
 		String fTitle[] = multi.getParameterValues("fTitle[]");
 		String fContent[] =multi.getParameterValues("fContent[]");
+		System.out.println(fTitle.toString());
+		System.out.println(fContent.toString());
 		List<Faq> faq = new ArrayList<>();
 		for(int i = 0; i < fTitle.length;i++) {
 			faq.add(new Faq(fTitle[i],fContent[i],dto.getMarket_id()));
