@@ -21,7 +21,7 @@
 					<input type="button" id="show1" class="btn" value="표시">
 				</div>
 			</div>
-			<p class="r1"></p>
+			<p class="result r1"></p>
 		</fieldset>
 		<fieldset>
 			<label for="newPass">새로운 비밀번호</label>
@@ -33,7 +33,7 @@
 					<input type="button" id="show2" class="btn" value="표시">
 				</div>
 			</div>
-			<p class="r2"></p>
+			<p class="result r2"></p>
 		</fieldset>
 		<div class="form-group text-center check-btn">	
 			<a href="${pageContext.request.contextPath}/AccountSetting.crud" class="btn " title="취소">취소</a>
