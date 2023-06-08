@@ -38,7 +38,7 @@
 		<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" style="color:white;">환불</button>		
 		</c:if>
 		
-		<a href="javascript:history.go(-1)" title="뒤로가기" class="btn btn-default" style="color:white;">뒤로가기</a>
+		<a href="javascript:history.go(-1)" title="뒤로가기" class="btn btn-default" >뒤로가기</a>
 	</div>
 	</form>
 			<!-- Modal -->
@@ -55,8 +55,8 @@
 		        <p>환불/취소 요청을 받겠습니까?</p>
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" id="ajaxrefund" style="color:white;">환불</button>
-		        <button type="button" class="btn btn-default" data-dismiss="modal" style="color:white;">취소</button>
+		        <button type="button" class="btn btn-default" id="ajaxrefund" >환불</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal" >취소</button>
 		      </div>
 		    </div>
 		

@@ -142,4 +142,31 @@ public class CommDao {
   		 	}
        return result;
     }
+  //메인 페이지 
+    public List<bWriterDto> mainBoard() {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rset = null;
+        List<bWriterDto> list = new ArrayList<>();
+		String sql = " SELECT * "
+				+ "FROM board_write order by board_upload_day desc "
+				+ "limit 9";
+        try {
+            DBManager db = new DBManager();
+            conn = db.getConnection();
+            pstmt = conn.prepareStatement(sql);
+            rset = pstmt.executeQuery();
+
+            while (rset.next()) {
+                list.add(new bWriterDto(rset.getInt("board_no"), rset.getString("board_title"), rset.getString("board_upload_day")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+      	  	if(rset != null) {try{rset.close();}catch(SQLException e) {e.printStackTrace();}}
+   		 	if(pstmt != null) {try{pstmt.close();}catch(SQLException e) {e.printStackTrace();}}
+     		if(conn != null) {try{conn.close();}catch(SQLException e) {e.printStackTrace();}}
+     		}
+        return list;
+    }
 }

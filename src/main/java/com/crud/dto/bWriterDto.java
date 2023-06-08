@@ -42,6 +42,12 @@ public class bWriterDto {
 		this.cate2 = cate2;
 	}
 	
+	public bWriterDto(int board_no, String board_upload_day, String board_title) {
+		super();
+		this.board_no = board_no;
+		this.board_upload_day = board_upload_day;
+		this.board_title = board_title;
+	}
 	public bWriterDto(int board_no, String board_upload_day, String board_title, String board_content, String board_ip,
 			int expert_id, int user_id, int board_category_no) {
 		super();
