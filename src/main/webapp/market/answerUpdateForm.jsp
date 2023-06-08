@@ -22,7 +22,7 @@
 	</div>
 	<div class="form-group text-right">
 		<input type="submit" class="btn btn-info" value="수정"/>
-		<a href="javascript:history.go(-1)" title="뒤로가기" class="btn btn-default">뒤로가기</a>
+		<a href="javascript:history.go(-1)" title="뒤로가기" class="btn btn-default" style="color:white;">뒤로가기</a>
 	</div>
 	</form>
 

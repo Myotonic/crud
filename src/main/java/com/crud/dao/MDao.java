@@ -961,4 +961,22 @@ public class MDao {
 	      }
 	      return list;
 	   }
+	public int deleteUser_Market(int market_id, int user_id) {
+		int result = -1;
+		String sql = "delete from user_market where user_id=? and market_id =?";
+		DBManager db = new DBManager();
+		Connection conn = null; PreparedStatement pstmt = null; 
+		try {
+			conn = db.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, user_id);
+			pstmt.setInt(2, market_id);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(pstmt!=null) {try { pstmt.close(); } catch (SQLException e) { e.printStackTrace(); }}
+		}
+		return result;
+	}
 }

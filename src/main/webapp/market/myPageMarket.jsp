@@ -5,13 +5,13 @@
   <br/>
   <br/>
   <div class="btn-group btn-group-lg">
-    <input type="button" class="btn btn-info division" value="상품"/>
-    <input type="button" class="btn btn-info division" value="수업"/>
+    <input type="button" class="btn btn-info division" value="상품" style="color:white;"/>
+    <input type="button" class="btn btn-info division" value="수업" style="color:white;"/>
   </div>
 	<c:if test="${sessionScope.memberValue == 'expert'}">
 	<div class="text-right">
 	  <div class="dropdown dropright">
-	    <button class="btn btn-info dropdown-toggle" type="button" id="categoryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	    <button class="btn btn-info dropdown-toggle" style="color:white;" type="button" id="categoryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	      상품 / 수업 생성
 	    </button>
 		<div class="dropdown-menu dropdown-menu-right" aria-labelledby="categoryDropdown">
@@ -36,7 +36,7 @@
     </c:forEach>
   </div>
   <div class="text-right">
-    <input type="button" class="btn btn-info" id="addContent" value="더보기"/>
+    <input type="button" class="btn btn-info" id="addContent" value="더보기" style="color:white;"/>
   </div>
 </div>
 <script>

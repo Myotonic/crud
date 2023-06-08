@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.crud.service.AjaxInquiryRead;
 import com.crud.service.AjaxMarketRead;
 import com.crud.service.AjaxMyPageMarket;
+import com.crud.service.AjaxRefund;
 import com.crud.service.AnswerCreate;
 import com.crud.service.AnswerDelete;
 import com.crud.service.AnswerUpdate;
@@ -203,6 +204,8 @@ public class MemberController extends HttpServlet {
 		else if(path.equals("/answerDelete.crud")) {
 			marketService = new AnswerDelete(); marketService.exec(request, response);
 			out.print("<script>location.href='"+request.getContextPath()+"/inquiryView.crud';</script>");
+		}else if(path.equals("/ajaxRefund.crud")) {
+			marketService = new AjaxRefund(); marketService.exec(request, response);
 		}
 		
 		
