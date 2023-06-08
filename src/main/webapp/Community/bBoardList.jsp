@@ -1,4 +1,4 @@
-<%@page import="com.crud.dto.bWriterDto"%>
+<%@page import="com.company.dto.bWriterDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../inc/header.jsp"%>
