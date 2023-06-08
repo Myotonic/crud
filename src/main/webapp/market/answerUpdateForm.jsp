@@ -19,13 +19,26 @@
 	<div class="form-group">
 	<label for="answer">답변</label>
 	<textarea class="form-control" rows="5" id="answer" name="answer" >${mInquiry.answer.answer}</textarea>
+	<p class="result r1"></p>
 	</div>
 	<div class="form-group text-right">
-		<input type="submit" class="btn btn-info" value="수정"/>
-		<a href="javascript:history.go(-1)" title="뒤로가기" class="btn btn-default" style="color:white;">뒤로가기</a>
+		<input type="submit" class="btn btn-info" value="수정" style="color:white;"/>
+		<a href="javascript:history.go(-1)" title="뒤로가기" class="btn btn-default">뒤로가기</a>
 	</div>
 	</form>
-
-	
 </div>
-<%@ include file="../inc/header.jsp"%>
+<script>
+$(function(){
+	//제출하기 전
+	$("form").on("submit", function(){
+		//빈칸검사
+		if($("#answer").val() == ""){ 
+			$(".r1").html("답변을 입력해주세요");
+			$("#answer").focus();
+			return false;
+		}
+	});
+});
+
+</script>
+<%@ include file="../inc/footer.jsp"%>

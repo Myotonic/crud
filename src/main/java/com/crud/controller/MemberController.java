@@ -17,6 +17,7 @@ import com.crud.service.AjaxRefund;
 import com.crud.service.AnswerCreate;
 import com.crud.service.AnswerDelete;
 import com.crud.service.AnswerUpdate;
+import com.crud.service.GosuService;
 import com.crud.service.InquiryDelete;
 import com.crud.service.InquiryDetail;
 import com.crud.service.InquiryRead;
@@ -45,6 +46,7 @@ import com.crud.service.MemberDrop;
 import com.crud.service.MemberService;
 import com.crud.service.MemberValue;
 import com.crud.service.MyPageMarket;
+import com.crud.service.bBoardMainView;
 
 /**
  * Servlet implementation class MemberController
@@ -83,6 +85,7 @@ public class MemberController extends HttpServlet {
 		String path = request.getServletPath();
 		MemberService service = null;
 		MarketService marketService =null;
+		GosuService gosuService = null;
 		//마켓뷰
 		if(path.equals("/marketView.crud")) {
 			marketService = new MarketRead(); marketService.exec(request, response);
@@ -212,8 +215,8 @@ public class MemberController extends HttpServlet {
 		
 		
 		else if(path.equals("/main.crud")) {
-			
-			
+	         marketService = new MarketRead(); marketService.exec(request, response);
+	         gosuService = new bBoardMainView(); gosuService.exec(request, response);
 			request.getRequestDispatcher("/member/main.jsp").forward(request, response);
 		}else if(path.equals("/user_joinV.crud")) {
 			request.getRequestDispatcher("/member/user_join.jsp").forward(request, response);

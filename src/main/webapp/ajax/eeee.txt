@@ -1,0 +1,6 @@
+<div style="width:80%; padding:10px 10px; margin-bottom: 10px; color: inherit; background-color:#eee;">
+<h3>기타</h3>
+<p><a href='request.jsp?category2_id=22'>가구/목공예 제작</a></p>
+<p><a href='request.jsp?category2_id=23'>플라워 제작</a></p>
+<p><a href='request.jsp?category2_id=24'>장소/대관</a></p>
+</div>
