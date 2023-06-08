@@ -30,7 +30,7 @@ Latest compiled JavaScript
    <div class="col-sm-4"></div>
    <div class="col-sm-4">
    <label for="name">관리자 이름</label>
-   <input type="text" name="name" id="name" class="form-control" placeholder="관리자 이름"/>
+   <input type="text" name="name" id="name" class="form-control" placeholder="관리자 이름" value="${nickname}" readonly/>
    </div>
    <div class="col-sm-4"></div>
    </div>
@@ -50,7 +50,7 @@ Latest compiled JavaScript
    <div class="col-sm-4"> 
    <div>
    <label for="email">이메일</label>
-   <input type="email" name="email" id="email" class="form-control" placeholder="이메일"/>
+   <input type="email" name="email" id="email" class="form-control" placeholder="이메일" value="${email}" readonly/>
    </div>
    </div>
    <div class="col-sm-4">  
@@ -82,7 +82,7 @@ Latest compiled JavaScript
    <div class="row form-group">
    <div class="col-sm-4"></div>
    <div class="col-sm-4">
-   <input type="button" id="submit" value="화원가입" title="화원가입 하기" class="btn form-control"/>
+   <input type="submit" id="submit" value="화원가입" title="화원가입 하기" class="btn btn-danger form-control"/>
    </div>
    <div class="col-sm-4"></div>
    </div>
@@ -108,7 +108,7 @@ Latest compiled JavaScript
 			 $(function() {
 				 
 				 
-				$("#email").on("blur", function() {
+				
 					$.ajax({
 						
 						url:"${pageContext.request.contextPath}/id.admin",
@@ -122,7 +122,7 @@ Latest compiled JavaScript
 					        	 alert('사용가능한 이메일 입니다.');
 					        	 
 					        	  
-					        	 /*  $(".check").attr("value" , "사용가능한 이메일 입니다."); */
+					        	
 					        	
 					        	 
 					        	 $("#submit").attr("type", "submit");
@@ -136,7 +136,7 @@ Latest compiled JavaScript
 
 					        	 
 					        	  
-					        	  /* $(".check").attr("value" , "이미 사용중인 이메일 입니다."); */
+					        	
 					        	  
 					        	  $("#email").focus(); 
 					        	  
@@ -158,36 +158,20 @@ Latest compiled JavaScript
 								alert('textStatus + "(http-"+xhr.status+"/"+ errorThrown');
 							}
 						    
-						    
-					});
+					
 					 
-				});
+						});
 				 
 				 
+								
+								
 				 
 				 $("#form_login").on("submit", function() {
 					 
 					 
 					 
 			
-					 if($("#name").val()==""){
-						 $("#name").focus();
-						 
-						 alert('이름이 빈칸입니다.');
-						 
-						 return false;
-						 
-					 }
 					
-					 
-					 if($("#email").val()==""){
-						 $("#email").focus();
-						 
-						 alert('이메일이 빈칸입니다.');
-						 
-						 return false;
-						 
-					 }
 					 
 					 if($("#pass").val()==""){
 						 $("#pass").focus();

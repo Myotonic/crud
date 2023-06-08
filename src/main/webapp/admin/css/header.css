@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+.myhidden{
+	width:1px; 
+	height: 1px; 
+	position: absolute;
+	left:-99999%;
+	font-size : 0;
+	line-height: 0;
+	overflow: hidden;
+	/* visibility: hidden; */
+}
