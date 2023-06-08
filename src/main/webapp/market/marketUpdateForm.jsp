@@ -3,7 +3,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <div class="container tmpt">
-  <h3 class="text-center">Market 생성</h3>
+  <h3 class="text-center">Market 수정</h3>
   <form action="<%=request.getContextPath()%>/marketUpdate.crud?market_id=${marketDetailDto.market_id}" method="post" id="form" enctype="multipart/form-data">
     <fieldset>
       <legend>UPDATE</legend>
@@ -73,15 +73,31 @@
 		
 		<div class="form-group" id="dateRange" style="display: none;">
 		  <label for="startDate">시작 날짜</label>
-		  <input type="text" id="startDate" name="mStartSchedule" class="form-control" placeholder="시작 날짜를 입력하세요.">
+		  <input type="date" id="startDate" name="mStartSchedule" class="form-control" placeholder="시작 날짜를 입력하세요.">
 		  <label for="endDate">끝나는 날짜</label>
-		  <input type="text" id="endDate" name="mEndSchedule" class="form-control" placeholder="끝나는 날짜를 입력하세요.">
+		  <input type="date" id="endDate" name="mEndSchedule" class="form-control" placeholder="끝나는 날짜를 입력하세요.">
 		</div>
 		
 		<div class="form-group" id="weekdaySchedule" style="display: none;">
 		  <label for="scheduleContainer">요일별 시간표</label>
 		  <div id="scheduleContainer">
-		    <!-- 동적으로 생성되는 요일별 시간표가 추가될 컨테이너 -->
+			   <div class="schedule">
+	        <label for="mDay">요일</label>
+	        <select class="form-control" name="mDay[]" id = "mDay">
+	          <option value="월요일">월요일</option>
+	          <option value="화요일">화요일</option>
+	          <option value="수요일">수요일</option>
+	          <option value="목요일">목요일</option>
+	          <option value="금요일">금요일</option>
+	          <option value="토요일">토요일</option>
+	          <option value="일요일">일요일</option>
+	        </select>
+	        <label for="mStartTime">시작 시간</label>
+	        <input type="time" name="mStartTime[]" id="mStartTime" class="form-control" placeholder="시작 시간을 입력하세요.">
+	        <label for="mEndTime">끝나는 시간</label>
+	        <input type="time" name="mEndTime[]" id="mEndTime" class="form-control" placeholder="끝나는 시간을 입력하세요.">
+	        <button type="button" class="btn btn-danger remove-schedule">시간 제거</button>
+	      </div>
 		  </div>
 		  <button type="button" id="addScheduleButton" class="btn btn-primary" style="color:white;">시간 추가</button>
 		</div>
@@ -164,16 +180,97 @@
 	      $("#category2_id").focus();
 	      return false;
 	    }
-	    if ($("#fTitle").val() == "") {
-	      alert("제목을 입력해야합니다.");
-	      $("#fTitle").focus();
-	      return false;
-	    }
-	    if ($("#fContent").val() == "") {
-	      alert("제목을 입력해야합니다.");
-	      $("#fContent").focus();
-	      return false;
-	    }
+        if ($("#mTitle").val() == "") {
+            alert("제목을 입력해야합니다.");
+            $("#mTitle").focus();
+            return false;
+          }
+          if ($("#mContent").val() == "") {
+            alert("내용를 입력해야합니다.");
+            $("#mContent").focus();
+            return false;
+          }
+          if ($("#mPrice").val() == "") {
+            alert("가격을 입력해야합니다.");
+            $("#mPrice").focus();
+            return false;
+          }
+          if ($("#category1_id").val() == "") {
+            alert("카테고리아이디를 입력해야합니다.");
+            $("#category1_id").focus();
+            return false;
+          }
+          if ($("#category2_id").val() == "") {
+            alert("카테고리아이디를 입력해야합니다.");
+            $("#category2_id").focus();
+            return false;
+          }
+          var fTitles = $("input[name='fTitle[]']");
+          for (var i = 0; i < fTitles.length; i++) {
+            if ($(fTitles[i]).val() == "") {
+              alert("제목을 입력해야합니다.");
+              $(fTitles[i]).focus();
+              return false;
+            }
+          }
+          
+          var fContents = $("input[name='fContent[]']");
+          for (var i = 0; i < fContents.length; i++) {
+            if ($(fContents[i]).val() == "") {
+              alert("내용을 입력해야합니다.");
+              $(fContents[i]).focus();
+              return false;
+            }
+          }
+          // 시간 결정/협의 여부에 따라 해당 시간 스케줄의 빈칸 검사 수행
+          var timeOption = $("#time").val();
+          if (timeOption == 1) {
+            var schedules = $(".schedule");
+            for (var i = 0; i < schedules.length; i++) {
+              var mStartTime = $(schedules[i]).find("input[name='mStartTime[]']").eq(0);
+              var mEndTime = $(schedules[i]).find("input[name='mEndTime[]']").eq(0);
+
+              if (mStartTime.val() == "") {
+                alert("시작 시간을 입력해야합니다.");
+                mStartTime.focus();
+                return false;
+              }
+              if (mEndTime.val() == "") {
+                alert("끝나는 시간을 입력해야합니다.");
+                mEndTime.focus();
+                return false;
+              }
+            }
+
+            // 시작 날짜와 끝나는 날짜의 빈칸 검사 수행
+            var startDate = $("#startDate").val();
+            var endDate = $("#endDate").val();
+            if (startDate == "") {
+              alert("시작 날짜를 입력해야합니다.");
+              $("#startDate").focus();
+              return false;
+            }
+            if (endDate == "") {
+              alert("끝나는 날짜를 입력해야합니다.");
+              $("#endDate").focus();
+              return false;
+            }
+          }
+            
+            
+            if ($("#meetingType").val() == "0") {
+              if ($("#locationInput").val() == "") {
+                alert("위치를 입력해야합니다.");
+                $("#locationInput").focus();
+                return false;
+              }
+            }
+            var fileInput = $("input[type='file']");
+            if (fileInput.get(0).files.length === 0) {
+              alert("파일을 선택해야합니다.");
+              fileInput.focus();
+              return false;
+            }
 	  });
 	  // 시간 옵션 변경 이벤트 핸들러
 	  $("#time").change(function() {

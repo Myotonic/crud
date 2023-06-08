@@ -18,7 +18,7 @@
 	<div class="refund">
 	
 	</div>
-	<form action="${pageContext.request.contextPath}/answerCreate.crud?inquiry_id=${mInquiry.inquiry_id}" method="POST">
+	<form action="${pageContext.request.contextPath}/answerCreate.crud?inquiry_id=${mInquiry.inquiry_id}" method="POST" id="inquiry">
 	<div class="form-group">
 	<label for="answer">답변</label>
 	<textarea class="form-control" rows="5" id="answer" name="answer" <c:if test="${mInquiry.checkAnswer}">readonly</c:if>> <c:if test="${mInquiry.checkAnswer}">${mInquiry.answer.answer}</c:if></textarea>
@@ -26,19 +26,19 @@
 	<div class="form-group text-right">
 		<c:choose>
 		  <c:when test="${mInquiry.checkAnswer}">
-		  		<a href="${pageContext.request.contextPath}/answerDelete.crud?inquiry_id=${mInquiry.inquiry_id}" title="삭제" class="btn btn-danger" style="color:white;">삭제</a>
-				<a href="${pageContext.request.contextPath}/answerUpdateForm.crud?inquiry_id=${mInquiry.inquiry_id}" title="수정" class="btn btn-info" style="color:white;">수정</a>
+		  		<a href="${pageContext.request.contextPath}/answerDelete.crud?inquiry_id=${mInquiry.inquiry_id}" title="삭제" class="btn btn-danger">삭제</a>
+				<a href="${pageContext.request.contextPath}/answerUpdateForm.crud?inquiry_id=${mInquiry.inquiry_id}" title="수정" class="btn btn-info">수정</a>
 		  </c:when>
 		  <c:otherwise>
-		  <input type="submit" class="btn btn-info" style="color:white;" value="답변등록"/>
+		  <input type="submit" class="btn btn-info" value="답변등록"/>
 		  </c:otherwise>
 		</c:choose>
 		<c:if test="${mInquiry.category == '환불'}">
 		<!-- Trigger the modal with a button -->
-		<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" style="color:white;">환불</button>		
+		<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">환불</button>		
 		</c:if>
 		
-		<a href="javascript:history.go(-1)" title="뒤로가기" class="btn btn-default" >뒤로가기</a>
+		<a href="javascript:history.go(-1)" title="뒤로가기" class="btn btn-default">뒤로가기</a>
 	</div>
 	</form>
 			<!-- Modal -->
@@ -55,8 +55,8 @@
 		        <p>환불/취소 요청을 받겠습니까?</p>
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" id="ajaxrefund" >환불</button>
-		        <button type="button" class="btn btn-default" data-dismiss="modal" >취소</button>
+		        <button type="button" class="btn btn-default" id="ajaxrefund">환불</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
 		      </div>
 		    </div>
 		
@@ -80,6 +80,13 @@
 		          // AJAX 요청 실패 처리
 		        }
 		      });
+		    });
+		    $("#inquiry").on("click",function(){
+			    if ($("#answer").val() == "") {
+				      alert("답변을 입력해야합니다.");
+				      $("#answer").focus();
+				      return false;
+				    }
 		    });
 		  });
 	</script>

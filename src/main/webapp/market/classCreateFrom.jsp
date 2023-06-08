@@ -78,7 +78,7 @@
           <div class="faq">
             <input type="text" name="fTitle[]" class="form-control" placeholder="제목을 입력하십시오.">
             <input type="text" name="fContent[]" class="form-control" placeholder="내용을 입력하십시오.">
-       		 <button type="button" id="addFaqButton" class="btn btn-primary" style="color:white;">질문 추가</button>
+       		 <button type="button" id="addFaqButton" class="btn btn-primary">질문 추가</button>
           </div>
         </div>
       </div>
@@ -86,9 +86,8 @@
         <label for="fileContainer">파일</label>
         <div id="fileContainer">
           <input type="file" name="file1" class="form-control">
-          <input type="hidden" name="fileCheck">
         </div>
-        <button type="button" id="addFileButton" class="btn btn-primary" style="color:white;" >파일 추가</button>
+        <button type="button" id="addFileButton" class="btn btn-primary">파일 추가</button>
       </div>
 
 
@@ -103,9 +102,9 @@
 		
 		<div class="form-group" id="dateRange" style="display: none;">
 		  <label for="startDate">시작 날짜</label>
-		  <input type="text" id="startDate" name="mStartSchedule" class="form-control" placeholder="시작 날짜를 입력하세요.">
+		  <input type="date" id="startDate" name="mStartSchedule" class="form-control" placeholder="시작 날짜를 입력하세요.">
 		  <label for="endDate">끝나는 날짜</label>
-		  <input type="text" id="endDate" name="mEndSchedule" class="form-control" placeholder="끝나는 날짜를 입력하세요.">
+		  <input type="date" id="endDate" name="mEndSchedule" class="form-control" placeholder="끝나는 날짜를 입력하세요.">
 		</div>
 		
 		<div class="form-group" id="weekdaySchedule" style="display: none;">
@@ -123,13 +122,13 @@
 	          <option value="일요일">일요일</option>
 	        </select>
 	        <label for="mStartTime">시작 시간</label>
-	        <input type="text" name="mStartTime[]" id="mStartTime" class="form-control" placeholder="시작 시간을 입력하세요.">
+	        <input type="time" name="mStartTime[]" id="mStartTime" class="form-control" placeholder="시작 시간을 입력하세요.">
 	        <label for="mEndTime">끝나는 시간</label>
-	        <input type="text" name="mEndTime[]" id="mEndTime" class="form-control" placeholder="끝나는 시간을 입력하세요.">
-	        <button type="button" class="btn btn-danger remove-schedule" style="color:white;">시간 제거</button>
+	        <input type="time" name="mEndTime[]" id="mEndTime" class="form-control" placeholder="끝나는 시간을 입력하세요.">
+	        <button type="button" class="btn btn-danger remove-schedule">시간 제거</button>
 	      </div>
 		  </div>
-		  <button type="button" id="addScheduleButton" class="btn btn-primary" style="color:white;">시간 추가</button>
+		  <button type="button" id="addScheduleButton" class="btn btn-primary">시간 추가</button>
 		</div>
 		
 		<div class="form-group">
@@ -144,11 +143,10 @@
 		  <label for="locationInput">위치</label>
 		  <input type="text" id="locationInput" name="mLocation" class="form-control" placeholder="위치를 입력하세요.">
 		</div>
-
       <div class="form-group text-right">
-        <input type="submit" name="submit" id="formSubmitButton" title="상품생성을 진행합니다." class="btn btn-danger" style="color:white;" value="글쓰기" />
-        <input type="reset" name="reset" title="취소를 진행합니다." class="btn btn-default"   value="취소" />
-        <a href="<%=request.getContextPath() %>/marketView.crud" class="btn btn-default" 
+        <input type="submit" name="submit" id="formSubmitButton" title="상품생성을 진행합니다." class="btn btn-danger" value="글쓰기" />
+        <input type="reset" name="reset" title="취소를 진행합니다." class="btn btn-default" value="취소" />
+        <a href="<%=request.getContextPath() %>/marketView.crud" class="btn btn-default"
           title="메인으로 돌아갑니다.">목록보기</a>
       </div>
     </fieldset>
@@ -174,21 +172,20 @@
     	    // reset category2 selection
     	    category2Select.selectedIndex = -1;
     	  });
-	
-    	
+
       // 파일 추가 버튼 클릭 시 파일 필드를 동적으로 추가
       $("#addFileButton").click(function() {
         var fileField = '<input type="file" name="file[]" class="form-control">';
         $("#fileContainer").append(fileField);
       });
-	
+
       // 질문 추가 버튼 클릭 시 질문 필드를 동적으로 추가
       $("#addFaqButton").click(function() {
         var faqField = `
           <div class="faq">
             <input type="text" name="fTitle[]" class="form-control" placeholder="제목을 입력하십시오.">
             <input type="text" name="fContent[]" class="form-control" placeholder="내용을 입력하십시오.">
-            <button type="button" class="removeFaqButton btn btn-danger" style="color:white;">질문 제거</button>
+            <button type="button" class="removeFaqButton btn btn-danger">질문 제거</button>
           </div>
         `;
         $("#faqContainer").append(faqField);
@@ -201,51 +198,98 @@
 
       // 글쓰기 버튼 클릭 이벤트 핸들러
       $("#formSubmitButton").click(function() {
-    	
         if ($("#mTitle").val() == "") {
           alert("제목을 입력해야합니다.");
           $("#mTitle").focus();
           return false;
-        }else if ($("#mContent").val() == "") {
+        }
+        if ($("#mContent").val() == "") {
           alert("내용를 입력해야합니다.");
           $("#mContent").focus();
           return false;
-        }else if ($("#mPrice").val() == "") {
+        }
+        if ($("#mPrice").val() == "") {
           alert("가격을 입력해야합니다.");
           $("#mPrice").focus();
           return false;
-        }else if ($("#mRefund").val() == "") {
-            alert("환불규정을 입력해야합니다.");
-            $("#mRefund").focus();
-            return false;
-        }else  if ($("#category1_id").val() == "") {
+        }
+        if ($("#category1_id").val() == "") {
           alert("카테고리아이디를 입력해야합니다.");
           $("#category1_id").focus();
           return false;
-        }else if ($("#category2_id").val() == "") {
+        }
+        if ($("#category2_id").val() == "") {
           alert("카테고리아이디를 입력해야합니다.");
           $("#category2_id").focus();
           return false;
-        }else if($("#file1").files.length!=0){
-            alert("파일을 추가해야합니다.");
-            $("#file1").focus();
+        }
+        var fTitles = $("input[name='fTitle[]']");
+        for (var i = 0; i < fTitles.length; i++) {
+          if ($(fTitles[i]).val() == "") {
+            alert("제목을 입력해야합니다.");
+            $(fTitles[i]).focus();
             return false;
-        }else if ($("#locationInput").val() == "") {
-            alert("위치를 설정해야합니다.");
-            $("#locationInput").focus();
+          }
+        }
+        
+        var fContents = $("input[name='fContent[]']");
+        for (var i = 0; i < fContents.length; i++) {
+          if ($(fContents[i]).val() == "") {
+            alert("내용을 입력해야합니다.");
+            $(fContents[i]).focus();
             return false;
-         }
-        
-        /* else if ($("#fTitle").val() == "") {
-          alert("제목을 입력해야합니다.");
-          $("#fTitle[]").focus();
-          return false;
-        }else if ($("#fContent").val() == "") {
-          alert("내용을 입력해야합니다.");
-          $("#fContent[]").focus();
-          return false;
-        } */
-        
+          }
+        }
+        // 시간 결정/협의 여부에 따라 해당 시간 스케줄의 빈칸 검사 수행
+        var timeOption = $("#time").val();
+        if (timeOption == 1) {
+          var schedules = $(".schedule");
+          for (var i = 0; i < schedules.length; i++) {
+            var mStartTime = $(schedules[i]).find("input[name='mStartTime[]']").eq(0);
+            var mEndTime = $(schedules[i]).find("input[name='mEndTime[]']").eq(0);
+
+            if (mStartTime.val() == "") {
+              alert("시작 시간을 입력해야합니다.");
+              mStartTime.focus();
+              return false;
+            }
+            if (mEndTime.val() == "") {
+              alert("끝나는 시간을 입력해야합니다.");
+              mEndTime.focus();
+              return false;
+            }
+          }
+
+          // 시작 날짜와 끝나는 날짜의 빈칸 검사 수행
+          var startDate = $("#startDate").val();
+          var endDate = $("#endDate").val();
+          if (startDate == "") {
+            alert("시작 날짜를 입력해야합니다.");
+            $("#startDate").focus();
+            return false;
+          }
+          if (endDate == "") {
+            alert("끝나는 날짜를 입력해야합니다.");
+            $("#endDate").focus();
+            return false;
+          }
+        }
+          
+          
+          if ($("#meetingType").val() == "0") {
+            if ($("#locationInput").val() == "") {
+              alert("위치를 입력해야합니다.");
+              $("#locationInput").focus();
+              return false;
+            }
+          }
+          var fileInput = $("input[type='file']");
+          if (fileInput.get(0).files.length === 0) {
+            alert("파일을 선택해야합니다.");
+            fileInput.focus();
+            return false;
+          }
+
       });
 
       // 시간 옵션 변경 이벤트 핸들러
@@ -292,7 +336,7 @@
               class="form-control"
               placeholder="끝나는 시간을 입력하세요."
             >
-            <button type="button" class="btn btn-danger remove-schedule" style="color:white;">시간 제거</button>
+            <button type="button" class="btn btn-danger remove-schedule">시간 제거</button>
           </div>
         `;
 

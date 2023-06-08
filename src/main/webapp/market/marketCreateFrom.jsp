@@ -174,16 +174,54 @@
 	      $("#category2_id").focus();
 	      return false;
 	    }
-	    if ($("#fTitle").val() == "") {
-	      alert("제목을 입력해야합니다.");
-	      $("#fTitle").focus();
-	      return false;
-	    }
-	    if ($("#fContent").val() == "") {
-	      alert("제목을 입력해야합니다.");
-	      $("#fContent").focus();
-	      return false;
-	    }
+        if ($("#mTitle").val() == "") {
+            alert("제목을 입력해야합니다.");
+            $("#mTitle").focus();
+            return false;
+          }
+          if ($("#mContent").val() == "") {
+            alert("내용를 입력해야합니다.");
+            $("#mContent").focus();
+            return false;
+          }
+          if ($("#mPrice").val() == "") {
+            alert("가격을 입력해야합니다.");
+            $("#mPrice").focus();
+            return false;
+          }
+          if ($("#category1_id").val() == "") {
+            alert("카테고리아이디를 입력해야합니다.");
+            $("#category1_id").focus();
+            return false;
+          }
+          if ($("#category2_id").val() == "") {
+            alert("카테고리아이디를 입력해야합니다.");
+            $("#category2_id").focus();
+            return false;
+          }
+          var fTitles = $("input[name='fTitle[]']");
+          for (var i = 0; i < fTitles.length; i++) {
+            if ($(fTitles[i]).val() == "") {
+              alert("제목을 입력해야합니다.");
+              $(fTitles[i]).focus();
+              return false;
+            }
+          }
+          
+          var fContents = $("input[name='fContent[]']");
+          for (var i = 0; i < fContents.length; i++) {
+            if ($(fContents[i]).val() == "") {
+              alert("내용을 입력해야합니다.");
+              $(fContents[i]).focus();
+              return false;
+            }
+          }
+            var fileInput = $("input[type='file']");
+            if (fileInput.get(0).files.length === 0) {
+              alert("파일을 선택해야합니다.");
+              fileInput.focus();
+              return false;
+            }
 	  });
 	});
   </script>

@@ -23,5 +23,21 @@
 			<button type="submit" class="btn btn-primary" style="color:white;">수정</button>
 		</div>
 	</form>
+	<script>
+	$(function(){
+		$("#inquiryForm").on("click",function(){
+			if($("#iTitle").val()==""){
+				alert("제목을 입력해야합니다.");
+				$("#iTitle").focus();
+				return false;
+			}
+			if($("#iContent").val()==""){
+				alert("내용을 입력해야합니다.");
+				$("#iContent").focus();
+				return false;
+			}
+		});
+	});
+	</script>
 </div>
 <%@ include file="../inc/header.jsp"%>

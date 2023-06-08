@@ -56,17 +56,21 @@ public class MarketUpdate implements MarketService{
 		if(dto.getDivision().equals("수업")) {
 			dto.setAppointment(multi.getParameter("mAppointment") == "1"? "시간결정" : "시간협의");
 			dto.setProceed(multi.getParameter("mProceed") == "1"? "비대면" : "대면");
-			dto.setLocation(multi.getParameter("mLocation"));
-			dto.setStartSchedule(multi.getParameter("mStartSchedule"));
-			dto.setEndSchedule(multi.getParameter("mEndSchedule"));
-			String day[] = multi.getParameterValues("mDay[]");
-			String starttime[] = multi.getParameterValues("mStartTime[]");
-			String endtime[] = multi.getParameterValues("mEndTime[]");
-			List<Time> times = new ArrayList<>();
-			for(int i = 0 ; i < day.length;i++) {
-				times.add(new Time(day[i],starttime[i],endtime[i]));			
+			if(dto.getProceed()=="대면") {
+				dto.setLocation(multi.getParameter("mLocation"));
 			}
-			dto.setTime(times);
+			if(dto.getAppointment()=="시간결정") {
+				dto.setStartSchedule(multi.getParameter("mStartSchedule"));
+				dto.setEndSchedule(multi.getParameter("mEndSchedule"));
+				String day[] = multi.getParameterValues("mDay[]");
+				String starttime[] = multi.getParameterValues("mStartTime[]");
+				String endtime[] = multi.getParameterValues("mEndTime[]");
+				List<Time> times = new ArrayList<>();
+				for(int i = 0 ; i < day.length;i++) {
+					times.add(new Time(day[i],starttime[i],endtime[i]));			
+				}
+				dto.setTime(times);
+			}
 		}
 		String fTitle[] = multi.getParameterValues("fTitle[]");
 		String fContent[] =multi.getParameterValues("fContent[]");
