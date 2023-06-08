@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,7 +31,7 @@ import com.company.service.AUserList;
 /**
  * Servlet implementation class AdminController
  */
-@WebServlet("*.admin")
+//@WebServlet("*.admin")
 public class AdminController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

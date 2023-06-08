@@ -19,8 +19,8 @@
 			<textarea class="form-control" rows="5" id="iContent" name="iContent">${mInquiry.content}</textarea>
 		</div>
 		<div class="form-group text-right">
-			<a href="javascript:history.go(-1)" title="뒤로가기" class="btn btn-default">뒤로</a>
-			<button type="submit" class="btn btn-primary">수정</button>
+			<a href="javascript:history.go(-1)" title="뒤로가기" class="btn btn-default" style="color:white;">뒤로</a>
+			<button type="submit" class="btn btn-primary" style="color:white;">수정</button>
 		</div>
 	</form>
 </div>
