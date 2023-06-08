@@ -4,12 +4,26 @@ public class CityDto {
 	private int city_id;
 	private String city_name;
 	private int area_id;
+	private float mapx;
+	private float mapy;
 	public CityDto() { super(); }
 	public CityDto(int city_id, String city_name, int area_id) {
 		super();
 		this.city_id = city_id;
 		this.city_name = city_name;
 		this.area_id = area_id;
+	}
+	public float getMapx() {
+		return mapx;
+	}
+	public void setMapx(float mapx) {
+		this.mapx = mapx;
+	}
+	public float getMapy() {
+		return mapy;
+	}
+	public void setMapy(float mapy) {
+		this.mapy = mapy;
 	}
 	@Override
 	public String toString() {

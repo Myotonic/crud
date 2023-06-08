@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@include file="../inc/header.jsp" %>
+<%@include file="inc/header.jsp" %>
 
 
 <div class="container panel panel-info">
@@ -48,10 +48,10 @@
    <p>대분류 / 소분류</p>
   	<select id="category1_name" name="category1_name" class="form-control">
   		<option value=0>---</option>
-  		<option value="레슨" ${i}>레슨</option>
-  		  		<option value="홈/리빙" ${i}>홈/리빙</option>
-  		  		  		<option value="디자인/개발" ${i}>디자인/개발</option>
-  		  		  		  		<option value="기타" ${i}>기타</option>
+  		<option value=1>레슨</option>
+  		  		<option value=2>홈/리빙</option>
+  		  		  		<option value=3>디자인/개발</option>
+  		  		  		  		<option value=4>기타</option>
   	</select>
   
   <%-- <c:choose>
@@ -146,4 +146,4 @@ $(function() {
 
 </script>
 
-<%@include file="../inc/footer.jsp" %>
+<%@include file="inc/footer.jsp" %>

@@ -69,7 +69,7 @@ public class MarketCreate implements MarketService{
 		String fContent[] =multi.getParameterValues("fContent[]");
 		List<Faq> faq = new ArrayList<>();
 		for(int i = 0; i < fTitle.length;i++) {
-			faq.add(new Faq(fTitle[i],fContent[i]));
+			faq.add(new Faq(fTitle[i],fContent[i],dto.getMarket_id()));
 		}
 		dto.setFaq(faq);
 		if(dao.createMarket(dto)>0) {

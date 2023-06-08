@@ -9,6 +9,7 @@ import java.util.List;
 import com.crud.dbmanager.DBManager;
 import com.crud.requestdto.EstimateDetailDto;
 import com.crud.requestdto.EstimatedListDto;
+import com.crud.requestdto.RequestCategoryDto;
 import com.crud.requestdto.RequestDto;
 import com.crud.requestdto.RequestListDto;
 
@@ -114,7 +115,7 @@ public RequestDao() {
 //				+ "join user u on u.user_id = ex.user_id "
 //				+ "where es.request_id = ?";  // 요청서아이디의 견적서 전부
 		
-		String sql = "select es.request_id, es.estimate_id, u.user_name , exex.review_no , es.price\r\n"
+		String sql = "select es.request_id, es.estimate_id, u.user_name , exex.expert_review_no , es.price\r\n"
 				+ "from estimate es\r\n"
 				+ "join expert ex on es.expert_id = ex.expert_id\r\n"
 				+ "join expert_profile exex on exex.expert_id = ex.expert_id\r\n"
@@ -131,7 +132,7 @@ public RequestDao() {
 			while(rset.next()) {
 				dto = new EstimatedListDto();
 				dto.setUser_name(rset.getString("u.user_name"));
-				dto.setReview(rset.getInt("exex.review_no"));
+				dto.setReview(rset.getInt("exex.expert_review_no"));
 				dto.setPrice(rset.getInt("es.price"));
 				dto.setEstimate_id(rset.getInt("es.estimate_id"));
 				dto.setRequest_id(rset.getInt("es.request_id"));
@@ -164,7 +165,7 @@ public RequestDao() {
 //				+ "join user u on u.user_id = ex.user_id "
 //				+ "where es.estimate_id = ?";
 		
-		String sql = "select u.user_name , expro.review_no , ci.city_name , ca.career_entry , es.content , es.price\r\n"
+		String sql = "select u.user_name , expro.expert_review_no , ci.city_name , ca.career_entry , es.content , es.price\r\n"
 				+ "from estimate es\r\n"
 				+ "join expert ex on es.expert_id = ex.expert_id\r\n"
 				+ "join career ca on ex.expert_id = ca.expert_id\r\n"
@@ -182,7 +183,7 @@ public RequestDao() {
 			
 			if(rset.next()) {
 				dto.setUser_name(rset.getString("u.user_name"));
-				dto.setReview(rset.getInt("expro.review_no"));
+				dto.setReview(rset.getInt("expro.expert_review_no"));
 				dto.setCity_name(rset.getString("ci.city_name"));
 				dto.setCareer_entry(rset.getString("ca.career_entry"));
 				dto.setContent(rset.getString("es.content"));
@@ -219,6 +220,35 @@ public RequestDao() {
 			if(conn != null) { try {conn.close();}catch(Exception e) {} }
 		}
 		return result;
+	}
+	
+	public RequestCategoryDto requestMainCategory(int category2_id) {
+		
+		String sql = "select ca2.category2_name, ca1.category1_name from category2 ca2 join category1 ca1 using(category1_id) where category2_id = ?";
+		
+		RequestCategoryDto dto = new RequestCategoryDto();
+
+		try {
+			conn = db.getConnection();
+			pstm = conn.prepareStatement(sql);
+			pstm.setInt(1,category2_id);
+			rset = pstm.executeQuery();
+			if(rset.next()) {
+				dto.setCategory2_id(category2_id);
+				dto.setCategory2_name(rset.getString("category2_name"));
+				dto.setCategory1_name(rset.getString("category1_name"));
+				dto.setCategory1_id(rset.getInt("category1_id"));
+			}
+		} catch (Exception e) {
+			
+		} finally {
+			if(rset != null) { try {rset.close();}catch(Exception e) {} }
+			if(pstm != null) { try {pstm.close();}catch(Exception e) {} }
+			if(conn != null) { try {conn.close();}catch(Exception e) {} }
+		}
+		
+		return dto;
+		
 	}
 	
 }

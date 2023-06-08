@@ -16,10 +16,11 @@ public class Faq {
 		this.content = content;
 		this.market_id = market_id;
 	}
-	public Faq(String title, String content) {
+	public Faq(String title, String content, int market_id) {
 		super();
 		this.title = title;
 		this.content = content;
+		this.market_id = market_id;
 	}
 	@Override
 	public String toString() {

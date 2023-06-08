@@ -2,11 +2,14 @@
 	pageEncoding="UTF-8"%>
 	<% request.setCharacterEncoding("UTF-8"); %>
 <%@ include file='../inc/header.jsp' %>
-	<div class="container panel panel-success">
-		<h3 class="panel-heading">요청서 상세</h3>
+	<div class="container">
+		<h3 class="text-center">요청서 상세</h3>
+		<hr/>
+		<div class="form-group col-md-3" style="padding:10px 10px; float:none; margin:0 auto; color: inherit; background-color:#eee;">
 		<div class="form-group r1">
 		</div>
-			<button class="btn btn-info text-center" id="nextbtn">다음</button>
+			<p class="text-center"><button class="btn btn-info text-center" id="nextbtn">다음</button></p>
+		</div>
 	</div>
 	
 	<script>

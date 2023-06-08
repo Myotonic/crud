@@ -1,5 +1,5 @@
 <%@page import="java.util.List"%>
-<%@page import="com.crud.dto.Category2Dto"%>
+<%@page import="com.company.dto.Category2Dto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="../inc/header.jsp" %>
