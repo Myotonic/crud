@@ -217,7 +217,7 @@ public class MemberController extends HttpServlet {
 		else if(path.equals("/main.crud")) {
 	         marketService = new MarketRead(); marketService.exec(request, response);
 	         gosuService = new bBoardMainView(); gosuService.exec(request, response);
-			request.getRequestDispatcher("/main.crud").forward(request, response);
+			request.getRequestDispatcher("/member/main.jsp").forward(request, response);
 		}else if(path.equals("/user_joinV.crud")) {
 			request.getRequestDispatcher("/member/user_join.jsp").forward(request, response);
 		}else if(path.equals("/user_join.crud")) {
@@ -268,7 +268,7 @@ public class MemberController extends HttpServlet {
 		}else if(path.equals("/MemberValue.crud")) {
 			service = new MemberValue();
 			service.exec(request, response);
-			out.println("<script>location.href='"+request.getContextPath()+"/main.crud.jsp';</script>");
+			out.println("<script>location.href='"+request.getContextPath()+"/main.crud';</script>");
 //			request.getRequestDispatcher("/member/main.jsp").forward(request, response);
 		}else if(path.equals("/MyPage.crud")) {
 			String memberValue = (String) request.getSession().getAttribute("memberValue");

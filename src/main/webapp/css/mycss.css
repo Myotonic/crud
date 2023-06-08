@@ -10,6 +10,7 @@
 	line-height:0;	
 }
 .mybg_h{ background-color: rgb(26, 188, 156); }
+
 #header a{ color: white; }
 #header nav.navbar.mybg_h { border-radius: 0px; }
 #header .mynav_r a {
@@ -32,10 +33,10 @@
     margin-right:0px;
 }
 #footer {
-    padding-top: 20px;
+    padding-top: 30px;
 }
 #footer .mynav_f a{ margin-right: 5px; }
-#footer .myclarboth{ padding : 5%; }
+#footer .myclarboth{ padding : 2%; }
 
 /*               */
 /*               */
@@ -43,8 +44,9 @@
 /*               */
 /*               */
 h1.logo {
-    font-size: xxx-large;
     color: rgb(26, 188, 156);
+    font-size: 80px;
+    font-weight: bold;
 }
 .btn-info, .btn-danger {
     color: white;
@@ -135,3 +137,18 @@ input {
 /*               */
 /*               */
 /*               */
+#footer .mylist{
+	
+	
+ background-color: rgb(26, 188, 156); color: white;
+
+}
+#footer .myList{
+  list-style-type: none;
+}
+
+#footer_logo{
+	
+	width:300px;
+overflow: hidden;
+}

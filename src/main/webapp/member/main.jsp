@@ -1,45 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../inc/header.jsp" %>
-<div class="container">
-	<h3 class="text-center">main</h3>
-	<% 
+<div class="container member-page">
+	<h1 class="logo">CRUD</h1>
+	<br>
+	<div class="">
+		<h3 class="text-center">서비스 요청하기</h3>
 		
-	String value1="null";
-		if(String.valueOf(session.getAttribute("memberValue"))!=null){
-		value1 = String.valueOf(session.getAttribute("memberValue"));}
-	int value2 = 0;
-		if(session.getAttribute("member")!=null){value2=(int)session.getAttribute("member");}
-	int value3 = 0;
-		if(session.getAttribute("expert_id")!=null){value3=(int)session.getAttribute("expert_id");}
-	%>
-	<p><%=value1 %> : memberValue</p>
-	<p><%=value2 %> : member</p>
-	<p><%=value3 %> : expert</p>
-</div>
-	<div class="container">
-		<h3>서비스 요청하기</h3>
+		<div class="well" style="height:88px;">
 		
-		<div class="container well">
-		
-		<div class="col">
-			<div class="col-sm-3 ca1 text-center"><img alt="레슨" src="${pageContext.request.contextPath}/imgs/lesson.png"><strong>레슨</strong></div>
-			<div class="col-sm-3 ca2 text-center"><img alt="홈/리빙" src="${pageContext.request.contextPath}/imgs/living.png"><strong>홈/리빙</strong></div>
-			<div class="col-sm-3 ca3 text-center"><img alt="디자인/개발" src="${pageContext.request.contextPath}/imgs/design.png"><strong>디자인/개발</strong></div>
-			<div class="col-sm-3 ca4 text-center"><img alt="기타" src="${pageContext.request.contextPath}/imgs/guitar.png"><strong>기타</strong></div>
-		</div>
+		<div class="col ">
+			<div class="col-sm-3 ca1 "><img alt="레슨" src="${pageContext.request.contextPath}/imgs/lesson.png"><strong>레슨</strong></div>
+			<div class="col-sm-3 ca2 "><img alt="홈/리빙" src="${pageContext.request.contextPath}/imgs/living.png"><strong>홈/리빙</strong></div>
+			<div class="col-sm-3 ca3 "><img alt="디자인/개발" src="${pageContext.request.contextPath}/imgs/design.png"><strong>디자인/개발</strong></div>
+			<div class="col-sm-3 ca4 "><img alt="기타" src="${pageContext.request.contextPath}/imgs/guitar.png"><strong>기타</strong></div>
 		</div>
 		
 		<div class="col">
-		<div class="col-sm-3 r1 text-center"></div>
-		<div class="col-sm-3 r2 text-center"></div>
-		<div class="col-sm-3 r3 text-center"></div>
-		<div class="col-sm-3 r4 text-center"></div>
+		<div class="col-sm-3 r1 "></div>
+		<div class="col-sm-3 r2 "></div>
+		<div class="col-sm-3 r3 "></div>
+		<div class="col-sm-3 r4 "></div>
 		</div>
 		
+		</div>
 		
 	</div>
+	
+	<br/>
+	<hr/>
+	<br/>
 
-	<div class="container">
+	<div class="">
 		<div class="row">
 			<div class="col-sm-6">
 			<table class="table table-bordered">
@@ -85,7 +76,7 @@
 			</div>
 		</div>
 	</div>
-	
+</div>	
 	<script>
 		$(window).ready( function(){
 			$(".ca1").on("click", function() {
