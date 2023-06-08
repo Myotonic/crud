@@ -1,0 +1,13 @@
+<div style="width:80%; padding:10px 10px; margin-bottom: 10px; color: inherit; background-color:#eee;">
+<h3>레슨</h3>
+<p><a href='request/request.jsp?category2_id=2'>댄스</a></p>
+<p><a href='request/request.jsp?category2_id=3'>피아노</a></p>
+<p><a href='request/request.jsp?category2_id=4'>기타</a></p>
+<p><a href='request/request.jsp?category2_id=5'>드림</a></p>
+<p><a href='request/request.jsp?category2_id=6'>요리</a></p>
+<p><a href='request/request.jsp?category2_id=7'>그림</a></p>
+<p><a href='request/request.jsp?category2_id=8'>국어</a></p>
+<p><a href='request/request.jsp?category2_id=9'>영어</a></p>
+<p><a href='request/request.jsp?category2_id=10'>수학</a></p>
+<p><a href='request/request.jsp?category2_id=11'>PT</a></p>
+</div>

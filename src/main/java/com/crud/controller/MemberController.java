@@ -224,7 +224,7 @@ public class MemberController extends HttpServlet {
 			service = new MUserJoin();
 			service.exec(request, response);
 //			out.println("<script>location.href='"+request.getContextPath()+"/member/main.jsp';</script>");
-			out.println("<script>location.href='"+request.getContextPath()+"/member/main.jsp';</script>");
+			out.println("<script>location.href='"+request.getContextPath()+"/main.crud';</script>");
 		}else if(path.equals("/expert_joinC1.crud")) {
 			service = new MCategory1();
 			service.exec(request, response);
@@ -259,16 +259,16 @@ public class MemberController extends HttpServlet {
 		}else if(path.equals("/expert_join.crud")) {
 			service = new MExpertJoin();
 			service.exec(request, response);
-			out.println("<script>location.href='"+request.getContextPath()+"/member/main.jsp';</script>");
+			out.println("<script>location.href='"+request.getContextPath()+"/main.crud';</script>");
 		}else if(path.equals("/login.crud")) {
 			service = new MLogin();
 			service.exec(request, response);
-			out.println("<script>location.href='"+request.getContextPath()+"/member/main.jsp';</script>");
+			out.println("<script>location.href='"+request.getContextPath()+"/main.crud';</script>");
 			/* request.getRequestDispatcher("/member/main.jsp").forward(request, response); */
 		}else if(path.equals("/MemberValue.crud")) {
 			service = new MemberValue();
 			service.exec(request, response);
-			out.println("<script>location.href='"+request.getContextPath()+"/member/main.jsp';</script>");
+			out.println("<script>location.href='"+request.getContextPath()+"/main.crud';</script>");
 //			request.getRequestDispatcher("/member/main.jsp").forward(request, response);
 		}else if(path.equals("/MyPage.crud")) {
 			String memberValue = (String) request.getSession().getAttribute("memberValue");
@@ -292,7 +292,7 @@ public class MemberController extends HttpServlet {
 		}else if(path.equals("/logout.crud")) {
 			service = new MLogout();
 			service.exec(request, response);
-			out.println("<script>location.href='"+request.getContextPath()+"/member/main.jsp';</script>");
+			out.println("<script>location.href='"+request.getContextPath()+"/main.crud';</script>");
 		}else if(path.equals("/AccountSetting.crud")) {
 			request.getRequestDispatcher("/member/account.jsp").forward(request, response);
 		}else if(path.equals("/editNameV.crud")) {
@@ -312,7 +312,7 @@ public class MemberController extends HttpServlet {
 		}else if(path.equals("/AccountDrop.crud")) {
 			service = new MemberDrop();
 			service.exec(request, response);
-			out.println("<script>location.href='"+request.getContextPath()+"/member/main.jsp';</script>");
+			out.println("<script>location.href='"+request.getContextPath()+"/main.crud';</script>");
 		}
 	}
 
