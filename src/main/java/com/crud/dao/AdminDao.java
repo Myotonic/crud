@@ -8,20 +8,20 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.company.dto.AdminDto;
-import com.company.dto.AreaCityDto;
-import com.company.dto.AreaDto;
-import com.company.dto.Category1Dto;
-import com.company.dto.Category2Dto;
-import com.company.dto.CategoryDto;
-import com.company.dto.CityDto;
-import com.company.dto.ExpertDto;
-import com.company.dto.MarketDto;
-import com.company.dto.UserDto;
-import com.company.dto.UserExpertCategoryCityDto;
-import com.company.dto.UserExpertDto;
-import com.company.dto.UserMarketCategoryDto;
 import com.crud.dbmanager.DBManager;
+import com.crud.dto.AdminDto;
+import com.crud.dto.AreaCityDto;
+import com.crud.dto.AreaDto;
+import com.crud.dto.Category1Dto;
+import com.crud.dto.Category2Dto;
+import com.crud.dto.CategoryDto;
+import com.crud.dto.CityDto;
+import com.crud.dto.ExpertDto;
+import com.crud.dto.MarketDto;
+import com.crud.dto.UserDto;
+import com.crud.dto.UserExpertCategoryCityDto;
+import com.crud.dto.UserExpertDto;
+import com.crud.dto.UserMarketCategoryDto;
 
 public class AdminDao {
 
@@ -139,7 +139,7 @@ public List<UserExpertDto> exportList(){  //userdto와 expertdto를 합쳐서 dt
             "FROM user u " +
             "LEFT JOIN expert e ON u.user_id = e.user_id " +
             "LEFT JOIN category2 c2 ON e.category2_id = c2.category2_id " +
-            "LEFT JOIN city c ON e.city_id = c.city_id";
+            "LEFT JOIN city c ON e.city_id = c.city_id order by u.user_id desc";
 		
 	
 	
@@ -436,8 +436,10 @@ public int expertDelete(UserExpertCategoryCityDto dto) {
 	
 	int result = -1;
 	
-	String sql1 = "delete from expert where user_id = ? ";
-	
+//	String sql = "delete from market where expert_id=?";
+//	
+//	String sql1 = "delete from expert where user_id = ? ";
+//	
 	String sql2 = "delete "
 			+ "from user "
 			+ "where user_id = ?";
@@ -454,10 +456,14 @@ public int expertDelete(UserExpertCategoryCityDto dto) {
 		conn = db.getConnection();
 		
 		
-		pstmt =conn.prepareStatement(sql1);
-		pstmt.setInt(1, dto.getUser().getUser_id());
+//		pstmt =conn.prepareStatement(sql);
+//		pstmt.setInt(1, dto.getUser().getUser_id());
+//		
 		
-		 pstmt.executeUpdate();
+//		pstmt =conn.prepareStatement(sql1);
+//		pstmt.setInt(1, dto.getUser().getUser_id());
+//		
+//		 pstmt.executeUpdate();
 		
 		pstmt =conn.prepareStatement(sql2);
 		pstmt.setInt(1, dto.getUser().getUser_id());
@@ -506,7 +512,7 @@ public List<Category2Dto> category1(UserExpertCategoryCityDto dto) {
 	
 	List<Category2Dto> result = new ArrayList<>();
 	
-	String sql = "select * from category2 left join category1 using(category1_id) where category1_name = ?";
+	String sql = "select * from category2 left join category1 using(category1_id) where category1_id = ?";
 	
 	DBManager db = new DBManager();
 	Connection conn= null;
@@ -520,7 +526,7 @@ try {
 		pstmt =conn.prepareStatement(sql);
 		
 		System.out.println(".........1");
-		pstmt.setString(1, dto.getCategory().getCategory1().getCategory1_name());
+		pstmt.setInt(1, dto.getCategory().getCategory1().getCategory1_id());
 		
 		System.out.println(".........2");
 		
@@ -1036,7 +1042,7 @@ public CategoryDto category(UserExpertDto dto){  // 유저dto와 전문가dto를
 					+ "join user u using(user_id) "
 					
 					+ "left join category1 using(category1_id) "
-					+ "left join category2 using(category2_id)";
+					+ "left join category2 using(category2_id) order by u.user_id desc";
 			
 		
 		
@@ -1270,7 +1276,7 @@ public CategoryDto category(UserExpertDto dto){  // 유저dto와 전문가dto를
 			    + "JOIN user AS u ON um.user_id = u.user_id "
 			    + "LEFT JOIN category1 AS c1 ON ma.category1_id = c1.category1_id "
 			    + "LEFT JOIN category2 AS c2 ON ma.category2_id = c2.category2_id "
-			    + "SET ma.title = ?, ma.content = ?, ma.date = ?, ma.price = ?, ma.refund = ?, ma.division = ?, ma.category1_id = (SELECT category1_id FROM category1 WHERE category1_name = ?), ma.category2_id = (SELECT category2_id FROM category2 WHERE category2_name = ?) "
+			    + "SET ma.title = ?, ma.content = ?, ma.date = ?, ma.price = ?, ma.refund = ?, ma.division = ?, ma.category1_id = ?, ma.category2_id = (SELECT category2_id FROM category2 WHERE category2_name = ?) "
 			    + "WHERE ma.market_id = ?";
 	
 		
@@ -1291,7 +1297,7 @@ try {
 			pstmt.setInt(4, dto.getMarket().getPrice());
 			pstmt.setString(5, dto.getMarket().getRefund());
 			pstmt.setString(6, dto.getMarket().getDivision());
-			pstmt.setString(7, dto.getCategory().getCategory1().getCategory1_name());
+			pstmt.setInt(7, dto.getCategory().getCategory1().getCategory1_id());
 			pstmt.setString(8, dto.getCategory().getCategory2().getCategory2_name());
 			pstmt.setInt(9,dto.getMarket().getMarket_id());
 			
@@ -1397,6 +1403,72 @@ try {
 		return result;
 	}
 	
+	
+	public int newPass(AdminDto dto) {
+		
+		int result = -1;
+		
+String sql = "update admin set admin_pass=? where admin_email=?";
+		
+		
+		DBManager db = new DBManager();
+		Connection conn= null;
+		PreparedStatement pstmt = null;
+		
+		
+		
+		
+		try {
+			
+			conn = db.getConnection();
+			
+			pstmt =conn.prepareStatement(sql);
+			
+			
+			pstmt.setString(1, dto.getAdmin_pass());
+			
+			pstmt.setString(2, dto.getAdmin_email());
+			
+			
+	
+			result = pstmt.executeUpdate();
+			
+			
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			
+		}finally {
+			
+		
+			
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			
+		}
+		
+		
+		
+		
+		return result;
+	}
 	
 	
 	

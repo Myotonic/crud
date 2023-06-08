@@ -15,7 +15,7 @@ Latest compiled JavaScript
 </head>
 <body> -->
 
-<%@include file="../inc/header.jsp" %>
+<%@include file="inc/header.jsp" %>
 <c:if test="${sessionScope.email != null }"><script>location.href='result.admin';</script></c:if>
 
 
@@ -60,9 +60,11 @@ Latest compiled JavaScript
    </div>
    <div class="row form-group">
    <div class="col-sm-4"></div> 
-   <div class="col-sm-4">
-   <p><a href="login_pass.jsp" class="btn btn-block">비밀번호 찾기</a>
-   <a href="${pageContext.request.contextPath}/login_id_form.admin" class="btn btn-block">아이디 찾기</a></p>
+   <div class="col-sm-4 text-center">
+   <p><a href="${pageContext.request.contextPath}/mail_form.admin" class="btn btn-block">비밀번호 찾기</a>
+   <a href="${pageContext.request.contextPath}/login_id_form.admin" class="btn btn-block">아이디 찾기</a> 
+   <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=bca8f5dab0a2ba8e29925a29d8eb6aae&redirect_uri=http://localhost:8080/project_test_port001/kakao.admin" class="btn btn-warning">카카오로 가입하기</a>
+   </p>
    </div>
    <div class="col-sm-4"></div> 
    </div>
@@ -107,4 +109,4 @@ Latest compiled JavaScript
 <!-- </body>
 </html> -->
 
-<%@include file="../inc/footer.jsp" %>
+<%@include file="inc/footer.jsp" %>

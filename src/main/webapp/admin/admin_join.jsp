@@ -16,7 +16,7 @@ Latest compiled JavaScript
 <body> -->
 
 
-<%@include file="../inc/header.jsp" %>
+<%@include file="inc/header.jsp" %>
 <div class="container">
    <h3 class="panel-heading">JOIN</h3>
    <form action="${pageContext.request.contextPath}/join.admin" method="post" id="form_login" class="form-horizontal" >
@@ -91,7 +91,7 @@ Latest compiled JavaScript
    <div class="row"> 
    <div class="col-sm-4"></div> 
    <div class="col-sm-4">
-   <p><a href="#" class="btn btn-info form-control">취소</a></p>
+   <p><a href="home.admin" class="btn btn-info form-control">취소</a></p>
    </div>
    <div class="col-sm-4"></div>
    </div>
@@ -178,14 +178,7 @@ Latest compiled JavaScript
 						 return false;
 						 
 					 }
-					 if($("#admin_num").val()==""){
-						 $("#admin_num").focus();
-						 
-						 alert('사원번호가 빈칸입니다.');
-						 
-						 return false;
-						 
-					 }
+					
 					 
 					 if($("#email").val()==""){
 						 $("#email").focus();
@@ -229,4 +222,4 @@ Latest compiled JavaScript
 <!-- </body>
 </html> -->
 
-<%@include file="../inc/footer.jsp" %>
+<%@include file="inc/footer.jsp" %>
