@@ -42,6 +42,10 @@
 /*               */
 /*               */
 /*               */
+h1.logo {
+    font-size: xxx-large;
+    color: rgb(26, 188, 156);
+}
 .btn-info, .btn-danger {
     color: white;
 }

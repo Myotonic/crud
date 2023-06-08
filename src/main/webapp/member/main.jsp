@@ -16,5 +16,4 @@
 	<p><%=value2 %> : member</p>
 	<p><%=value3 %> : expert</p>
 </div>
-
 <%@ include file="../inc/footer.jsp" %>

@@ -212,6 +212,8 @@ public class MemberController extends HttpServlet {
 		
 		
 		else if(path.equals("/main.crud")) {
+			
+			
 			request.getRequestDispatcher("/member/main.jsp").forward(request, response);
 		}else if(path.equals("/user_joinV.crud")) {
 			request.getRequestDispatcher("/member/user_join.jsp").forward(request, response);
