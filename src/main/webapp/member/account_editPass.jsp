@@ -7,33 +7,30 @@
 	MemberDao dao = new MemberDao();
 	UserDto dto = dao.getUser(user_id);
 %>
-<div class="container panel panel-info">
-	<h3 class="text-center">비밀번호 변경</h3>
-	<form action="editPasss.crud" method="post">
+<div class="container member-page">
+	<h3>비밀번호 변경</h3>
+	<hr />
+	<form action="editPasss.crud" method="post" class="member_form">
 		<fieldset>
-			<div class="container">
-				<label for="pass">현재 비밀번호</label>
-				<div class="row">
-					<div class="col-sm-10">
-						<input type="password" id="pass" name="pass" class="form-control" placeholder="현재 비밀번호 입력"/>
-					</div>
-					<div class="col-sm-2">
-						<input type="button" id="show1" class="btn" value="표시">
-					</div>
+			<label for="pass">현재 비밀번호</label>
+			<div class="row form-group">
+				<div class="col-sm-9">
+					<input type="password" id="pass" name="pass" class="form-control" placeholder="현재 비밀번호 입력" />
+				</div>
+				<div class="col-sm-3">
+					<input type="button" id="show1" class="btn" value="표시">
 				</div>
 			</div>
 			<p class="r1"></p>
 		</fieldset>
 		<fieldset>
-			<div class="container">
 			<label for="newPass">새로운 비밀번호</label>
-				<div class="row">
-					<div class="col-sm-10">
-						<input type="password" id="newPass" name="newPass" class="form-control"  placeholder="새로운 비밀번호 입력"/>
-					</div>
-					<div class="col-sm-2">
-						<input type="button" id="show2" class="btn" value="표시">
-					</div>
+			<div class="row form-group">
+				<div class="col-sm-9">
+					<input type="password" id="newPass" name="newPass" class="form-control" placeholder="새로운 비밀번호 입력" />
+				</div>
+				<div class="col-sm-3">
+					<input type="button" id="show2" class="btn" value="표시">
 				</div>
 			</div>
 			<p class="r2"></p>

@@ -214,7 +214,7 @@ public class MemberController extends HttpServlet {
 			service = new MUserJoin();
 			service.exec(request, response);
 //			out.println("<script>location.href='"+request.getContextPath()+"/member/main.jsp';</script>");
-			out.println("<script>location.href='/main.crud';</script>");
+			out.println("<script>location.href='"+request.getContextPath()+"/member/main.jsp';</script>");
 		}else if(path.equals("/expert_joinC1.crud")) {
 			service = new MCategory1();
 			service.exec(request, response);

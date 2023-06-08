@@ -16,23 +16,32 @@
 		<fieldset>
 				<legend>이메일</legend>
 				<div class="row">
-					<div class="col-sm-8">
+					<div class="col-sm-9">
 						<input type="email" name="email" id="email" placeholder="crud@emali.com" class="form-control" />
 					</div>
-					<div class="col-sm-4">
-						<input type="button" value="중복 확인" class="btn idCheck" />
+					<div class="col-sm-3">
+						<input type="button" value="중복" class="btn idCheck" />
 					</div>
 				</div>
 				<p class="result r2"></p>
 			</fieldset>
 		</div>
-		<div class="form-group">
-			<fieldset>
-				<legend>비밀번호</legend> 
-				<input type="password" name="pass" id="pass" placeholder="비밀번호를 입력해주세요" class="form-control"/>
+
+		<fieldset>
+			<legend>비밀번호</legend>
+			<div class="row form-group ">
+				<div class="col-sm-9">
+					<input type="password" name="pass" id="pass" placeholder="비밀번호를 입력해주세요" class="form-control" />
+				</div>
+				<div class="col-sm-3">
+					<input type="button" id="show" class="btn" value="표시">
+				</div>
+			</div>
+			<div class="form-group member_extra">
 				<p class="result r3"></p>
-			</fieldset>
-		</div>
+			</div>
+		</fieldset>
+		
 		<fieldset>
 			<div class="form-group">
 				<input type="submit" value="회원가입" class="member_submit form-control" />
@@ -68,6 +77,18 @@
 					});
 				}
 			});
+		    //현재비밀번호 표시
+			  $("#show").on("click", function() {
+			    var passwordInput = $("#pass");
+
+			    if (passwordInput.attr("type") === "password") {
+			      passwordInput.attr("type", "text");
+			      $(this).val("숨김");
+			    } else {
+			      passwordInput.attr("type", "password");
+			      $(this).val("표시");
+			    }
+			  });
 				
 			$("form").on("submit", function(){
 				//빈칸검사

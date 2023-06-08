@@ -42,6 +42,9 @@
 /*               */
 /*               */
 /*               */
+.btn-info, .btn-danger {
+    color: white;
+}
 .member-page{
 	padding:1%;
 	max-width: 25cm;
