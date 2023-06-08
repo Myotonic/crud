@@ -16,8 +16,8 @@
 			</div>
 			<div class="text-right">
 			<c:set var="cnt" value="1" />
-			<input type="button" value="취소" id="prebtn" class="btn btn-default">
-			<input type="button" value="다음" id="nextbtn" class="btn btn-info">
+			<input type="button" value="취소" id="prebtn" class="btn btn-default" >
+			<input type="button" value="다음" id="nextbtn" class="btn btn-info" style="color:white;">
 			</div>
 		</div>
 		</div>

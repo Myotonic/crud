@@ -8,7 +8,7 @@
 		<div class="form-group col-md-3" style="padding:10px 10px; float:none; margin:0 auto; color: inherit; background-color:#eee;">
 		<div class="form-group r1">
 		</div>
-			<p class="text-center"><button class="btn btn-info text-center" id="nextbtn">다음</button></p>
+			<p class="text-center"><button class="btn btn-info text-center" style="color:white;" id="nextbtn">다음</button></p>
 		</div>
 	</div>
 	
