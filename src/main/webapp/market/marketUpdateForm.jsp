@@ -50,7 +50,7 @@
           <div class="faq">
             <input type="text" name="fTitle[]" class="form-control" placeholder="제목을 입력하십시오.">
             <input type="text" name="fContent[]" class="form-control" placeholder="내용을 입력하십시오.">
-       		 <button type="button" id="addFaqButton" class="btn btn-primary">질문 추가</button>
+       		 <button type="button" id="addFaqButton" class="btn btn-primary" style="color:white;">질문 추가</button>
           </div>
         </div>
       </div>
@@ -59,7 +59,7 @@
         <div id="fileContainer">
           <input type="file" name="file1" class="form-control">
         </div>
-        <button type="button" id="addFileButton" class="btn btn-primary">파일 추가</button>
+        <button type="button" id="addFileButton" class="btn btn-primary" style="color:white;">파일 추가</button>
       </div>
       
       <c:if test = "${marketDetailDto.division == '수업'}">
@@ -83,7 +83,7 @@
 		  <div id="scheduleContainer">
 		    <!-- 동적으로 생성되는 요일별 시간표가 추가될 컨테이너 -->
 		  </div>
-		  <button type="button" id="addScheduleButton" class="btn btn-primary">시간 추가</button>
+		  <button type="button" id="addScheduleButton" class="btn btn-primary" style="color:white;">시간 추가</button>
 		</div>
 		
 		<div class="form-group">
@@ -102,8 +102,8 @@
       
 
       <div class="form-group text-right">
-        <input type="submit" name="submit" id="formSubmitButton" title="상품생성을 진행합니다." class="btn btn-danger" value="수정" />
-        <input type="reset" name="reset" title="취소를 진행합니다." class="btn btn-default" value="취소" />
+        <input type="submit" name="submit" id="formSubmitButton" title="상품생성을 진행합니다." class="btn btn-danger" value="수정"  style="color:white;"/>
+        <input type="reset" name="reset" title="취소를 진행합니다." class="btn btn-default" value="취소"  />
         <a href="<%=request.getContextPath() %>/marketView.crud" class="btn btn-default"
           title="메인으로 돌아갑니다.">목록보기</a>
       </div>
@@ -126,7 +126,7 @@
 	      <div class="faq">
 	        <input type="text" name="fTitle[]" class="form-control" placeholder="제목을 입력하십시오.">
 	        <input type="text" name="fContent[]" class="form-control" placeholder="내용을 입력하십시오.">
-	        <button type="button" class="removeFaqButton btn btn-danger">질문 제거</button>
+	        <button type="button" class="removeFaqButton btn btn-danger" style="color:white;">질문 제거</button>
 	      </div>
 	    `;
 	    $("#faqContainer").append(faqField);
@@ -207,7 +207,7 @@
 	        <input type="text" name="mStartTime[]" id="mStartTime" class="form-control" placeholder="시작 시간을 입력하세요.">
 	        <label for="mEndTime">끝나는 시간</label>
 	        <input type="text" name="mEndTime[]" id="mEndTime" class="form-control" placeholder="끝나는 시간을 입력하세요.">
-	        <button type="button" class="btn btn-danger remove-schedule">시간 제거</button>
+	        <button type="button" class="btn btn-danger remove-schedule" style="color:white;">시간 제거</button>
 	      </div>
 	    `;
 	    

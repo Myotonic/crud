@@ -8,18 +8,18 @@
 	  <br/><br/>
 	  <div>
 	  <div class="btn-group btn-group-lg">
-	    <input type="button" class="btn btn-info division" value="상품"/>
-	    <input type="button" class="btn btn-info division" value="수업"/>
+	    <input type="button" class="btn btn-info division" value="상품" style="color:white;"/>
+	    <input type="button" class="btn btn-info division" value="수업" style="color:white;"/>
 	  </div>
 	  <c:if test="${sessionScope.memberValue == 'expert'}">
 	<div class="text-right">
 	  <div class="dropdown dropright">
-	    <button class="btn btn-info dropdown-toggle" type="button" id="categoryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	    <button class="btn btn-info dropdown-toggle" type="button" id="categoryDropdown" style="color:white;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	      상품 / 수업 생성
 	    </button>
-		<div class="dropdown-menu dropdown-menu-right" aria-labelledby="categoryDropdown">
-		  <a class="dropdown-item" href="${pageContext.request.contextPath}/marketCreateForm.crud?mDivision=상품">상품</a>
-		  <a class="dropdown-item" href="${pageContext.request.contextPath}/marketCreateForm.crud?mDivision=수업">수업</a>
+		<div class="dropdown-menu dropdown-menu-right row" aria-labelledby="categoryDropdown">
+		 <div class="col-sm-6"> <a class="dropdown-item" href="${pageContext.request.contextPath}/marketCreateForm.crud?mDivision=상품" >상품</a></div>
+		  <div class="col-sm-6"><a class="dropdown-item" href="${pageContext.request.contextPath}/marketCreateForm.crud?mDivision=수업" >수업</a></div>
 		</div>
 	  </div>
 	</div>
@@ -32,9 +32,9 @@
 	  	<div class="row">
 	    	<div class="col-sm-2">
 				<div class="btn-group-vertical">
-	    			<input type="button" class="btn btn-default categorybtn" value="전체"/>	
+	    			<input type="button" class="btn btn-default categorybtn" value="전체" />	
 					<c:forEach var="category1" items="${mCategory}" varStatus="status">
-						<input type="button" class="btn btn-default categorybtn" value="${category1.category1_name}" data-category-id="${category1.category1_id}"/>
+						<input type="button" class="btn btn-default categorybtn"  value="${category1.category1_name}" data-category-id="${category1.category1_id}"/>
 					</c:forEach>
 				</div>
 	      	</div>
@@ -56,7 +56,7 @@
 	    </div>
 	  </div>
 	  <div class="text-right">
-	  <input type="button" class="btn btn-info" id="addContent" value = "더보기"/>
+	  <input type="button" class="btn btn-info" id="addContent" value = "더보기" style="color:white;"/>
 	  </div>
 	</div>
 <script>

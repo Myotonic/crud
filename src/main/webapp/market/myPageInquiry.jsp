@@ -22,7 +22,7 @@
     </c:forEach>
   </div>
   <div class="text-right">
-    <input type="button" class="btn btn-info" id="addContent" value="더보기"/>
+    <input type="button" class="btn btn-info" id="addContent" value="더보기" style="color:white;"/>
   </div>
 </div>
 <script>

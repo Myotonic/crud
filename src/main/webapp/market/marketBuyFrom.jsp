@@ -32,8 +32,8 @@
 		주문취소는 구매내역에서 가능하며, 고수가 서비스 취소를 진행할 경우에는 고객님이 결제하신 금액이 전액 환불됩니다.
 		</div>
 		<p class="text-right">
-		<a href="javascript:history.back()" title="뒤로가기" class="btn btn-default">취소</a>
-		<a href="${pageContext.request.contextPath}/marketBuy.crud?market_id=<%=request.getParameter("market_id")%>" title="구매하기" class="btn btn-info">구매하기</a>
+		<a href="javascript:history.back()" title="뒤로가기" class="btn btn-default" >취소</a>
+		<a href="${pageContext.request.contextPath}/marketBuy.crud?market_id=<%=request.getParameter("market_id")%>" title="구매하기" class="btn btn-info" style="color:white;">구매하기</a>
 		</p>
 		
 
