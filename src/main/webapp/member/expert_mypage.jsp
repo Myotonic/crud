@@ -35,7 +35,7 @@
 			<div class=""><a href="">댓글</a></div>
 		</div>
 		<div class="member_extra">
-			<a href="MemberValue.crud" title="전환" class="btn form-control">유저 전환</a>
+			<a href="${pageContext.request.contextPath}/MemberValue.crud" title="전환" class="btn form-control">유저 전환</a>
 		</div>
 	</div>
 </div>

@@ -43,12 +43,11 @@
   bottom: 0;
   width: 100%;
   background-color:#f5f5f5;
+  padding:5%;
 }
 #footer .mynav_f a{ margin-right: 5px; }
 #footer .myclarboth{ padding : 2%; }
-.list-group {
-	margin-top:5%;
-}
+
 
 /*               */
 /*               */

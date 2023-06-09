@@ -34,7 +34,7 @@ public class MExpertJoin implements MemberService {
 		    // 삽입된 사용자의 user_id 
 		    int userId = dao.getUserId(userDto.getUser_email());
 		    int category2_id = Integer.parseInt((String)request.getSession().getAttribute("category2"));
-		    String category = dao.getCategory2Name(category2_id);
+		    String category = dao.getCategory2Name(category2_id);	//서비스
 		    int city_id = (int) request.getSession().getAttribute("city_id");
 		    String range = (String)request.getSession().getAttribute("range");
 

@@ -47,7 +47,7 @@
 				<div class="col-sm-2">
 					<input type="button" value="전송" class="btn emailSend2" />
 				</div>
-				<p class="r1 label label-danger"></p>
+				<p class="result r1"></p>
 			</div>
 			<hr />
 			
@@ -63,7 +63,7 @@
 					<input type="button" value="인증" class="btn  emailCheck3" />
 				</div>
 			</div>
-			<p class="r2 label label-danger"></p>
+			<p class="result r2"></p>
 			<hr />
 			
 			<!-- 비밀번호 입력 -->
@@ -78,7 +78,7 @@
 						<input type="button" id="show" class="btn" value="표시">
 				</div>
 			</div>
-			<p class="r3 label label-danger"></p>
+			<p class="result r3"></p>
 			<hr />
 			
 			<fieldset>

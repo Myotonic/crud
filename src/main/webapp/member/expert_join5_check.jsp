@@ -121,7 +121,6 @@
 							data :{"emailV" : $("#emailV").val(), "name":$("#name").val()},
 							success : function(data){
 									code = data;	//이메일 전송 확인 값 저장
-									console.log("1>>" + code);
 								 $(".emailCheck1").show();	//인증번호 확인 폼 띄우기
 							},
 							error : function(xhr, textStatus, errorThrown){
@@ -133,10 +132,6 @@
 			    //인증번호 확인
 			    var check = "";
 			    $(".emailCheck3").on("click", function(){
-					console.log("2-1>>"  + code);
-					console.log("2-2>>"  + $("#emailCheck2").val());  
-					console.log("2-2>>"  + typeof(code) + "/" + typeof(  $("#emailCheck2").val()  ));  
-					console.log("2-3>>"  + ( code == $("#emailCheck2").val()   )   ); 
 		        	
 					if(code == $("#emailCheck2").val()){
 		        		check = "true";

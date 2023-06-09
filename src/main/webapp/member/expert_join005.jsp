@@ -3,7 +3,7 @@
 <%@ include file="../inc/header.jsp" %>
 <div class="container member-page">
 	<h3>회원가입</h3>
-<hr />
+	<hr />
 	<form action="expert_join.crud" method="post" class="form">
 		<div class="member_form">
 			<!-- 이름 입력 -->

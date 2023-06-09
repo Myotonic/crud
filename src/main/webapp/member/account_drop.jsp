@@ -1,9 +1,8 @@
-<%@page import="com.company.dto.UserDto"%>
-<%@page import="com.crud.dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../inc/header.jsp" %>
-<div class="container panel panel-info text-center" >
-	<h3 class="text-center">계정 탈퇴</h3>
+<div class="container member-page" >
+	<h3>계정 탈퇴</h3>
+	<hr />
 	<div class="drop_check ">
 		<ol class="text-left">
 			<li>탈퇴 시 모든 정보 및 게시글, 댓글 등이 즉시 삭제 됩니다</li>

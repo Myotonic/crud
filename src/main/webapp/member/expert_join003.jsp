@@ -7,8 +7,8 @@
 	<form action="expert_joinArea.crud" method="post" class="member_form">
 
 		<div class="member_form">
-		<input type="hidden" id="mapx" name="mapx" />
-		<input type="hidden" id="mapy" name="mapy" />
+			<input type="hidden" id="mapx" name="mapx" />
+			<input type="hidden" id="mapy" name="mapy" />
 			<input type="hidden" id="sido" name="sido">
 			<input type="hidden" id="sigungu" name="sigungu">
 			
