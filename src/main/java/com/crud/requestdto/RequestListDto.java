@@ -1,11 +1,11 @@
 package com.crud.requestdto;
 
 public class RequestListDto {
-	int request_id;
-	String category2_name;
-	String create_date;
-	int status;
-	int count;
+	private int request_id;
+	private String category2_name;
+	private String create_date;
+	private int status;
+	private int count;
 	public RequestListDto() {
 		super();
 		// TODO Auto-generated constructor stub

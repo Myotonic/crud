@@ -11,11 +11,11 @@
 			<div class="col-sm-4 panel-body form-group" style="width:31%; padding:10px 10px; margin: 10px; color: inherit; background-color:#eee;">
 			<h4>${i.category2_name}</h4>
 				<p class="text-right"><c:if test="${i.mystatus == 1}">요청 수락됨</c:if></p>
-				<p class="text-right"><c:if test="${i.mystatus != 1}">대기 중</c:if></p>
+				<p class="text-right"><c:if test="${i.mystatus == -1}">대기 중</c:if></p>
 				<p>${i.create_date}</p>
 				<p>${i.user_name}</p>
 				<p>${i.content}</p>
-				<a href='${pageContext.request.contextPath}/detail.estimate?request_id=${i.request_id}'><button id="detailbtn" class="btn btn-info form-control"style="color:white;" >상세보기</button></a>
+				<a href='${pageContext.request.contextPath}/detail.estimate?request_id=${i.request_id}&status=${i.mystatus}'><button id="detailbtn" class="btn btn-info form-control"style="color:white;" >상세보기</button></a>
 				</div>
 		</c:forEach>
 		

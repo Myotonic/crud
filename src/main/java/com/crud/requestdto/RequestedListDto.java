@@ -1,12 +1,12 @@
 package com.crud.requestdto;
 
 public class RequestedListDto {
-	String category2_name;
-	String create_date;
-	String user_name;
-	String content;
-	int request_id;
-	int mystatus;
+	private String category2_name;
+	private String create_date;
+	private String user_name;
+	private String content;
+	private int request_id;
+	private int mystatus;
 	
 	public int getMystatus() {
 		return mystatus;

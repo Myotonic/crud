@@ -43,10 +43,7 @@ public class EstimateDao {
 				+ "and re.status = 1  "
 				+ "and ex.expert_id = ?  ";
 		
-		String sql2 = "select estimate_id "
-				+ "from estimate es "
-				+ "join request re on es.request_id = re.request_id "
-				+ "where es.expert_id = ?";
+		String sql2 = "select re.request_id from request re join estimate es on re.request_id = es.request_id where es.expert_id=? and re.request_id=?";
 		
 		PreparedStatement pstm2 = null;
 		ResultSet rset2 = null;
@@ -57,11 +54,6 @@ public class EstimateDao {
 			
 			rset = pstm.executeQuery();
 			
-			pstm2 = conn.prepareStatement(sql2);
-			pstm2.setInt(1, expert_id);
-			
-			rset2 = pstm2.executeQuery();
-			
 			while(rset.next()) {
 				dto = new RequestedListDto();
 				dto.setCategory2_name(rset.getString("category2_name"));
@@ -70,11 +62,21 @@ public class EstimateDao {
 				dto.setContent(rset.getString("content"));
 				dto.setRequest_id(rset.getInt("request_id"));
 				
+				pstm2 = conn.prepareStatement(sql2);
+				pstm2.setInt(1, expert_id);
+				pstm2.setInt(2, rset.getInt("request_id"));
+				
+				rset2 = pstm2.executeQuery();
+				
 				if(rset2.next()) {
 					dto.setMystatus(1); //가지고 있으면 1(요청수락상태)
 				} else {
 					dto.setMystatus(-1);//없으면 -1
 				}
+				
+				rset2.close();
+				pstm2.close();
+				
 				list.add(dto);
 			}
 			

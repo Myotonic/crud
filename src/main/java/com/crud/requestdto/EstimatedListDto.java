@@ -1,11 +1,11 @@
 package com.crud.requestdto;
 
 public class EstimatedListDto {
-	String user_name;
-	int review;
-	int price;
-	int estimate_id;
-	int request_id;
+	private String user_name;
+	private int review;
+	private int price;
+	private int estimate_id;
+	private int request_id;
 	
 	public EstimatedListDto() {
 		super();
