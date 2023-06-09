@@ -66,6 +66,7 @@ h1.logo {
 	padding:1%;
 	max-width: 25cm;
 	text-align: center;
+	min-height: 543px;
 }
 .member_form{
 	display: inline-block;
